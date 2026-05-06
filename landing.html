@@ -1,0 +1,861 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Anita Sundaram Coleman — Infophilia</title>
+  <meta name="description" content="Anita Sundaram Coleman, MLIS, MS Ed, PhD. Independent Scholar. Editor, Infophilia: A Positive Psychology of Information. Adjunct Lecturer, iSchool Illinois.">
+  <meta name="robots" content="index, follow">
+
+  <!-- Leaflet.js for the map -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Source+Sans+3:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --ink: #1a1815;
+      --ink-2: #4a4642;
+      --ink-3: #8a8580;
+      --paper: #faf8f5;
+      --paper-2: #f2efe9;
+      --paper-3: #e8e4dc;
+      --accent: #8B4513;
+      --accent-light: #f5ede6;
+      --accent-2: #2d6a9f;
+      --border: rgba(26,24,21,0.1);
+      --border-2: rgba(26,24,21,0.18);
+    }
+
+    html {
+      scroll-behavior: smooth;
+      font-size: 16px;
+    }
+
+    body {
+      font-family: 'Source Sans 3', sans-serif;
+      background: var(--paper);
+      color: var(--ink);
+      line-height: 1.6;
+      min-height: 100vh;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: rgba(250,248,245,0.95);
+      backdrop-filter: blur(8px);
+      border-bottom: 0.5px solid var(--border);
+      padding: 0 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 56px;
+    }
+
+    .nav-brand {
+      font-family: 'Lora', serif;
+      font-size: 15px;
+      font-weight: 500;
+      color: var(--ink);
+      text-decoration: none;
+      letter-spacing: 0.01em;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--ink-3);
+      text-decoration: none;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      transition: color 0.15s;
+    }
+
+    .nav-links a:hover { color: var(--ink); }
+
+    /* ── HERO ── */
+    .hero {
+      max-width: 760px;
+      margin: 0 auto;
+      padding: 5rem 2rem 3rem;
+    }
+
+    .hero-eyebrow {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 1.25rem;
+    }
+
+    .hero-name {
+      font-family: 'Lora', serif;
+      font-size: clamp(32px, 5vw, 52px);
+      font-weight: 500;
+      line-height: 1.15;
+      letter-spacing: -0.02em;
+      margin-bottom: 0.5rem;
+      color: var(--ink);
+    }
+
+    .hero-credentials {
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--ink-3);
+      letter-spacing: 0.03em;
+      margin-bottom: 2rem;
+    }
+
+    .hero-roles {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 2.5rem;
+    }
+
+    .hero-role {
+      font-size: 12px;
+      font-weight: 500;
+      padding: 5px 12px;
+      border: 0.5px solid var(--border-2);
+      border-radius: 20px;
+      color: var(--ink-2);
+      background: var(--paper-2);
+      white-space: nowrap;
+    }
+
+    .hero-role.accent {
+      border-color: var(--accent);
+      color: var(--accent);
+      background: var(--accent-light);
+    }
+
+    .hero-desc {
+      font-family: 'Lora', serif;
+      font-size: 18px;
+      line-height: 1.7;
+      color: var(--ink-2);
+      max-width: 620px;
+      margin-bottom: 2rem;
+    }
+
+    .hero-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .hero-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 9px 18px;
+      border-radius: 6px;
+      font-size: 13px;
+      font-weight: 500;
+      text-decoration: none;
+      transition: all 0.15s ease;
+      border: 0.5px solid var(--border-2);
+      color: var(--ink);
+      background: var(--paper-2);
+    }
+
+    .hero-link:hover {
+      background: var(--paper-3);
+      border-color: var(--border-2);
+    }
+
+    .hero-link.primary {
+      background: var(--accent);
+      color: #fff;
+      border-color: var(--accent);
+    }
+
+    .hero-link.primary:hover { opacity: 0.88; }
+
+    /* ── DIVIDER ── */
+    .divider {
+      max-width: 760px;
+      margin: 0 auto;
+      padding: 0 2rem;
+      border-top: 0.5px solid var(--border);
+    }
+
+    /* ── MAP SECTION ── */
+    .map-section {
+      padding: 4rem 0 3rem;
+    }
+
+    .section-wrap {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 2rem;
+    }
+
+    .section-label {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--ink-3);
+      margin-bottom: 0.5rem;
+    }
+
+    .section-title {
+      font-family: 'Lora', serif;
+      font-size: 26px;
+      font-weight: 500;
+      margin-bottom: 0.5rem;
+      color: var(--ink);
+    }
+
+    .section-subtitle {
+      font-size: 15px;
+      color: var(--ink-3);
+      margin-bottom: 2rem;
+      max-width: 560px;
+    }
+
+    #map {
+      width: 100%;
+      height: 480px;
+      border-radius: 12px;
+      border: 0.5px solid var(--border-2);
+      overflow: hidden;
+    }
+
+    .map-legend {
+      display: flex;
+      gap: 1.5rem;
+      margin-top: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .map-legend-item {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 12px;
+      color: var(--ink-3);
+    }
+
+    .map-legend-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+    }
+
+    /* ── FRAMEWORK SECTION ── */
+    .framework-section {
+      padding: 4rem 0;
+      background: var(--paper-2);
+      border-top: 0.5px solid var(--border);
+      border-bottom: 0.5px solid var(--border);
+    }
+
+    .framework-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+      align-items: start;
+    }
+
+    @media (max-width: 680px) {
+      .framework-grid { grid-template-columns: 1fr; }
+    }
+
+    .framework-text h2 {
+      font-family: 'Lora', serif;
+      font-size: 26px;
+      font-weight: 500;
+      margin-bottom: 1rem;
+      color: var(--ink);
+    }
+
+    .framework-text p {
+      font-size: 15px;
+      line-height: 1.75;
+      color: var(--ink-2);
+      margin-bottom: 1rem;
+    }
+
+    .framework-text a {
+      color: var(--accent);
+      text-decoration: underline;
+      text-underline-offset: 3px;
+    }
+
+    .spectrum {
+      background: var(--paper);
+      border: 0.5px solid var(--border-2);
+      border-radius: 12px;
+      padding: 1.5rem;
+    }
+
+    .spectrum-label {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--ink-3);
+      margin-bottom: 1rem;
+    }
+
+    .spectrum-item {
+      display: flex;
+      align-items: baseline;
+      gap: 10px;
+      padding: 10px 0;
+      border-bottom: 0.5px solid var(--border);
+    }
+
+    .spectrum-item:last-child { border-bottom: none; }
+
+    .spectrum-name {
+      font-family: 'Lora', serif;
+      font-size: 15px;
+      font-weight: 500;
+      color: var(--ink);
+      min-width: 110px;
+    }
+
+    .spectrum-desc {
+      font-size: 13px;
+      color: var(--ink-3);
+      line-height: 1.5;
+    }
+
+    /* ── TOOLS SECTION ── */
+    .tools-section {
+      padding: 4rem 0;
+    }
+
+    .tools-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 16px;
+      margin-top: 2rem;
+    }
+
+    .tool-card {
+      border: 0.5px solid var(--border-2);
+      border-radius: 12px;
+      padding: 1.5rem;
+      background: var(--paper);
+      text-decoration: none;
+      color: inherit;
+      transition: all 0.15s ease;
+      display: block;
+    }
+
+    .tool-card:hover {
+      border-color: var(--accent);
+      background: var(--accent-light);
+      transform: translateY(-2px);
+    }
+
+    .tool-card-eyebrow {
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 0.5rem;
+    }
+
+    .tool-card h3 {
+      font-family: 'Lora', serif;
+      font-size: 17px;
+      font-weight: 500;
+      margin-bottom: 0.5rem;
+      color: var(--ink);
+    }
+
+    .tool-card p {
+      font-size: 13px;
+      color: var(--ink-3);
+      line-height: 1.6;
+    }
+
+    .tool-card-arrow {
+      font-size: 18px;
+      color: var(--accent);
+      margin-top: 1rem;
+      display: block;
+    }
+
+    /* ── PROJECTS SECTION ── */
+    .projects-section {
+      padding: 4rem 0;
+      background: var(--paper-2);
+      border-top: 0.5px solid var(--border);
+    }
+
+    .project-list {
+      margin-top: 2rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1px;
+    }
+
+    .project-item {
+      display: flex;
+      align-items: baseline;
+      gap: 1.5rem;
+      padding: 1.25rem 0;
+      border-bottom: 0.5px solid var(--border);
+    }
+
+    .project-item:first-child { border-top: 0.5px solid var(--border); }
+
+    .project-year {
+      font-size: 12px;
+      font-weight: 500;
+      color: var(--ink-3);
+      min-width: 80px;
+      flex-shrink: 0;
+    }
+
+    .project-content h3 {
+      font-family: 'Lora', serif;
+      font-size: 16px;
+      font-weight: 500;
+      color: var(--ink);
+      margin-bottom: 0.25rem;
+    }
+
+    .project-content p {
+      font-size: 13px;
+      color: var(--ink-3);
+      line-height: 1.5;
+    }
+
+    .project-content a {
+      color: var(--accent);
+      text-decoration: underline;
+      text-underline-offset: 2px;
+      font-size: 12px;
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      padding: 3rem 2rem;
+      border-top: 0.5px solid var(--border);
+      max-width: 760px;
+      margin: 0 auto;
+    }
+
+    .footer-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      flex-wrap: wrap;
+      gap: 1rem;
+      margin-bottom: 2rem;
+    }
+
+    .footer-brand {
+      font-family: 'Lora', serif;
+      font-size: 15px;
+      font-weight: 500;
+      color: var(--ink);
+    }
+
+    .footer-contact {
+      font-size: 13px;
+      color: var(--ink-3);
+    }
+
+    .footer-contact a {
+      color: var(--ink-2);
+      text-decoration: none;
+    }
+
+    /* Email obfuscation */
+    .email-parts::before { content: "info"; }
+    .email-parts::after { content: "@infophilia.org"; }
+
+    .footer-bottom {
+      font-size: 11px;
+      color: var(--ink-3);
+      line-height: 1.7;
+    }
+
+    /* ── LEAFLET POPUP CUSTOM ── */
+    .leaflet-popup-content-wrapper {
+      border-radius: 8px !important;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.12) !important;
+      font-family: 'Source Sans 3', sans-serif !important;
+    }
+
+    .leaflet-popup-content {
+      margin: 14px 16px !important;
+      font-size: 13px !important;
+      line-height: 1.5 !important;
+    }
+
+    .popup-event {
+      font-weight: 600;
+      color: var(--ink);
+      margin-bottom: 3px;
+    }
+
+    .popup-title {
+      color: var(--ink-2);
+      margin-bottom: 3px;
+      font-style: italic;
+    }
+
+    .popup-year {
+      font-size: 11px;
+      color: var(--ink-3);
+      font-weight: 500;
+      letter-spacing: 0.05em;
+    }
+
+    @media (max-width: 600px) {
+      nav { padding: 0 1rem; }
+      .nav-links { display: none; }
+      .hero { padding: 3rem 1.25rem 2rem; }
+      .section-wrap { padding: 0 1.25rem; }
+      #map { height: 320px; }
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <a href="/" class="nav-brand">Infophilia</a>
+  <ul class="nav-links">
+    <li><a href="#framework">Framework</a></li>
+    <li><a href="#tools">Tools</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="https://infophilia.substack.com" target="_blank" rel="noopener">Substack ↗</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <p class="hero-eyebrow">Independent Scholar · Infophilia</p>
+  <h1 class="hero-name">Anita Sundaram<br>Coleman</h1>
+  <p class="hero-credentials">MLIS, MS Ed, PhD</p>
+  <div class="hero-roles">
+    <span class="hero-role accent">Independent Scholar</span>
+    <span class="hero-role">Editor, Infophilia: A Positive Psychology of Information</span>
+    <span class="hero-role">Adjunct Lecturer, iSchool Illinois</span>
+  </div>
+  <p class="hero-desc">
+    Developing adaptive infophilia — a theory of human information relationships for the age of AI — through public scholarship, peer-reviewed research, and tools for teaching, research, and practice.
+  </p>
+  <div class="hero-links">
+    <a href="https://infophilia.substack.com" target="_blank" rel="noopener" class="hero-link primary">Read Infophilia →</a>
+    <a href="https://infophilia-org.github.io/infophilia-tools" target="_blank" rel="noopener" class="hero-link">Take the Assessment</a>
+    <a href="https://doi.org/10.17821/srels/2025/v62i1/171701" target="_blank" rel="noopener" class="hero-link">Published Paper</a>
+    <a href="https://doi.org/10.31235/osf.io/kjh6w_v1" target="_blank" rel="noopener" class="hero-link">Preprint</a>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- MAP -->
+<section class="map-section" id="map-section">
+  <div class="section-wrap">
+    <p class="section-label">Geographic Reach</p>
+    <h2 class="section-title">25 Years of International Scholarship</h2>
+    <p class="section-subtitle">Conference presentations, invited lectures, and collaborative work across three continents — 1996 to present. Click any marker for details.</p>
+    <div id="map"></div>
+    <div class="map-legend">
+      <div class="map-legend-item">
+        <div class="map-legend-dot" style="background:#8B4513"></div>
+        <span>1996–2009</span>
+      </div>
+      <div class="map-legend-item">
+        <div class="map-legend-dot" style="background:#2d6a9f"></div>
+        <span>2010–present</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- FRAMEWORK -->
+<section class="framework-section" id="framework">
+  <div class="section-wrap">
+    <div class="framework-grid">
+      <div class="framework-text">
+        <p class="section-label">The Framework</p>
+        <h2>Adaptive Infophilia</h2>
+        <p>
+          Adaptive infophilia holds that humans have an evolved, contextually variable love of information — a positive disposition fundamental to individual flourishing, social cohesion, and democratic life. It is a grand theory for library and information science in the age of AI.
+        </p>
+        <p>
+          The framework positions the infosphere (Floridi) as the moral environment, maps a spectrum of information engagement styles from vulnerable to healthy, and — critically — distinguishes adaptive infophilia (information engagement in service of the public good) from mere adaptive information extraction (technically proficient but ethically indifferent).
+        </p>
+        <p>
+          The theoretical stack: Tononi → Hazen & Wong → Floridi → Bronk → Coleman → Fogg.
+        </p>
+        <p style="margin-top:1.5rem">
+          <a href="https://infophilia.substack.com/p/why-do-we-believe-things-that-arent" target="_blank" rel="noopener">See the full stack →</a>
+        </p>
+      </div>
+
+      <div class="spectrum">
+        <p class="spectrum-label">The Infostyle Spectrum</p>
+        <div class="spectrum-item">
+          <span class="spectrum-name">Infophile</span>
+          <span class="spectrum-desc">Ethically grounded, seeks in service of the commons</span>
+        </div>
+        <div class="spectrum-item">
+          <span class="spectrum-name">Infopragmatist</span>
+          <span class="spectrum-desc">Skilled and efficient, not yet oriented toward the commons</span>
+        </div>
+        <div class="spectrum-item">
+          <span class="spectrum-name">Infoseeker</span>
+          <span class="spectrum-desc">Purposeful, beginning to think beyond self</span>
+        </div>
+        <div class="spectrum-item">
+          <span class="spectrum-name">Infocurious</span>
+          <span class="spectrum-desc">Genuinely curious, habits forming but inconsistent</span>
+        </div>
+        <div class="spectrum-item">
+          <span class="spectrum-name">Infovore</span>
+          <span class="spectrum-desc">Hungrily consuming, not yet critically engaged</span>
+        </div>
+        <div class="spectrum-item">
+          <span class="spectrum-name">Infofool</span>
+          <span class="spectrum-desc">Reactive, information flows through without transforming</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TOOLS -->
+<section class="tools-section" id="tools">
+  <div class="section-wrap">
+    <p class="section-label">Knowledge Structures & Infophilia Toolbox</p>
+    <h2 class="section-title">Teaching, Research & Practice</h2>
+    <p class="section-subtitle">A teaching, research, and practice infrastructure connecting information organization, information behavior, and the tools that mediate between them.</p>
+
+    <div class="tools-grid">
+      <a href="https://infophilia-org.github.io/infophilia-tools" class="tool-card" target="_blank" rel="noopener">
+        <p class="tool-card-eyebrow">Assessment Tool</p>
+        <h3>What is your infostyle?</h3>
+        <p>Ten questions to discover where you sit on the information engagement spectrum — from infofool to infophile.</p>
+        <span class="tool-card-arrow">→</span>
+      </a>
+
+      <a href="https://infophilia.substack.com" class="tool-card" target="_blank" rel="noopener">
+        <p class="tool-card-eyebrow">Weekly Publication</p>
+        <h3>Infophilia: A Positive Psychology of Information</h3>
+        <p>Public scholarship on information behavior, AI, libraries, and the information commons. Vol. 4, 2026.</p>
+        <span class="tool-card-arrow">→</span>
+      </a>
+
+      <a href="https://doi.org/10.17821/srels/2025/v62i1/171701" class="tool-card" target="_blank" rel="noopener">
+        <p class="tool-card-eyebrow">Peer-Reviewed</p>
+        <h3>Adaptive Infophilia — SRELS 2025</h3>
+        <p>The foundational published introduction to the framework. Journal of Information and Knowledge, 62(1).</p>
+        <span class="tool-card-arrow">→</span>
+      </a>
+
+      <a href="https://doi.org/10.31235/osf.io/kjh6w_v1" class="tool-card" target="_blank" rel="noopener">
+        <p class="tool-card-eyebrow">Preprint</p>
+        <h3>Adaptive Infophilia — SocArXiv</h3>
+        <p>Extended preprint developing the ethics of information power and information weaponization dimensions.</p>
+        <span class="tool-card-arrow">→</span>
+      </a>
+
+      <a href="https://uknowledge.uky.edu/lrs8/3/" class="tool-card" target="_blank" rel="noopener">
+        <p class="tool-card-eyebrow">Conference Paper</p>
+        <h3>Introduction to Infophilia — LRS8 2024</h3>
+        <p>Presented at Library Research Seminar 8, University of Kentucky, Lexington. Open access.</p>
+        <span class="tool-card-arrow">→</span>
+      </a>
+
+      <div class="tool-card" style="opacity:0.6; cursor:default;">
+        <p class="tool-card-eyebrow">Coming Soon</p>
+        <h3>Infostyles Instrument</h3>
+        <p>A psychometric instrument for measuring infostyle, adapted from validated scales for flow, curiosity, and epistemic engagement. Seeking international research partners.</p>
+        <span class="tool-card-arrow">→</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section class="projects-section" id="projects">
+  <div class="section-wrap">
+    <p class="section-label">Legacy Projects</p>
+    <h2 class="section-title">Infrastructure Built, Commons Served</h2>
+    <p class="section-subtitle">Independent scholar infrastructure projects — built without institutional support, preserved in public archives.</p>
+
+    <div class="project-list">
+      <div class="project-item">
+        <span class="project-year">2002–2013</span>
+        <div class="project-content">
+          <h3>dLIST — Digital Library of Information Science and Technology</h3>
+          <p>The field's first open access disciplinary repository for Library and Information Science scholarship. OAI-PMH compliant, internationally used, preserved in the University of Arizona repository.</p>
+          <a href="https://repository.arizona.edu/handle/10150/105066" target="_blank" rel="noopener">UA Repository Archive →</a>
+        </div>
+      </div>
+
+      <div class="project-item">
+        <span class="project-year">2015–2022</span>
+        <div class="project-content">
+          <h3>Antiracism Digital Library & International Antiracism Thesaurus</h3>
+          <p>Founded in response to the Charleston AME Church shootings (2015). A bibliographic infrastructure for antiracism scholarship. Preserved by the Library of Congress Web Archive.</p>
+          <a href="https://www.loc.gov/websites/" target="_blank" rel="noopener">LOC Web Archive →</a>
+        </div>
+      </div>
+
+      <div class="project-item">
+        <span class="project-year">2001–present</span>
+        <div class="project-content">
+          <h3>Knowledge Structures Toolbox — IRLS 401/501</h3>
+          <p>References and resources for graduate instruction in Organization of Information. Originally created 2001 at the University of Arizona. Preserved in dLIST.</p>
+          <a href="https://repository.arizona.edu/handle/10150/105944" target="_blank" rel="noopener">Original 2001 Toolbox →</a>
+        </div>
+      </div>
+
+      <div class="project-item">
+        <span class="project-year">2024–present</span>
+        <div class="project-content">
+          <h3>LIS Festschriften Bibliography</h3>
+          <p>166 festschriften in Library and Information Science spanning 1942–2025, six continents. Zotero database. Pilot project for the Adaptive Infophilia Taxonomy (AIT).</p>
+          <a href="https://infophilia.substack.com" target="_blank" rel="noopener">Infophilia Substack →</a>
+        </div>
+      </div>
+
+      <div class="project-item">
+        <span class="project-year">2024–present</span>
+        <div class="project-content">
+          <h3>Adaptive Infophilia as Grand Theory for iSchools</h3>
+          <p>A research and teaching infrastructure mapping adaptive infophilia across iSchool faculty research areas, doctoral student pipelines, and the six research clusters of the AIT. Includes interactive visualizations of the Illinois iSchool research landscape. Collaborative and open.</p>
+          <a href="https://infophilia-org.github.io/infophilia-tools" target="_blank" rel="noopener">Tools →</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-top">
+    <div>
+      <p class="footer-brand">Anita Sundaram Coleman</p>
+      <p style="font-size:12px; color:var(--ink-3); margin-top:4px;">Independent Scholar · iSchool Illinois</p>
+    </div>
+    <div class="footer-contact">
+      <p>Contact: <a href="#" onclick="return false;" class="email-parts"></a></p>
+      <p style="margin-top:4px;"><a href="https://infophilia.substack.com" target="_blank" rel="noopener">Substack</a> · <a href="https://scholar.google.com/citations?user=NGtQ6FIAAAAJ" target="_blank" rel="noopener">Google Scholar</a> · <a href="https://orcid.org/0000-0002-5724-5442" target="_blank" rel="noopener">ORCID</a></p>
+      <p style="margin-top:4px; font-size:11px; color:var(--ink-3);">Infophilia ISSN: 3069-6526 · Forthcoming: <em>Infophilia Unbound</em></p>
+    </div>
+  </div>
+  <p class="footer-bottom">
+    © 2026 Anita Sundaram Coleman. Licensed under <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener">CC BY 4.0</a>.<br>
+    This site uses no tracking, no cookies, and no data collection. It practices adaptive infophilia.
+  </p>
+</footer>
+
+<script>
+// ── MAP ──────────────────────────────────────────────────────────────────
+const talks = [
+  // EARLY ERA (1996–2009) — terracotta
+  { lat: 57.7089, lng: 11.9746, city: "Gothenburg", country: "Sweden", year: 1996, title: "Tango on the Web: The Evolution of the H-journal", event: "IATUL 1996" },
+  { lat: 29.4241, lng: -98.4936, city: "San Antonio", country: "USA", year: 1996, title: "LIS Faculty concerns about distance learning", event: "ALISE 1996" },
+  { lat: 49.8728, lng: 8.6512, city: "Darmstadt", country: "Germany", year: 2001, title: "Learning Spaces in Digital Libraries", event: "ECDL 2001" },
+  { lat: 37.2710, lng: -79.9414, city: "Roanoke", country: "USA", year: 2001, title: "The Alexandria Digital Earth Prototype", event: "ACM/IEEE JCDL 2001" },
+  { lat: 32.2226, lng: -110.9747, city: "Tucson", country: "USA", year: 2002, title: "Multiple presentations — KO, dLIST, FRBR", event: "UA research talks 2001–2004" },
+  { lat: 37.1773, lng: -3.5986, city: "Granada", country: "Spain", year: 2002, title: "A Classification of Models", event: "7th ISKO Conference" },
+  { lat: 23.0225, lng: 72.5714, city: "Ahmedabad", country: "India", year: 2003, title: "dLIST: Building an International Scholarly Communication Consortium", event: "CALIBER 2003" },
+  { lat: 38.9072, lng: -77.0369, city: "Washington DC", country: "USA", year: 2003, title: "Categorization and Modeling of Information Work for H-Journal Design", event: "AMIA 2003" },
+  { lat: 29.9511, lng: -90.0715, city: "New Orleans", country: "USA", year: 2003, title: "Understanding Information Behaviors Embedded in Learning Objects: dLIST", event: "Educause NLII 2003" },
+  { lat: 33.6846, lng: -117.8265, city: "Irvine", country: "USA", year: 2003, title: "MERLOT presentation", event: "MERLOT Annual Conference 2003" },
+  { lat: 51.5074, lng: -0.1278, city: "London", country: "United Kingdom", year: 2004, title: "Knowledge Structures and the Vocabulary of Engineering Novices", event: "8th ISKO Conference" },
+  { lat: 35.2271, lng: -80.8431, city: "Charlotte", country: "USA", year: 2005, title: "Multiple ASIS&T presentations incl. Humanizing Information Retrieval", event: "ASIS&T Annual 2005" },
+  { lat: 33.6846, lng: -117.8275, city: "Irvine", country: "USA", year: 2005, title: "Synergies Sparked: Research for Practicing Professionals + IT & Society talk", event: "LAUC UCI + CRITO 2005" },
+  { lat: 59.9139, lng: 10.7522, city: "Oslo", country: "Norway", year: 2005, title: "dLIST poster — IFLA WLIC", event: "IFLA 2005" },
+  { lat: 42.3601, lng: -71.0589, city: "Boston", country: "USA", year: 2005, title: "Self-Archiving and Copyright Transfer Agreements", event: "ALISE 2005" },
+  { lat: 39.1653, lng: -86.5264, city: "Bloomington", country: "USA", year: 2006, title: "Commons-based Digital Libraries", event: "Indiana University invited lecture" },
+  { lat: 48.2082, lng: 16.3738, city: "Vienna", country: "Austria", year: 2006, title: "A Common Sense Approach to Defining Data, Information and Metadata", event: "9th ISKO Conference" },
+  { lat: 38.3452, lng: -0.4815, city: "Alicante", country: "Spain", year: 2006, title: "EPrints Meets Web 2.0 (team presentation)", event: "ECDL 2006" },
+  { lat: 29.4251, lng: -98.4956, city: "San Antonio", country: "USA", year: 2007, title: "dLIST — Open Repositories", event: "2nd International Conference on Open Repositories" },
+  { lat: 50.0755, lng: 14.4378, city: "Prague", country: "Czech Republic", year: 2007, title: "EPrints Meets Web 2.0 / BOBCATSSS", event: "BOBCATSSS 2007" },
+
+  // RECENT ERA (2010–present) — blue
+  { lat: 33.7701, lng: -118.1937, city: "Long Beach", country: "USA", year: 2016, title: "Theology, Race and Libraries", event: "ATLA 2016" },
+  { lat: 33.7490, lng: -84.3880, city: "Atlanta", country: "USA", year: 2017, title: "Using the Anti-racism Digital Library and Thesaurus", event: "ATLA 2017" },
+  { lat: 33.8703, lng: -117.9242, city: "Fullerton", country: "USA", year: 2021, title: "Guest lectures on anti-racism, inclusion, homelessness (2020–2022)", event: "Cal State Fullerton" },
+  { lat: 32.7765, lng: -79.9311, city: "Charleston", country: "USA", year: 2024, title: "Charting Turbulent Skies: Can Libraries Sustain Anti-Racist Efforts", event: "Charleston Conference 2024" },
+  { lat: 38.0406, lng: -84.5037, city: "Lexington", country: "USA", year: 2024, title: "An Introduction to Infophilia: A Positive Psychology of Information", event: "Library Research Seminar 8" },
+];
+
+const earlyColor = '#8B4513';
+const recentColor = '#2d6a9f';
+
+function makeIcon(color) {
+  return L.divIcon({
+    className: '',
+    html: `<div style="
+      width:12px; height:12px;
+      background:${color};
+      border:2px solid white;
+      border-radius:50%;
+      box-shadow:0 1px 4px rgba(0,0,0,0.3);
+    "></div>`,
+    iconSize: [12, 12],
+    iconAnchor: [6, 6],
+    popupAnchor: [0, -8]
+  });
+}
+
+const map = L.map('map', {
+  center: [30, 5],
+  zoom: 2,
+  zoomControl: true,
+  scrollWheelZoom: false
+});
+
+L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
+  attribution: '© OpenStreetMap contributors © CARTO',
+  subdomains: 'abcd',
+  maxZoom: 19
+}).addTo(map);
+
+talks.forEach(t => {
+  const isRecent = t.year >= 2010;
+  const color = isRecent ? recentColor : earlyColor;
+  const icon = makeIcon(color);
+
+  const popup = `
+    <div class="popup-event">${t.event}</div>
+    <div class="popup-title">${t.title}</div>
+    <div class="popup-year">${t.city}, ${t.country} · ${t.year}</div>
+  `;
+
+  L.marker([t.lat, t.lng], { icon })
+    .bindPopup(popup, { maxWidth: 280 })
+    .addTo(map);
+});
+</script>
+
+</body>
+</html>
