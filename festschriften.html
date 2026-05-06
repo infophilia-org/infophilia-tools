@@ -1,0 +1,1318 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Literature of Gratitude — LIS Festschriften Bibliography</title>
+  <meta name="description" content="A working bibliography of 166 festschriften in Library and Information Science, 1942–2025. Compiled by Anita Sundaram Coleman.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Source+Sans+3:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --ink: #1c1917;
+      --ink-2: #44403c;
+      --ink-3: #78716c;
+      --ink-4: #a8a29e;
+      --paper: #faf9f7;
+      --paper-2: #f5f3ef;
+      --paper-3: #ede9e3;
+      --gold: #92702a;
+      --gold-light: #f7f0e3;
+      --rust: #8B4513;
+      --rust-light: #f5ede6;
+      --blue: #2d5986;
+      --blue-light: #e8f0f8;
+      --green: #2d6b45;
+      --green-light: #e8f3ed;
+      --border: rgba(28,25,23,0.1);
+      --border-2: rgba(28,25,23,0.18);
+      --radius: 6px;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Source Sans 3', sans-serif;
+      background: var(--paper);
+      color: var(--ink);
+      line-height: 1.6;
+      min-height: 100vh;
+    }
+
+    /* ── MASTHEAD ── */
+    .masthead {
+      background: var(--ink);
+      color: var(--paper);
+      padding: 4rem 2rem 3rem;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .masthead::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: repeating-linear-gradient(
+        45deg,
+        transparent,
+        transparent 40px,
+        rgba(255,255,255,0.015) 40px,
+        rgba(255,255,255,0.015) 41px
+      );
+    }
+
+    .masthead-eyebrow {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 1.25rem;
+      position: relative;
+    }
+
+    .masthead-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(28px, 5vw, 52px);
+      font-weight: 400;
+      line-height: 1.15;
+      margin-bottom: 0.5rem;
+      position: relative;
+      color: #f5f0e8;
+    }
+
+    .masthead-title em {
+      font-style: italic;
+      color: #e8dfc8;
+    }
+
+    .masthead-subtitle {
+      font-family: 'Lora', serif;
+      font-style: italic;
+      font-size: 17px;
+      color: #b8b0a0;
+      margin-bottom: 2rem;
+      position: relative;
+    }
+
+    .masthead-meta {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+      font-size: 12px;
+      color: #908880;
+      position: relative;
+    }
+
+    .masthead-meta span { display: flex; align-items: center; gap: 5px; }
+
+    .masthead-badge {
+      display: inline-block;
+      padding: 3px 10px;
+      border: 0.5px solid rgba(146,112,42,0.4);
+      border-radius: 20px;
+      color: var(--gold);
+      font-size: 11px;
+      font-weight: 500;
+    }
+
+    /* ── CONTROLS ── */
+    .controls {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(250,249,247,0.97);
+      backdrop-filter: blur(8px);
+      border-bottom: 0.5px solid var(--border-2);
+      padding: 1rem 2rem;
+    }
+
+    .controls-inner {
+      max-width: 900px;
+      margin: 0 auto;
+      display: flex;
+      gap: 12px;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    .search-wrap {
+      flex: 1;
+      min-width: 200px;
+      position: relative;
+    }
+
+    .search-wrap svg {
+      position: absolute;
+      left: 10px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: var(--ink-4);
+      pointer-events: none;
+    }
+
+    #search {
+      width: 100%;
+      padding: 8px 12px 8px 34px;
+      border: 0.5px solid var(--border-2);
+      border-radius: var(--radius);
+      font-size: 14px;
+      font-family: 'Source Sans 3', sans-serif;
+      background: white;
+      color: var(--ink);
+      outline: none;
+      transition: border-color 0.15s;
+    }
+
+    #search:focus { border-color: var(--gold); }
+
+    .filter-group {
+      display: flex;
+      gap: 6px;
+      flex-wrap: wrap;
+    }
+
+    .filter-btn {
+      padding: 6px 12px;
+      border: 0.5px solid var(--border-2);
+      border-radius: 20px;
+      font-size: 12px;
+      font-weight: 500;
+      font-family: 'Source Sans 3', sans-serif;
+      cursor: pointer;
+      transition: all 0.15s;
+      background: white;
+      color: var(--ink-3);
+      white-space: nowrap;
+    }
+
+    .filter-btn:hover { border-color: var(--gold); color: var(--gold); }
+    .filter-btn.active { background: var(--gold); color: white; border-color: var(--gold); }
+
+    .results-count {
+      font-size: 12px;
+      color: var(--ink-4);
+      white-space: nowrap;
+      min-width: 80px;
+      text-align: right;
+    }
+
+    /* ── MAIN ── */
+    main {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 2rem;
+    }
+
+    /* ── NOTES ── */
+    .bib-note {
+      background: var(--gold-light);
+      border: 0.5px solid rgba(146,112,42,0.2);
+      border-left: 3px solid var(--gold);
+      border-radius: 0 var(--radius) var(--radius) 0;
+      padding: 1rem 1.25rem;
+      margin-bottom: 2rem;
+      font-size: 14px;
+      line-height: 1.7;
+      color: var(--ink-2);
+    }
+
+    .bib-note strong { color: var(--gold); }
+
+    .gap-note {
+      background: var(--rust-light);
+      border-left: 3px solid var(--rust);
+      border-radius: 0 var(--radius) var(--radius) 0;
+      padding: 1rem 1.25rem;
+      margin: 1.5rem 0;
+      font-size: 13px;
+      color: var(--ink-2);
+    }
+
+    .gap-note strong { color: var(--rust); }
+
+    /* ── DECADE SECTIONS ── */
+    .decade-section { margin-bottom: 2.5rem; }
+
+    .decade-header {
+      display: flex;
+      align-items: baseline;
+      gap: 1rem;
+      margin-bottom: 1rem;
+      padding-bottom: 0.5rem;
+      border-bottom: 0.5px solid var(--border-2);
+    }
+
+    .decade-label {
+      font-family: 'Playfair Display', serif;
+      font-size: 22px;
+      font-weight: 700;
+      color: var(--ink);
+    }
+
+    .decade-count {
+      font-size: 12px;
+      color: var(--ink-4);
+      font-weight: 500;
+    }
+
+    /* ── ENTRIES ── */
+    .entry {
+      display: grid;
+      grid-template-columns: 48px 1fr;
+      gap: 0 1rem;
+      padding: 0.85rem 0;
+      border-bottom: 0.5px solid var(--border);
+      transition: background 0.1s;
+    }
+
+    .entry:hover { background: var(--paper-2); margin: 0 -0.75rem; padding: 0.85rem 0.75rem; border-radius: var(--radius); border-bottom-color: transparent; }
+
+    .entry.hidden { display: none; }
+
+    .entry-num {
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--ink-4);
+      padding-top: 2px;
+      text-align: right;
+      letter-spacing: 0.03em;
+      font-variant-numeric: tabular-nums;
+    }
+
+    .entry-num.pending {
+      color: var(--rust);
+      font-style: italic;
+    }
+
+    .entry-text {
+      font-size: 14px;
+      line-height: 1.65;
+      color: var(--ink-2);
+    }
+
+    .entry-text a {
+      color: var(--blue);
+      text-decoration: underline;
+      text-underline-offset: 2px;
+      font-size: 12px;
+    }
+
+    .entry-tag {
+      display: inline-block;
+      padding: 1px 7px;
+      border-radius: 3px;
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      margin-left: 6px;
+      vertical-align: middle;
+    }
+
+    .tag-new { background: var(--blue-light); color: var(--blue); }
+    .tag-pending { background: var(--rust-light); color: var(--rust); }
+    .tag-institutional { background: var(--green-light); color: var(--green); }
+    .tag-journal { background: var(--gold-light); color: var(--gold); }
+    .tag-bipoc { background: #f0e8f5; color: #6b3fa0; }
+
+    .entry-note {
+      font-size: 12px;
+      color: var(--ink-3);
+      font-style: italic;
+      margin-top: 3px;
+    }
+
+    /* ── PENDING SECTION ── */
+    .pending-section {
+      margin-top: 2rem;
+      padding: 1.5rem;
+      border: 0.5px dashed var(--rust);
+      border-radius: var(--radius);
+      background: var(--rust-light);
+    }
+
+    .pending-title {
+      font-family: 'Lora', serif;
+      font-size: 16px;
+      font-weight: 500;
+      color: var(--rust);
+      margin-bottom: 0.5rem;
+    }
+
+    .pending-note {
+      font-size: 13px;
+      color: var(--ink-2);
+      margin-bottom: 1rem;
+      line-height: 1.6;
+    }
+
+    /* ── FOOTER ── */
+    .bib-footer {
+      max-width: 900px;
+      margin: 3rem auto 0;
+      padding: 2rem;
+      border-top: 0.5px solid var(--border-2);
+      font-size: 12px;
+      color: var(--ink-4);
+      line-height: 1.7;
+    }
+
+    .bib-footer a { color: var(--ink-3); text-decoration: underline; text-underline-offset: 2px; }
+
+    /* ── NO RESULTS ── */
+    .no-results {
+      text-align: center;
+      padding: 4rem 2rem;
+      color: var(--ink-4);
+      font-style: italic;
+      display: none;
+    }
+
+    @media (max-width: 600px) {
+      .masthead { padding: 3rem 1.25rem 2rem; }
+      .controls { padding: 0.75rem 1.25rem; }
+      main { padding: 1.5rem 1.25rem; }
+      .entry { grid-template-columns: 36px 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<header class="masthead">
+  <p class="masthead-eyebrow">Infophilia · Bibliographic Series</p>
+  <h1 class="masthead-title">The Literature of Gratitude</h1>
+  <p class="masthead-subtitle">Festschriften as a Mirror of Library and Information Science</p>
+  <div class="masthead-meta">
+    <span><span class="masthead-badge">166 entries</span></span>
+    <span>1942–2025</span>
+    <span>6 continents</span>
+    <span>Working bibliography</span>
+    <span>Compiled by Anita Sundaram Coleman</span>
+  </div>
+</header>
+
+<div class="controls">
+  <div class="controls-inner">
+    <div class="search-wrap">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+      <input type="text" id="search" placeholder="Search by name, title, publisher…" autocomplete="off">
+    </div>
+    <div class="filter-group" id="decade-filters">
+      <button class="filter-btn active" data-decade="all">All</button>
+      <button class="filter-btn" data-decade="1940s">1940s</button>
+      <button class="filter-btn" data-decade="1950s">1950s</button>
+      <button class="filter-btn" data-decade="1960s">1960s</button>
+      <button class="filter-btn" data-decade="1970s">1970s</button>
+      <button class="filter-btn" data-decade="1980s">1980s</button>
+      <button class="filter-btn" data-decade="1990s">1990s</button>
+      <button class="filter-btn" data-decade="2000s">2000s</button>
+      <button class="filter-btn" data-decade="2010s">2010s</button>
+      <button class="filter-btn" data-decade="2020s">2020s</button>
+    </div>
+    <span class="results-count" id="results-count">166 entries</span>
+  </div>
+</div>
+
+<main>
+
+  <div class="bib-note">
+    <strong>About this bibliography.</strong> Compiled independently beginning in 2023. A parallel Zotero database contains 187+ entries not yet fully cross-checked; reconciling the two is a primary 2026 goal. Cross-checking with J. Periam Danton's <em>Index to Festschriften in Librarianship</em> (1970), Danton & Pulis (1979), and the De Gruyter <em>Internationale Jahresbibliographie der Festschriften</em> (IJBF, 1980–present) is ongoing. <strong>Feedback welcome:</strong> entries missing from this list — especially from 1976–1979 and from Latin American, African, and Asian traditions — are actively sought. Contact: <span style="unicode-bidi:bidi-override;direction:rtl;">gro.aihpolofni@ofni</span>
+  </div>
+
+  <!-- 1940s -->
+  <section class="decade-section" data-decade="1940s">
+    <div class="decade-header">
+      <span class="decade-label">1940s</span>
+      <span class="decade-count">1 entry</span>
+    </div>
+    <div class="entry" data-decade="1940s" data-text="shipley studies in honor frederick">
+      <span class="entry-num">1</span>
+      <div class="entry-text">Shipley, F. W. (1942). <em>Studies in honor of Frederick W. Shipley.</em> [Earliest confirmed entry in this bibliography.]</div>
+    </div>
+  </section>
+
+  <!-- 1950s -->
+  <section class="decade-section" data-decade="1950s">
+    <div class="decade-header">
+      <span class="decade-label">1950s</span>
+      <span class="decade-count">1 entry</span>
+    </div>
+    <div class="entry" data-decade="1950s" data-text="doe janet medical library association bulletin">
+      <span class="entry-num pending">—</span>
+      <div class="entry-text">Doe, Janet, Festschrift Committee. (1957). Festschrift in honor of Janet Doe. <em>Bulletin of the Medical Library Association</em> 45 (July): 1–120. <span class="entry-tag tag-pending">Pending</span> <span class="entry-tag tag-journal">Journal</span>
+        <div class="entry-note">Pending verification against Danton Index. Not included in count of 166.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 1960s -->
+  <section class="decade-section" data-decade="1960s">
+    <div class="decade-header">
+      <span class="decade-label">1960s</span>
+      <span class="decade-count">2 entries + 1 pending</span>
+    </div>
+    <div class="entry" data-decade="1960s" data-text="henriksson kannila finnish librarians helsinki otava">
+      <span class="entry-num pending">—</span>
+      <div class="entry-text">Henriksson, Karl-Erik, et al., eds. (1966). [Finnish title TBC]. Helsinki: Otava. <span class="entry-tag tag-pending">Pending</span>
+        <div class="entry-note">Festschrift honoring Helle Kannila (1896–1972), "the mother of Finnish librarians." Summaries in Swedish. From Danton Index 1979. Pending verification.</div>
+      </div>
+    </div>
+    <div class="entry" data-decade="1960s" data-text="kaula ranganathan festschrift library science asia">
+      <span class="entry-num">2</span>
+      <div class="entry-text">Kaula, P. N. (Ed.). (1966). <em>Library science today: Ranganathan Festschrift, Vol. 1.</em> Asia Pub. House.
+        <div class="entry-note">Vol. 1 of two-volume Ranganathan Festschrift; Vol. 2 is Das Gupta 1967.</div>
+      </div>
+    </div>
+    <div class="entry" data-decade="1960s" data-text="das gupta ranganathan bibliography asia">
+      <span class="entry-num">3</span>
+      <div class="entry-text">Das Gupta, A. K. (1967). <em>An essay in personal bibliography: A bibliography of the writings on and by Dr S.R. Ranganathan.</em> Asia Pub. House.
+        <div class="entry-note">Vol. 2 of two-volume Ranganathan Festschrift.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 1970s -->
+  <section class="decade-section" data-decade="1970s">
+    <div class="decade-header">
+      <span class="decade-label">1970s</span>
+      <span class="decade-count">4 entries + 2 pending</span>
+    </div>
+    <div class="gap-note">
+      <strong>⚠ Documented gap: 1976–1979.</strong> No LIS festschriften from these years have been identified. This period falls between Danton & Pulis's index (covering to 1975) and the IJBF (from 1980). Entries from these years are actively sought.
+    </div>
+    <div class="entry" data-decade="1970s" data-text="lyle farber academic library essays scarecrow">
+      <span class="entry-num pending">—</span>
+      <div class="entry-text">Lyle, Guy Redvers, and Evan Ira Farber. (1974). <em>The Academic Library: Essays in Honor of Guy R. Lyle.</em> Scarecrow Press. <span class="entry-tag tag-pending">Pending</span>
+        <div class="entry-note">Pending verification against Danton indexes. Not included in count of 166.</div>
+      </div>
+    </div>
+    <div class="entry" data-decade="1970s" data-text="plante kapsner manuscript library studies translatio">
+      <span class="entry-num pending">—</span>
+      <div class="entry-text">Plante, Julian, ed. (1973). <em>Translatio Studii: Manuscript and Library Studies Honoring Oliver Kapsner, O.S.B.</em> Collegeville, MN: St. John's University Press. <span class="entry-tag tag-pending">Pending</span>
+        <div class="entry-note">Pending verification against Danton indexes. Not included in count of 166.</div>
+      </div>
+    </div>
+    <div class="entry" data-decade="1970s" data-text="urquhart barr line essays information libraries bingley">
+      <span class="entry-num">4</span>
+      <div class="entry-text">Urquhart, D., Barr, K., & Line, M. B. (1975). <em>Essays on information and libraries: Festschrift for Donald Urquhart.</em> C. Bingley; Linnet Books.</div>
+    </div>
+    <div class="entry" data-decade="1970s" data-text="tell schwarz willers knowledge development bjorn royal institute">
+      <span class="entry-num">5</span>
+      <div class="entry-text">Tell, B., Schwarz, S., & Willers, U. (1978). <em>Knowledge and development: A festschrift for Björn Tell.</em> Royal Institute of Technology Library.</div>
+    </div>
+    <div class="entry" data-decade="1970s" data-text="asheim lee hamilton teach essays honor lester linnet">
+      <span class="entry-num">6</span>
+      <div class="entry-text">Asheim, L. E., Lee, J. M., & Hamilton, B. A. (1979). <em>As much to learn as to teach: Essays in honor of Lester Asheim.</em> Linnet Books.</div>
+    </div>
+    <div class="entry" data-decade="1970s" data-text="kaula venkatappaiah march library science vikas india">
+      <span class="entry-num">7</span>
+      <div class="entry-text">Kaula, P. N., & Veṅkaṭappayya, V. (1979). <em>March of library science: Kaula festschrift.</em> Vikas.</div>
+    </div>
+  </section>
+
+  <!-- 1980s -->
+  <section class="decade-section" data-decade="1980s">
+    <div class="decade-header">
+      <span class="decade-label">1980s</span>
+      <span class="decade-count">22 entries</span>
+    </div>
+    <div class="entry" data-decade="1980s" data-text="khurshid library education cultures karachi silver jubilee">
+      <span class="entry-num">8</span>
+      <div class="entry-text">Khurshid, A. (1981). <em>Library education across the boundaries of cultures: A festschrift to mark the silver jubilee celebration of the Library Science Department.</em> University of Karachi. <span class="entry-tag tag-institutional">Institutional</span></div>
+    </div>
+    <div class="entry" data-decade="1980s" data-text="wise george tel aviv university festschrift">
+      <span class="entry-num">9</span>
+      <div class="entry-text">Wise, G. S. (1981). <em>Festschrift in honor of Dr. George S. Wise.</em> Tel Aviv University, Publication Dept. <span class="entry-tag tag-new">New</span></div>
+    </div>
+    <div class="entry" data-decade="1980s" data-text="eyssen beaujean metropolitan libraries eighties saur">
+      <span class="entry-num">10</span>
+      <div class="entry-text">Eyssen, J., & Beaujean, M. (1982). <em>Metropolitan libraries on their way into the eighties: Festschrift Jürgen Eyssen zum 60. Geburtstag.</em> Saur.</div>
+    </div>
+    <div class="entry" data-decade="1980s" data-text="schlacter service imperative libraries essays margaret monroe libraries unlimited">
+      <span class="entry-num">11</span>
+      <div class="entry-text">Schlacter, G. E. (Ed.). (1982). <em>The service imperative for libraries: Essays in honor of Margaret E. Monroe.</em> Libraries Unlimited.</div>
+    </div>
+    <div class="entry" data-decade="1980s" data-text="viswanathan agarwal khan satyanarayana perspectives library information viswanathan festschrift india">
+      <span class="entry-num">12</span>
+      <div class="entry-text">Viswanathan, C. G., Agarwal, S. N., Khan, R. R., & Satyanarayana, N. R. (1982). <em>Perspectives in library and information science: Viswanathan festschrift.</em> Print House (India).</div>
+    </div>
+    <div class="entry" data-decade="1980s" data-text="nodelman may festschrift children literature association ten year">
+      <span class="entry-num">13</span>
+      <div class="entry-text">Nodelman, P., & May, J. P. (1983). <em>Festschrift: A ten year retrospective.</em> Children's Literature Association Publications.
+        <div class="entry-note">Children's literature / youth services.</div>
+      </div>
+    </div>
+    <div class="entry" data-decade="1980s" data-text="staveley bibliography reading festschrift ronald scarecrow">
+      <span class="entry-num">14</span>
+      <div class="entry-text">Staveley, R. (1983). <em>Bibliography and reading: A festschrift in honour of Ronald Staveley.</em> Scarecrow Press.</div>
+    </div>
+    <div class="entry" data-decade="1980s" data-text="kilgour helal weiss local library systems essen symposium frederick">
+      <span class="entry-num">15</span>
+      <div class="entry-text">Kilgour, F. G., Helal, A. H., & Weiss, J. W. (1984). <em>Local library systems: Essen Symposium: Festschrift in honour of Frederick G. Kilgour.</em> Gesamthochschulbibliothek Essen.</div>
+    </div>
+    <div class="entry" data-decade="1980s" data-text="mohanrajan ranganathan new trends international librarianship allied india">
+      <span class="entry-num">16</span>
+      <div class="entry-text">Mohanrajan, P. A., & Ranganathan, S. R. (1984). <em>New trends in international librarianship: S.R. Ranganathan festschrift.</em> Allied.</div>
+    </div>
+    <div class="entry" data-decade="1980s" data-text="salvat ghai kumar international publishing today honor manuel bookman">
+      <span class="entry-num">17</span>
+      <div class="entry-text">Salvat, M., Ghai, O. P., & Narendra Kumar. (1984). <em>International publishing today: A festschrift in honour of Manuel Salvat.</em> Bookman's Club.
+        <div class="entry-note">Publishing / information management.</div>
+      </div>
+    </div>
+    <div class="entry" data-decade="1980s" data-text="welsh price international librarianship today tomorrow william saur">
+      <span class="entry-num">18</span>
+      <div class="entry-text">Welsh, W. J., Price, J. W., & Price, M. S. (1985). <em>International librarianship today and tomorrow: A festschrift for William J. Welsh.</em> K.G. Saur.</div>
+    </div>
+    <div class="entry" data-decade="1980s" data-text="anderson hubbard research libraries past 25 years colorado">
+      <span class="entry-num">19</span>
+      <div class="entry-text">Anderson, L. W., & Hubbard, T. E. (1986). <em>Research libraries: The past 25 years, the next 25 years: Papers for a Festschrift honoring L.W. Anderson.</em> Colorado Associated University Press.</div>
+    </div>
+    <div class="entry" data-decade="1980s" data-text="srivastava gupta pawan library information science current trends india rbsa">
+      <span class="entry-num">20</span>
+      <div class="entry-text">Srivastava, S. N., Gupta, P. K., & Pawan, U. (1986). <em>Library and information science: Current trends in India: Professor S.N. Srivastava festschrift.</em> R.B.S.A. Publishers.</div>
+    </div>
+    <div class="entry" data-decade="1980s" data-text="bankole odeinde aramide university libraries nigeria john harris committee">
+      <span class="entry-num">21</span>
+      <div class="entry-text">Bankole, E. B., Odeinde, T. O., & Aramide, F. O. (1988). <em>University libraries in Nigeria: A festschrift for John Harris.</em> Committee of University Librarians of Nigerian Universities.</div>
+    </div>
+    <div class="entry" data-decade="1980s" data-text="haas cummings timmer influencing change research librarianship warren council library">
+      <span class="entry-num">22</span>
+      <div class="entry-text">Haas, W. J., Cummings, M. M., & Timmer, E. B. (1988). <em>Influencing change in research librarianship: A festschrift for Warren J. Haas.</em> Council on Library Resources.</div>
+    </div>
+    <div class="entry" data-decade="1980s" data-text="hayes woodsworth von wahlde leadership research libraries robert scarecrow">
+      <span class="entry-num">23</span>
+      <div class="entry-text">Hayes, R. M., Woodsworth, A., & Von Wahlde, B. (1988). <em>Leadership for research libraries: A festschrift for Robert M. Hayes.</em> Scarecrow Press.</div>
+    </div>
+    <div class="entry" data-decade="1980s" data-text="helal pflug international library cooperation essen symposium gunther universitatsbibliothek">
+      <span class="entry-num">24</span>
+      <div class="entry-text">Helal, A. H., & Pflug, G. (1988). <em>International library cooperation: 10th Anniversary Essen Symposium: Festschrift in honour of Prof. Dr. Günther Pflug.</em> Universitätsbibliothek Essen.</div>
+    </div>
+    <div class="entry" data-decade="1980s" data-text="pflug helal weiss international library cooperation essen gunther universitatsbibliothek">
+      <span class="entry-num">25</span>
+      <div class="entry-text">Pflug, G., Helal, A. H., & Weiss, J. W. (1988). <em>International library cooperation: 10th Anniversary Essen Symposium: Festschrift in honour of Prof. Dr. Günther Pflug.</em> Universitätsbibliothek Essen.
+        <div class="entry-note">Verify deduplication with Helal & Pflug 1988.</div>
+      </div>
+    </div>
+    <div class="entry" data-decade="1980s" data-text="goldhor powell problem solving libraries festschrift herbert illinois library trends">
+      <span class="entry-num">26</span>
+      <div class="entry-text">Goldhor, H., & Powell, R. R. (1989). <em>Problem solving in libraries: A festschrift in honor of Herbert Goldhor.</em> University of Illinois GSLIS. <span class="entry-tag tag-journal">Also Library Trends 38(2)</span></div>
+    </div>
+    <div class="entry" data-decade="1980s" data-text="kaser richardson davis academic librarianship past present future david libraries unlimited">
+      <span class="entry-num">27</span>
+      <div class="entry-text">Kaser, D., Richardson, J. V., & Davis, J. Y. (1989). <em>Academic librarianship, past, present, and future: A festschrift in honor of David Kaser.</em> Libraries Unlimited.</div>
+    </div>
+    <div class="entry" data-decade="1980s" data-text="line helal weiss impact cd-rom library operations essen symposium maurice">
+      <span class="entry-num">28</span>
+      <div class="entry-text">Line, M. B., Helal, A. H., & Weiss, J. W. (1989). <em>The impact of CD-ROM on library operations: 11th International Essen Symposium: Festschrift in honour of Dr. Maurice B. Line.</em> Universitätsbibliothek Essen.</div>
+    </div>
+  </section>
+
+  <!-- 1990s -->
+  <section class="decade-section" data-decade="1990s">
+    <div class="decade-header">
+      <span class="decade-label">1990s</span>
+      <span class="decade-count">35 entries</span>
+    </div>
+    <div class="entry" data-decade="1990s" data-text="gorman education training information professionals edward reid-smith scarecrow">
+      <span class="entry-num">29</span>
+      <div class="entry-text">Gorman, G. E. (Ed.). (1990). <em>The education and training of information professionals: A Festschrift in honor of Edward Reid-Smith.</em> The Scarecrow Press.</div>
+    </div>
+    <div class="entry" data-decade="1990s" data-text="helal weiss de gennaro developments microcomputing essen symposium richard">
+      <span class="entry-num">30</span>
+      <div class="entry-text">Helal, A. H., Weiss, J. W., & De Gennaro, R. (1990). <em>Developments in microcomputing: 12th International Essen Symposium: Festschrift in honour of Richard De Gennaro.</em> Universitätsbibliothek Essen.</div>
+    </div>
+    <div class="entry" data-decade="1990s" data-text="isaac devarajan rahelamma library computerisation india isaac ess ess">
+      <span class="entry-num">31</span>
+      <div class="entry-text">Isaac, K. A., Devarajan, G., & Rahelamma, A. V. (1990). <em>Library computerisation in India: Isaac festschrift.</em> Ess Ess Publications.</div>
+    </div>
+    <div class="entry" data-decade="1990s" data-text="kaula venkatappaiah dimensions library information science kaula concept">
+      <span class="entry-num">32</span>
+      <div class="entry-text">Kaula, P. N., & Veṅkaṭappayya, V. (1990). <em>Dimensions of library and information science: Kaula festschrift.</em> Concept Pub. Co.</div>
+    </div>
+    <div class="entry" data-decade="1990s" data-text="beckman helal weiss information technology library management essen margaret">
+      <span class="entry-num">33</span>
+      <div class="entry-text">Beckman, M., Helal, A. H., & Weiss, J. W. (1991). <em>Information technology and library management: 13th International Essen Symposium: Festschrift in honour of Margaret Beckman.</em> Universitätsbibliothek Essen.</div>
+    </div>
+    <div class="entry" data-decade="1990s" data-text="devarajan gopalakrishnan nair rajan augustine professional librarianship ess ess">
+      <span class="entry-num">34</span>
+      <div class="entry-text">Devarajan, G., Gopalakrishnan Nair, P., Rajan, A. C., & Augustine, C. A. (1991). <em>Professional librarianship: C.A. Augustine Festschrift.</em> Ess Ess Publications. <span class="entry-tag tag-new">New</span></div>
+    </div>
+    <div class="entry" data-decade="1990s" data-text="khurshid qureshi trends international librarianship honouring anis royal book">
+      <span class="entry-num">35</span>
+      <div class="entry-text">Khurshid, A., Qureshi, N., & Khurshid, Z. (1991). <em>Trends in international librarianship: A festschrift honouring Anis Khurshid.</em> Royal Book Co.</div>
+    </div>
+    <div class="entry" data-decade="1990s" data-text="dougherty helal weiss libraries electronic publishing essen richard">
+      <span class="entry-num">36</span>
+      <div class="entry-text">Dougherty, R. M., Helal, A. H., & Weiss, J. W. (1992). <em>Libraries and electronic publishing: 14th Annual Essen Symposium: Festschrift in honour of Richard M. Dougherty.</em> Universitätsbibliothek Essen.</div>
+    </div>
+    <div class="entry" data-decade="1990s" data-text="helal weiss innovation information festschrift ahmed essen">
+      <span class="entry-num">37</span>
+      <div class="entry-text">Helal, A. H., & Weiss, J. W. (1992). <em>Innovation for information: Festschrift in honour of Dr. Ahmed H. Helal.</em> Universitätsbibliothek Essen.</div>
+    </div>
+    <div class="entry" data-decade="1990s" data-text="patterson van fleet wallace service profession commitment charles scarecrow">
+      <span class="entry-num">38</span>
+      <div class="entry-text">Patterson, C. D., Van Fleet, C., & Wallace, D. P. (1992). <em>A service profession, a service commitment: A festschrift in honor of Charles D. Patterson.</em> Scarecrow Press.</div>
+    </div>
+    <div class="entry" data-decade="1990s" data-text="anwar chaudhry ashoor khurshid library information services developing countries anis">
+      <span class="entry-num">39</span>
+      <div class="entry-text">Anwar, M. A., Chaudhry, A. S., Ashoor, M. S. J., & Khurshid, A. (1993). <em>Library and information services in developing countries: A festschrift for Anis Khurshid.</em> Library & Information Management Academy.</div>
+    </div>
+    <div class="entry" data-decade="1990s" data-text="inamdar isaac ramaiah ramchander rao academic libraries national development inamdar tr publications">
+      <span class="entry-num">40</span>
+      <div class="entry-text">Inamdar, N. B., Isaac, D., Ramaiah, L. S., & Ramchander Rao, K. (1993). <em>Academic libraries, role in the national development: Festschrift volume in honour of Prof. N.B. Inamdar.</em> T.R. Publications.</div>
+    </div>
+    <div class="entry" data-decade="1990s" data-text="seetharama karisiddappa kumbhar current research library information science rbsa">
+      <span class="entry-num">41</span>
+      <div class="entry-text">Seetharama, S., Karisiddappa, C. R., & Kumbhar, M. R. (1993). <em>Current research in library and information science: Festschrift to Professor M.R. Kumbhar.</em> RBSA Publishers.</div>
+    </div>
+    <div class="entry" data-decade="1990s" data-text="white helal weiss opportunity 2000 essen symposium herbert">
+      <span class="entry-num">42</span>
+      <div class="entry-text">White, H. S., Helal, A. H., & Weiss, J. W. (1993). <em>Opportunity 2000: 15th International Essen Symposium: Festschrift in honour of Herbert S. White.</em> Universitätsbibliothek Essen.</div>
+    </div>
+    <div class="entry" data-decade="1990s" data-text="geh helal weiss resource sharing essen symposium hans-peter">
+      <span class="entry-num">43</span>
+      <div class="entry-text">Geh, H.-P., Helal, A. H., & Weiss, J. W. (1994). <em>Resource sharing: 16th International Essen Symposium: Festschrift in honor of Hans-Peter Geh.</em> Universitätsbibliothek Essen.</div>
+    </div>
+    <div class="entry" data-decade="1990s" data-text="holley williams good order essays honor edward jai press">
+      <span class="entry-num">44</span>
+      <div class="entry-text">Holley, E. G., & Williams, D. E. (1994). <em>For the good of the order: Essays in honor of Edward G. Holley.</em> JAI Press.</div>
+    </div>
+    <div class="entry" data-decade="1990s" data-text="hunter music publishing collecting essays honor donald krummel illinois graduate school">
+      <span class="entry-num">45</span>
+      <div class="entry-text">Hunter, D. (Ed.). (1994). <em>Music publishing & collecting: Essays in honor of Donald W. Krummel.</em> Graduate School of Library and Information Science, University of Illinois. 252p. ISBN 0878450955.</div>
+    </div>
+    <div class="entry" data-decade="1990s" data-text="venkatappaiah gupta dimensions library information science kaula concept publishing">
+      <span class="entry-num">46</span>
+      <div class="entry-text">Veṅkaṭappayya, V., & Gupta, S. R. (1994). <em>Dimensions of library and information science: Kaula festschrift.</em> Concept Publishing Company.
+        <div class="entry-note">Verify relationship to Kaula & Veṅkaṭappayya 1990.</div>
+      </div>
+    </div>
+    <div class="entry" data-decade="1990s" data-text="venkatappaiah vashishth new horizons library information science velaga tr publications">
+      <span class="entry-num">47</span>
+      <div class="entry-text">Veṅkaṭappayya, V., & Vashishth, C. P. (1994). <em>New horizons in library and information science: Dr. Velaga Venkatappaiah, festschrift.</em> T.R. Publications.</div>
+    </div>
+    <div class="entry" data-decade="1990s" data-text="chng wijasuriya information challenge festschrift donald knowledge publishers malaysia">
+      <span class="entry-num">48</span>
+      <div class="entry-text">Chng, K. S., & Wijasuriya, D. E. K. (1995). <em>The information challenge: A festschrift in honour of Dr. Donald Wijasuriya.</em> Knowledge Publishers.</div>
+    </div>
+    <div class="entry" data-decade="1990s" data-text="dempsey law mowat bryant networking future libraries festschrift philip library association">
+      <span class="entry-num">49</span>
+      <div class="entry-text">Dempsey, L., Law, D. G., Mowat, I. R. M., & Bryant, P. (1995). <em>Networking and the future of libraries 2: A festschrift for Philip Bryant.</em> Library Association Pub.</div>
+    </div>
+    <div class="entry" data-decade="1990s" data-text="fur alle offen bibliotheken grobli basel universitat">
+      <span class="entry-num">50</span>
+      <div class="entry-text">Für alle(s) offen: Bibliotheken auf neuen Wegen: <em>Festschrift für Dr. Fredy Gröbli.</em> (1995). Öffentliche Bibliothek der Universität Basel. <span class="entry-tag tag-new">New</span></div>
+    </div>
+    <div class="entry" data-decade="1990s" data-text="henderson smith carter technical services management 1965 1990 festschrift kathryn luther haworth">
+      <span class="entry-num">51</span>
+      <div class="entry-text">Henderson, K. L., Smith, L. C., & Carter, R. C. (1996). <em>Technical services management, 1965–1990: Festschrift for Kathryn Luther Henderson.</em> Haworth Press.</div>
+    </div>
+    <div class="entry" data-decade="1990s" data-text="information superhighway lancaster festschrift essen symposium 17th">
+      <span class="entry-num">52</span>
+      <div class="entry-text"><em>Information superhighway: Festschrift in honor of Frederick Wilfrid Lancaster: 17th International Essen Symposium, 1994.</em> (1995). Universitätsbibliothek Essen.</div>
+    </div>
+    <div class="entry" data-decade="1990s" data-text="managing intellectual record festschrift philip bryant library association">
+      <span class="entry-num">53</span>
+      <div class="entry-text"><em>Managing the intellectual record: A festschrift for Philip Bryant.</em> (1995). Library Association Pub.</div>
+    </div>
+    <div class="entry" data-decade="1990s" data-text="mcintosh harvey pryor cloud witnesses libraries theologies lawrence uniting church anztla">
+      <span class="entry-num">54</span>
+      <div class="entry-text">McIntosh, L. D., Harvey, P. A., & Pryor, L. (1995). <em>'So great a cloud of witnesses': Libraries & theologies: Festschrift in honour of Lawrence D. McIntosh.</em> Uniting Church Theological Hall and ANZTLA.</div>
+    </div>
+    <div class="entry" data-decade="1990s" data-text="weiss schlotterback festschrift vladimir milicic western washington university">
+      <span class="entry-num">55</span>
+      <div class="entry-text">Weiss, R., & Schlotterback, T. (Eds.). (1995). <em>Festschrift for Vladimir Milicic.</em> Western Washington University. <span class="entry-tag tag-new">New</span></div>
+    </div>
+    <div class="entry" data-decade="1990s" data-text="barua mahapatra thomas public libraries developing countries barua vikas india">
+      <span class="entry-num">56</span>
+      <div class="entry-text">Barua, B. P., Mahapatra, P. K., & Thomas, V. K. (1996). <em>Public libraries in developing countries: Status and trends: Dr. B.P. Barua festschrift volume.</em> Vikas Pub. House.</div>
+    </div>
+    <div class="entry" data-decade="1990s" data-text="helal weiss battin electronic documents information essen symposium patricia">
+      <span class="entry-num">57</span>
+      <div class="entry-text">Helal, A. H., Weiss, J. W., & Battin, P. (1996). <em>Electronic documents and information: 18th International Essen Symposium: Festschrift in honor of Patricia Battin.</em> Universitätsbibliothek Essen.</div>
+    </div>
+    <div class="entry" data-decade="1990s" data-text="murray milham cooking festschrift 75th birthday mary ella university new brunswick">
+      <span class="entry-num">58</span>
+      <div class="entry-text">Murray, J. S. (1997). <em>What's cooking?: A festschrift in celebration of the 75th birthday of Mary Ella Milham.</em> University of New Brunswick Libraries.
+        <div class="entry-note">Classical scholar; library-produced festschrift.</div>
+      </div>
+    </div>
+    <div class="entry" data-decade="1990s" data-text="sarada ramaiah public library systems services networking festschrift k sarada ess ess">
+      <span class="entry-num">59</span>
+      <div class="entry-text">Sarada, K., & Ramaiah, L. S. (1997). <em>Public library systems: Services & networking: A festschrift presented to Prof. K. Sarada.</em> Ess Ess Publications.</div>
+    </div>
+    <div class="entry" data-decade="1990s" data-text="sharma librarianship today tomorrow verma festschrift ess ess india">
+      <span class="entry-num">60</span>
+      <div class="entry-text">Sharma, U. C. (1997). <em>Librarianship today and tomorrow: Dr. S.C. Verma festschrift.</em> Ess Ess Publications.</div>
+    </div>
+    <div class="entry" data-decade="1990s" data-text="ramaiah satyanarayana multimedia applications library information science ramaiah tr publications">
+      <span class="entry-num">61</span>
+      <div class="entry-text">Ramaiah, L. S., & Satyanarayana, B. (1998). <em>Multimedia: Its applications in library and information science: Festschrift in honour of Prof. L.S. Ramaiah.</em> T.R. Publications.</div>
+    </div>
+    <div class="entry" data-decade="1990s" data-text="anand navalani trikha library information services festschrift anand rawat india">
+      <span class="entry-num">62</span>
+      <div class="entry-text">Anand, A. K., Navalani, K., & Trikha, S. (1999). <em>Library and information services: Festschrift for Ms. Anand K. Anand.</em> Rawat Publications.</div>
+    </div>
+    <div class="entry" data-decade="1990s" data-text="venugopal tripathi vistas library information systems networks festschrift yk publishers">
+      <span class="entry-num">63</span>
+      <div class="entry-text">Vēṇugōpāl, Y. V., & Tripathi, S. M. (1999). <em>Vistas in library, information systems and networks: A festschrift to Professor S.M. Tripathi.</em> Y.K. Publishers.</div>
+    </div>
+  </section>
+
+  <!-- 2000s -->
+  <section class="decade-section" data-decade="2000s">
+    <div class="decade-header">
+      <span class="decade-label">2000s</span>
+      <span class="decade-count">36 entries</span>
+    </div>
+    <div class="entry" data-decade="2000s" data-text="ashok babu vision future library information systems murthy viva books">
+      <span class="entry-num">64</span>
+      <div class="entry-text">Ashok Babu, T. (2000). <em>Vision of future library and information systems: Dr. S.S. Murthy festschrift.</em> Viva Books.</div>
+    </div>
+    <div class="entry" data-decade="2000s" data-text="derek fielding festschrift australian academic research libraries">
+      <span class="entry-num">65</span>
+      <div class="entry-text"><em>Derek Fielding: A festschrift.</em> (2000). <em>Australian Academic & Research Libraries.</em></div>
+    </div>
+    <div class="entry" data-decade="2000s" data-text="garfield cronin atkins web knowledge festschrift eugene information today">
+      <span class="entry-num">66</span>
+      <div class="entry-text">Garfield, E., Cronin, B., & Atkins, H. B. (2000). <em>The web of knowledge: A festschrift in honor of Eugene Garfield.</em> Information Today.</div>
+    </div>
+    <div class="entry" data-decade="2000s" data-text="reissmann geschichte gegenwart zukunft bibliothek festschrift konrad marwinski saur">
+      <span class="entry-num">67</span>
+      <div class="entry-text">Reissmann, D. (Ed.). (2000). <em>Geschichte, Gegenwart und Zukunft der Bibliothek: Festschrift für Konrad Marwinski zum 65. Geburtstag.</em> K.G. Saur.</div>
+    </div>
+    <div class="entry" data-decade="2000s" data-text="sood vyas pawan swain excellence information technology sood raj pub">
+      <span class="entry-num">68</span>
+      <div class="entry-text">Sood, S. P., Vyas, S. D., Pawan, U., & Swain, N. K. (2000a). <em>Excellence in information technology: Dr. S.P. Sood festschrift.</em> Raj Pub. House.</div>
+    </div>
+    <div class="entry" data-decade="2000s" data-text="sood vyas pawan swain readings library information science sood raj pub">
+      <span class="entry-num">69</span>
+      <div class="entry-text">Sood, S. P., Vyas, S. D., Pawan, U., & Swain, N. K. (2000b). <em>Readings in library and information science: Dr. S.P. Sood festschrift.</em> Raj Pub. House.</div>
+    </div>
+    <div class="entry" data-decade="2000s" data-text="wheeler cochrane saving time library user subject access pauline atherton illinois">
+      <span class="entry-num">70</span>
+      <div class="entry-text">Wheeler, W. J., & Cochrane, P. A. (2000). <em>Saving the time of the library user through subject access innovation: Papers in honor of Pauline Atherton Cochrane.</em> Publications Office, Graduate School of Library and Information Science.
+        <div class="entry-note">PAC — critical addition; Cochrane discussed as underrecognized figure in the literature.</div>
+      </div>
+    </div>
+    <div class="entry" data-decade="2000s" data-text="bankole olanlokun salisu libraries librarianship nigeria festschrift ezekiel ikofa">
+      <span class="entry-num">71</span>
+      <div class="entry-text">Bankole, E. B., Olanlokun, O., & Salisu, T. M. (2001). <em>Libraries & librarianship in Nigeria: A festschrift for Ezekiel Bejide Bankole.</em> Ikofa Press.</div>
+    </div>
+    <div class="entry" data-decade="2000s" data-text="lawal modern librarianship nigeria festschrift nduntuei otu ita calabar">
+      <span class="entry-num">72</span>
+      <div class="entry-text">Lawal, O. O. (Ed.). (2002). <em>Modern librarianship in Nigeria: A festschrift for Chief Nduntuei Otu Ita.</em> University of Calabar Press.</div>
+    </div>
+    <div class="entry" data-decade="2000s" data-text="roy cherian scilken getting libraries credit festschrift marvin scarecrow">
+      <span class="entry-num">73</span>
+      <div class="entry-text">Roy, L., Cherian, A., & Scilken, M. H. (2002). <em>Getting libraries the credit they deserve: A festschrift in honor of Marvin H. Scilken.</em> Scarecrow Press.</div>
+    </div>
+    <div class="entry" data-decade="2000s" data-text="sadasivamurthy sirurmath electronic libraries sadasivamurthy allied publishers">
+      <span class="entry-num">74</span>
+      <div class="entry-text">Sadāśivamūrti, P., & Sirurmath, S. S. (2002). <em>Electronic libraries: Dr. P. Sadasivamurthy Festschrift.</em> Allied Publishers Ltd.</div>
+    </div>
+    <div class="entry" data-decade="2000s" data-text="babu gopalakrishnan knowledge management today tomorrow venkatappaiah ess ess">
+      <span class="entry-num">75</span>
+      <div class="entry-text">Babu, B. R., & Gopalakrishnan, S. (2003). <em>Knowledge management: Today and tomorrow: Festschrift in honour of Dr. Velaga Venkatappaiah.</em> Ess Ess Publications.</div>
+    </div>
+    <div class="entry" data-decade="2000s" data-text="hodges lougee digital libraries vision 21st century wendy michigan scholarly publishing">
+      <span class="entry-num">76</span>
+      <div class="entry-text">Hodges, P., & Lougee, W. P. (2003). <em>Digital libraries: A vision for the 21st century: A festschrift in honor of Wendy Lougee.</em> Scholarly Publishing Office, University of Michigan.</div>
+    </div>
+    <div class="entry" data-decade="2000s" data-text="mainwaring dodge festschrift walter sanderlin washington jefferson college">
+      <span class="entry-num">77</span>
+      <div class="entry-text">Mainwaring, T., & Dodge, R. H. (2003). <em>A Festschrift for Professor Walter S. Sanderlin.</em> Washington & Jefferson College.</div>
+    </div>
+    <div class="entry" data-decade="2000s" data-text="rockenbach mendina almagno ethics electronic information festschrift stephen mcfarland">
+      <span class="entry-num">78</span>
+      <div class="entry-text">Rockenbach, B., Mendina, T., & Almagno, S. (2003). <em>Ethics and electronic information: A festschrift for Stephen Almagno.</em> McFarland & Co.</div>
+    </div>
+    <div class="entry" data-decade="2000s" data-text="seetharama ramesh babu vaishnav gopalakrishnan information management trends issues seetharama researchco">
+      <span class="entry-num">79</span>
+      <div class="entry-text">Seetharama, S., Ramesh Babu, B., Vaishnav, A. A., & Gopalakrishnan, S. (2003). <em>Information management: Trends and issues: Festschrift in honour of Prof. S. Seetharama.</em> Researchco Book Centre.</div>
+    </div>
+    <div class="entry" data-decade="2000s" data-text="deshpande patil mahajan university college librarianship india 21st century pune">
+      <span class="entry-num">80</span>
+      <div class="entry-text">Deshpande, N. J., Patil, S. K., & Mahajan, S. G. (2004). <em>University and college librarianship in India in the 21st century: Prof. S.G. Mahajan festschrift.</em> Dept. of Library and Information Science, University of Pune.</div>
+    </div>
+    <div class="entry" data-decade="2000s" data-text="singh krishnanand rab facets library information science singh anupam prakashan">
+      <span class="entry-num">81</span>
+      <div class="entry-text">Singh, R. S. P., Krishnanand, & Rab, S. F. (2004). <em>Facets of library and information science: Festschrift in honour of Dr. R.S.P. Singh.</em> Anupam Prakashan.</div>
+    </div>
+    <div class="entry" data-decade="2000s" data-text="taking stock libraries librarianship australia festschrift margaret trask alia">
+      <span class="entry-num">82</span>
+      <div class="entry-text"><em>Taking stock: Libraries and librarianship in Australia: A festschrift in honour of Margaret Trask AM.</em> (2004). Australian Library and Information Association.</div>
+    </div>
+    <div class="entry" data-decade="2000s" data-text="vashishth ramesh babu gopalakrishnan information communication library community development vashishth br pub">
+      <span class="entry-num">83</span>
+      <div class="entry-text">Vashishth, C. P., Ramesh Babu, B., & Gopalakrishnan, S. (2004). <em>Information, communication, library, and community development: Festschrift in honour of Prof. C.P. Vashishth.</em> B.R. Pub. Corp.</div>
+    </div>
+    <div class="entry" data-decade="2000s" data-text="haworth power passion archives festschrift kent haworth association canadian archivists">
+      <span class="entry-num">84</span>
+      <div class="entry-text">Haworth, K. M. (2005). <em>The power and passion of archives: A festschrift in honour of Kent Haworth.</em> Association of Canadian Archivists.</div>
+    </div>
+    <div class="entry" data-decade="2000s" data-text="horton warren festschrift australian academic research libraries journal">
+      <span class="entry-num">85</span>
+      <div class="entry-text">Horton, W. (2005). <em>Warren Horton: A festschrift.</em> <em>Australian Academic & Research Libraries,</em> 36(3). <span class="entry-tag tag-journal">Journal issue</span></div>
+    </div>
+    <div class="entry" data-decade="2000s" data-text="croucher schaffner ference books bibliographies pugs festschrift murlin slavica">
+      <span class="entry-num">86</span>
+      <div class="entry-text">Croucher, M., Schaffner, B. L., & Ference, G. C. (2006). <em>Books, bibliographies, and pugs: A festschrift to honor Murlin Croucher.</em> Slavica.</div>
+    </div>
+    <div class="entry" data-decade="2000s" data-text="hider pymm education library information services festschrift thirty years charles sturt university">
+      <span class="entry-num">87</span>
+      <div class="entry-text">Hider, P., & Pymm, B. (2006). <em>Education for library and information services: A festschrift celebrating thirty years of library education at Charles Sturt University.</em> Centre for Information Studies. <span class="entry-tag tag-institutional">Institutional</span></div>
+    </div>
+    <div class="entry" data-decade="2000s" data-text="prasad raghavan knowledge organization information systems neelameghan festschrift ess ess">
+      <span class="entry-num">88</span>
+      <div class="entry-text">Prasad, K. N., & Raghavan, K. S. (2006). <em>Knowledge organization, information systems and other essays: Professor A. Neelameghan Festschrift.</em> Ess Ess Publ.</div>
+    </div>
+    <div class="entry" data-decade="2000s" data-text="sankara reddy ashok babu ramaiah developing cyber libraries sankara allied publishers">
+      <span class="entry-num">89</span>
+      <div class="entry-text">Sankara Reddy, M., Ashok Babu, T., & Ramaiah, L. S. (2006). <em>Developing cyber libraries: Festschrift in honour of professor M. Sankara Reddy.</em> Allied Publishers.</div>
+    </div>
+    <div class="entry" data-decade="2000s" data-text="hatley furr merrill freedom fighter festschrift john merrill northwestern state university journalism">
+      <span class="entry-num">90</span>
+      <div class="entry-text">Hatley, D. W., Furr, P. F., & Merrill, J. C. (2007). <em>Freedom fighter: A Festschrift honoring John C. Merrill.</em> Northwestern State University Press.
+        <div class="entry-note">Journalism education; included given LIS/communication iSchool overlap.</div>
+      </div>
+    </div>
+    <div class="entry" data-decade="2000s" data-text="larkin luanaigh librarians poets scholars festschrift donall four courts press ireland">
+      <span class="entry-num">91</span>
+      <div class="entry-text">Larkin, F. M., & Ó Lúanaigh, D. (2007). <em>Librarians, poets and scholars: A festschrift for Dónall Ó Luanaigh.</em> Four Courts Press.</div>
+    </div>
+    <div class="entry" data-decade="2000s" data-text="tummala ramaiah sankara reddy hemant kumar e-libraries problems perspectives ashok babu allied publishers">
+      <span class="entry-num">92</span>
+      <div class="entry-text">Tummala, A. B., Ramaiah, L. S., Sankara Reddy, M., & Hemant Kumar. (2007). <em>E-libraries: Problems and perspectives: Festschrift in honour of Shri Ashok Babu Tummala.</em> Allied Publishers.</div>
+    </div>
+    <div class="entry" data-decade="2000s" data-text="amudhavalli chandrakumar bavakutty dynamics digital information systems bavakutty ess ess">
+      <span class="entry-num">93</span>
+      <div class="entry-text">Amudhavalli, A., Chandrakumar, V., & Bavakutty, M. (2008). <em>Dynamics in digital information systems: Festschrift volume in honour of Prof. M. Bavakutty.</em> Ess Ess Publications.</div>
+    </div>
+    <div class="entry" data-decade="2000s" data-text="earnshaw carr digital convergence libraries future festschrift reg springer">
+      <span class="entry-num">94</span>
+      <div class="entry-text">Earnshaw, R. A., & Carr, R. (2008). <em>Digital convergence – libraries of the future: Festschrift in honour of Dr. Reg Carr.</em> Springer.</div>
+    </div>
+    <div class="entry" data-decade="2000s" data-text="heiner-freiling new perspectives subject indexing classification essays magda deutsche nationalbibliothek">
+      <span class="entry-num">95</span>
+      <div class="entry-text">Heiner-Freiling, M. (2008). <em>New perspectives on subject indexing and classification: Essays in honour of Magda Heiner-Freiling.</em> Deutsche Nationalbibliothek.</div>
+    </div>
+    <div class="entry" data-decade="2000s" data-text="ramaiah sujatha isaac rao preservation library archival digital documents dorothy ess ess">
+      <span class="entry-num">96</span>
+      <div class="entry-text">Ramaiah, L. S., Sujatha, G., Isaac, D., & Rao, S. S. J. (2008). <em>Preservation of library, archival and digital documents: Festschrift in honour of Dr (Mrs) Dorothy Isaac and Prof. S.S. Janardana Rao.</em> Ess Ess Publications.</div>
+    </div>
+    <div class="entry" data-decade="2000s" data-text="rout nigam kataria digital libraries festschrift rout mahamaya pub">
+      <span class="entry-num">97</span>
+      <div class="entry-text">Rout, R. K., Nigam, B. S., & Kataria, S. (2008a). <em>Digital libraries: A festschrift volume of Professor R.K. Rout.</em> Mahamaya Pub. House.</div>
+    </div>
+    <div class="entry" data-decade="2000s" data-text="rout nigam kataria knowledge management digital era festschrift rout mahamaya pub">
+      <span class="entry-num">98</span>
+      <div class="entry-text">Rout, R. K., Nigam, B. S., & Kataria, S. (2008b). <em>Knowledge management in the digital era: A festschrift volume of Professor R.K. Rout.</em> Mahamaya Pub. House.</div>
+    </div>
+    <div class="entry" data-decade="2000s" data-text="brophy griffiths craven access delivery performance future libraries walls peter facet">
+      <span class="entry-num">99</span>
+      <div class="entry-text">Brophy, P., Griffiths, J. R., & Craven, J. (2009). <em>Access, delivery, performance: The future of libraries without walls: A festschrift to celebrate the work of Professor Peter Brophy.</em> Facet.</div>
+    </div>
+  </section>
+
+  <!-- 2010s -->
+  <section class="decade-section" data-decade="2010s">
+    <div class="decade-header">
+      <span class="decade-label">2010s</span>
+      <span class="decade-count">50 entries</span>
+    </div>
+    <div class="entry" data-decade="2010s" data-text="gupta ojha das modern trends library information science ojha scientific publishers india">
+      <span class="entry-num">100</span>
+      <div class="entry-text">Gupta, P. K., Ojha, D. C., & Das, T. (2010). <em>Modern trends in library and information science: Dr. D.C. Ojha festschrift.</em> Scientific Publishers (India).</div>
+    </div>
+    <div class="entry" data-decade="2010s" data-text="larsen schneider astrom schlemmer janus faced scholar festschrift peter ingwersen informationsvidenskabelige">
+      <span class="entry-num">101</span>
+      <div class="entry-text">Larsen, B., Schneider, J. W., Åström, F., & Schlemmer, B. (2010). <em>The Janus faced scholar: A festschrift in honour of Peter Ingwersen.</em> Det Informationsvidenskabelige Akademi.</div>
+    </div>
+    <div class="entry" data-decade="2010s" data-text="westbrooks jenkins metadata digital collections festschrift tom turner cornell university library">
+      <span class="entry-num">102</span>
+      <div class="entry-text">Westbrooks, E. L., & Jenkins, K. (Eds.). (2010). <em>Metadata and digital collections: A festschrift in honor of Tom Turner.</em> Cornell University Library.</div>
+    </div>
+    <div class="entry" data-decade="2010s" data-text="devarajan gopikuttan vijayakumar research library information science devarajan ess ess">
+      <span class="entry-num">103</span>
+      <div class="entry-text">Devarajan, G., Gopikuttan, A., & Vijayakumar, K. P. (2011). <em>Research @ library and information science: Prof (Dr) G. Devarajan festschrift.</em> Ess Ess Publications.</div>
+    </div>
+    <div class="entry" data-decade="2010s" data-text="kesarwani bhagwan ahuja information access contributions lis festschrifts india ess publications index">
+      <span class="entry-num">104</span>
+      <div class="entry-text">Kesarwani, S. K., Bhagwan, N., & Ahuja, J. (2011). <em>Information access to contributions in LIS festschrifts published from India.</em> Ess Publications.
+        <div class="entry-note">Index and analysis.</div>
+      </div>
+    </div>
+    <div class="entry" data-decade="2010s" data-text="mikoletzky beruf archivar festschrift lorenz osterreichisches staatsarchiv austria">
+      <span class="entry-num">105</span>
+      <div class="entry-text">Mikoletzky, L. (2011). <em>Beruf(ung): Archivar: Festschrift für Lorenz Mikoletzky.</em> Österreichisches Staatsarchiv. <span class="entry-tag tag-new">New</span></div>
+    </div>
+    <div class="entry" data-decade="2010s" data-text="daniel trends library information science nigeria festschrift sam ifidon elis">
+      <span class="entry-num">106</span>
+      <div class="entry-text">Daniel, J. O. (2012). <em>Trends in library and information science in Nigeria: A Festschrift in honour of Professor Sam E. Ifidon.</em> Elis Associates.</div>
+    </div>
+    <div class="entry" data-decade="2010s" data-text="ifidon daniel ifidon okegbola trends library information science nigeria sam elis">
+      <span class="entry-num">107</span>
+      <div class="entry-text">Ifidon, S. E., Daniel, J. O., Ifidon, E. I., & Okegbola, T. (2012). <em>Trends in library and information science in Nigeria: Festschrift in honour of Prof. Sam E. Ifidon.</em> Elis Associates.</div>
+    </div>
+    <div class="entry" data-decade="2010s" data-text="panda karisiddappa padhi information control management digital environment panda atlantic">
+      <span class="entry-num">108</span>
+      <div class="entry-text">Panda, K. C., Karisiddappa, C. R., & Padhi, P. (2012). <em>Information control and management in digital environment: A festschrift in honour of Prof. K.C. Panda.</em> Atlantic Publishers & Distributors.</div>
+    </div>
+    <div class="entry" data-decade="2010s" data-text="prasher sharma ict based information management indian libraries sahoo bookwell">
+      <span class="entry-num">109</span>
+      <div class="entry-text">Prasher, R. G., & Sharma, R. K. (Eds.). (2012). <em>ICT based information management in Indian libraries: Festschrift in honour of Prof. (Dr.) K.C. Sahoo.</em> Bookwell.</div>
+    </div>
+    <div class="entry" data-decade="2010s" data-text="ramaiah veeranjaneyulu sujatha next generation librarianship festschrift koteswara rao bs publications">
+      <span class="entry-num">110</span>
+      <div class="entry-text">Ramaiah, L. S., Veeranjaneyulu, K., & Sujatha, G. (Eds.). (2012). <em>Next generation librarianship: Festschrift in honour of Dr. M. Koteswara Rao.</em> BS Publications.</div>
+    </div>
+    <div class="entry" data-decade="2010s" data-text="ramesh babu dynamics librarianship knowledge society festschrift ramesh babu br pub">
+      <span class="entry-num">111</span>
+      <div class="entry-text">Ramesh Babu, B., et al. (2012). <em>Dynamics of librarianship in the knowledge society: Festschrift in honour of Prof. B. Ramesh Babu.</em> B.R. Pub. Corp.</div>
+    </div>
+    <div class="entry" data-decade="2010s" data-text="sharify belt around world festschrift nasser sharify iUniverse">
+      <span class="entry-num">112</span>
+      <div class="entry-text">Sharify, N. (2012). <em>A belt around the world: A festschrift honoring Nasser Sharify.</em> iUniverse, Inc.</div>
+    </div>
+    <div class="entry" data-decade="2010s" data-text="deng yu cala reaching beyond ourselves celebrating 40 years chinese american librarians association">
+      <span class="entry-num">113</span>
+      <div class="entry-text">Deng, Sai, Priscilla Yu, and CALA 40th Celebration Task-Force, eds. (2013). <em>Reaching Beyond Ourselves: Celebrating 40 Years of CALA (1973–2013).</em> Chinese American Librarians Association. <a href="https://ir.cala-web.org/items/show/60" target="_blank" rel="noopener">ir.cala-web.org →</a> <span class="entry-tag tag-institutional">Institutional</span> <span class="entry-tag tag-bipoc">BIPOC Tribute</span>
+        <div class="entry-note">Scope note: BIPOC and diasporic professional communities have developed their own traditions of collective tribute that parallel but do not always follow the European festschrift form. This volume — celebrating the 40th anniversary of the Chinese American Librarians Association — is an example of how communities underrepresented in mainstream festschrift culture build their own forms of honoring collective memory and professional contribution.</div>
+      </div>
+    </div>
+    <div class="entry" data-decade="2010s" data-text="chandran ramesh babu kumbar libraries changing dimensions digital technology chandran br pub">
+      <span class="entry-num">114</span>
+      <div class="entry-text">Chandran, D., Ramesh Babu, B., Kumbar, B. D., et al. (2013). <em>Libraries in the changing dimensions of digital technology: Festschrift in honour of Prof. D. Chandran.</em> B.R. Pub. Corp.</div>
+    </div>
+    <div class="entry" data-decade="2010s" data-text="essays libraries cultural heritage freedom information kai ekholm 60th birthday national library finland">
+      <span class="entry-num">115</span>
+      <div class="entry-text"><em>Essays on libraries, cultural heritage and freedom of information</em> [Festschrift on the occasion of Kai Ekholm's 60th birthday, 15 October 2013]. (2013). National Library of Finland.</div>
+    </div>
+    <div class="entry" data-decade="2010s" data-text="lai qasidah tinta festschrift ahmat adam universiti malaysia sabah malay">
+      <span class="entry-num">116</span>
+      <div class="entry-text">Lai, Y. M. (Ed.). (2013). <em>Qasidah tinta: Sebuah festschrift untuk Prof. Emeritus Dr. Ahmat Adam.</em> Universiti Malaysia Sabah. <span class="entry-tag tag-new">New</span>
+        <div class="entry-note">Malay-language; important for global/multilingual scope.</div>
+      </div>
+    </div>
+    <div class="entry" data-decade="2010s" data-text="sudarshan rao rama reddy information management today tomorrow sudarshan rao br pub">
+      <span class="entry-num">117</span>
+      <div class="entry-text">Sudarshan Rao, S., & Rama Reddy, E. (2013). <em>Information management: Today and tomorrow: Festschrift in honour of Prof. S. Sudarshan Rao.</em> B.R. Pub. Corp.</div>
+    </div>
+    <div class="entry" data-decade="2010s" data-text="koopmann business changing society festschrift peter brabeck-letmathe nzz libro">
+      <span class="entry-num">118</span>
+      <div class="entry-text">Koopmann, A. (2014). <em>Business in a changing society: Festschrift for Peter Brabeck-Letmathe.</em> NZZ Libro.
+        <div class="entry-note">Business / information management.</div>
+      </div>
+    </div>
+    <div class="entry" data-decade="2010s" data-text="pathania information access digital libraries festschrift pathania new india pub">
+      <span class="entry-num">119</span>
+      <div class="entry-text">Pathania, M. S., et al. (2014). <em>Information access in digital libraries: A festschrift volume in honour of Dr. M.S. Pathania.</em> New India Pub. Agency.</div>
+    </div>
+    <div class="entry" data-decade="2010s" data-text="willett festschrift honour nigel ford emerald group publishing">
+      <span class="entry-num">120</span>
+      <div class="entry-text">Willett, P. (Ed.). (2014). <em>Festschrift in honour of Nigel Ford.</em> Emerald Group Publishing Limited.</div>
+    </div>
+    <div class="entry" data-decade="2010s" data-text="future library information science festschrift ramakant sharma ess ess">
+      <span class="entry-num">121</span>
+      <div class="entry-text"><em>Future of library and information science: Festschrift volume in honour of Dr. Ramakant Sharma.</em> (2015). Ess Ess Publications.</div>
+    </div>
+    <div class="entry" data-decade="2010s" data-text="jange quality excellence librarianship festschrift gaddagimath sarpan india">
+      <span class="entry-num">122</span>
+      <div class="entry-text">Jange, S. (Ed.). (2015). <em>Quality and excellence in librarianship: Festschrift in honor of Dr. R.B. Gaddagimath.</em> Sarpan Prakashana.</div>
+    </div>
+    <div class="entry" data-decade="2010s" data-text="jones concise companion manuscripts printed books early modern texts festschrift gordon campbell wiley">
+      <span class="entry-num">123</span>
+      <div class="entry-text">Jones, E. (Ed.). (2015). <em>A concise companion to the study of manuscripts, printed books, and the production of early modern texts: A festschrift for Gordon Campbell.</em> John Wiley.</div>
+    </div>
+    <div class="entry" data-decade="2010s" data-text="kratz ost west buch bibliothek festschrift horst rohling pl academic research">
+      <span class="entry-num">124</span>
+      <div class="entry-text">Kratz, G. (Ed.). (2015). <em>Ost und West in Buch und Bibliothek: Festschrift für Horst Röhling.</em> PL Academic Research. <span class="entry-tag tag-new">New</span></div>
+    </div>
+    <div class="entry" data-decade="2010s" data-text="publizistik gesellschaftliche verantwortung festschrift wolfgang donsbach springer communication journalism">
+      <span class="entry-num">125</span>
+      <div class="entry-text"><em>Publizistik und gesellschaftliche Verantwortung: Festschrift für Wolfgang Donsbach.</em> (2015). Springer VS.
+        <div class="entry-note">Communication/journalism; included given iSchool overlap.</div>
+      </div>
+    </div>
+    <div class="entry" data-decade="2010s" data-text="ramesh babu asok kumar revolution digital environment library information services gopalakrishnan br publishing">
+      <span class="entry-num">126</span>
+      <div class="entry-text">Ramesh Babu, B., & Asok Kumar, S. K. (Eds.). (2015). <em>Revolution of digital environment on library and information services: Festschrift in honour of Dr. S. Gopalakrishnan (MIT).</em> B.R. Publishing Corporation.</div>
+    </div>
+    <div class="entry" data-decade="2010s" data-text="adetoro nkiko sustainable equitable access information nigeria festschrift morayo atinmo tai solarin">
+      <span class="entry-num">127</span>
+      <div class="entry-text">Adetoro, 'Niran, & Nkiko, C. (Eds.). (2016). <em>Providing sustainable and equitable access to information: Perspectives from Nigeria: Festschrift in honour of Professor Morayo Ibironke Atinmo at 70.</em> Tai Solarin University of Education Press.</div>
+    </div>
+    <div class="entry" data-decade="2010s" data-text="black manley peter hoare festschrift eightieth birthday library information history">
+      <span class="entry-num">128</span>
+      <div class="entry-text">Black, A., & Manley, K. A. (2016). Peter Hoare: A Festschrift for his eightieth birthday. <em>Library and Information History,</em> 32, 1–7. <span class="entry-tag tag-journal">Journal</span></div>
+    </div>
+    <div class="entry" data-decade="2010s" data-text="kataria transforming libraries librarianship festschrift harish chandra kbd publication">
+      <span class="entry-num">129</span>
+      <div class="entry-text">Kataria, S. (Ed.). (2016). <em>Transforming libraries and librarianship: A festschrift volume of late Dr. Harish Chandra.</em> KBD Publication.</div>
+    </div>
+    <div class="entry" data-decade="2010s" data-text="kelly bielby information cultures digital age festschrift rafael capurro springer">
+      <span class="entry-num">130</span>
+      <div class="entry-text">Kelly, M., & Bielby, J. (Eds.). (2016). <em>Information cultures in the digital age: A Festschrift in honor of Rafael Capurro.</em> Springer VS.</div>
+    </div>
+    <div class="entry" data-decade="2010s" data-text="kishore modern trends library information science digital thakur university prakashan">
+      <span class="entry-num">131</span>
+      <div class="entry-text">Kishore, A. (Ed.). (2016). <em>Modern trends in library & information science in digital environment: Festschrift in honour of Dr. U.M. Thakur.</em> University Prakashan.</div>
+    </div>
+    <div class="entry" data-decade="2010s" data-text="sugimoto theories informetrics scholarly communication festschrift blaise cronin de gruyter">
+      <span class="entry-num">132</span>
+      <div class="entry-text">Sugimoto, C. R. (Ed.). (2016). <em>Theories of informetrics and scholarly communication: A festschrift in honor of Blaise Cronin.</em> De Gruyter.</div>
+    </div>
+    <div class="entry" data-decade="2010s" data-text="verma shukla information resource management digital librarianship festschrift saini shree publishers">
+      <span class="entry-num">133</span>
+      <div class="entry-text">Verma, M. K., & Shukla, A. (Eds.). (2016). <em>Information resource management in digital librarianship: Festschrift in honour of Dr. J.L. Saini.</em> Shree Publishers & Distributors.</div>
+    </div>
+    <div class="entry" data-decade="2010s" data-text="ali information access knowledge society shabahat husain shree publishers">
+      <span class="entry-num">134</span>
+      <div class="entry-text">Ali, P. M. N. (Ed.). (2017). <em>Information access in knowledge society: Changing paradigms: Festschrift in honour of Prof. Shabahat Husain.</em> Shree Publishers & Distributors.</div>
+    </div>
+    <div class="entry" data-decade="2010s" data-text="bibliothek forschung praxis festschrift konrad umlauf 65 geburtstag de gruyter saur">
+      <span class="entry-num">135</span>
+      <div class="entry-text"><em>Bibliothek — Forschung für die Praxis: Festschrift für Konrad Umlauf zum 65. Geburtstag.</em> (2017). De Gruyter Saur. <span class="entry-tag tag-new">New</span></div>
+    </div>
+    <div class="entry" data-decade="2010s" data-text="jackson lewandowski willett advances information management festschrift mark hepworth emerald">
+      <span class="entry-num">136</span>
+      <div class="entry-text">Jackson, T., Lewandowski, D., & Willett, P. (2017). <em>Advances in information management: A festschrift in honour of Mark Hepworth.</em> Emerald Publishing Limited.</div>
+    </div>
+    <div class="entry" data-decade="2010s" data-text="shrivastava gupta recent advances library information science digital era varma prateeksha">
+      <span class="entry-num">137</span>
+      <div class="entry-text">Shrivastava, J., & Gupta, D. K. (Eds.). (2017). <em>Recent advances in library and information science in digital era: Professor A.K. Varma festschrift.</em> Prateeksha Publications.</div>
+    </div>
+    <div class="entry" data-decade="2010s" data-text="tripathi towards knowledge management e-libraries festschrift hansraj dps publishing">
+      <span class="entry-num">138</span>
+      <div class="entry-text">Tripathi, H. K. (Ed.). (2017). <em>Towards knowledge management in e-libraries: Festschrift in honour of Dr. Hansraj.</em> DPS Publishing House.</div>
+    </div>
+    <div class="entry" data-decade="2010s" data-text="umlauf werner kaufmann strategien bibliothek ort festschrift petra hauke 70 de gruyter saur">
+      <span class="entry-num">139</span>
+      <div class="entry-text">Umlauf, K., Werner, K. U., & Kaufmann, A. (Eds.). (2017). <em>Strategien für die Bibliothek als Ort: Festschrift für Petra Hauke zum 70. Geburtstag.</em> De Gruyter Saur. <span class="entry-tag tag-new">New</span></div>
+    </div>
+    <div class="entry" data-decade="2010s" data-text="veeranjaneyulu rathinasabapathy pateria redefining agricultural libraries festschrift arun kumar jain regency">
+      <span class="entry-num">140</span>
+      <div class="entry-text">Veeranjaneyulu, K., Rathinasabapathy, G., & Pateria, R. K. (Eds.). (2017). <em>Redefining agricultural libraries in knowledge society: Festschrift in honour of Dr. Arun Kumar Jain.</em> Regency Publications.</div>
+    </div>
+    <div class="entry" data-decade="2010s" data-text="adetoro salisu information media technology contemporary world festschrift salisu tai solarin">
+      <span class="entry-num">141</span>
+      <div class="entry-text">Adetoro, 'Niran, & Salisu, T.M. (Eds.). (2018). <em>Information and media technology in a contemporary world: Festschrift in honour of Dr. Taofiq Mabayoje Salisu.</em> Tai Solarin University of Education Press. <span class="entry-tag tag-new">New</span></div>
+    </div>
+    <div class="entry" data-decade="2010s" data-text="bavakutty azeez ict application academic library management nasirudheen ess ess">
+      <span class="entry-num">142</span>
+      <div class="entry-text">Bavakutty, M., & Azeez, A. (Eds.). (2018). <em>ICT application in academic library management: Festschrift volume in honour of Dr. T.P.O Nasirudheen.</em> Ess Ess Publications.</div>
+    </div>
+    <div class="entry" data-decade="2010s" data-text="kenis hall rostkowski theological libraries associations europe festschrift 50th anniversary beth brill">
+      <span class="entry-num">143</span>
+      <div class="entry-text">Kenis, L., Hall, P. R., & Rostkowski, M. (Eds.). (2022). <em>Theological libraries and library associations in Europe: A festschrift on the occasion of the 50th anniversary of BETH.</em> Brill. <span class="entry-tag tag-institutional">Institutional</span>
+        <div class="entry-note">Year confirmed as 2022.</div>
+      </div>
+    </div>
+    <div class="entry" data-decade="2010s" data-text="singh baba hasan singh re-modelling libraries digital era khan ess ess">
+      <span class="entry-num">144</span>
+      <div class="entry-text">Singh, M. P., Baba, A. M., Hasan, N., & Singh, J. (Eds.). (2018). <em>Re-modelling of libraries in digital era: Festschrift in honor of Prof. M.T.M. Khan.</em> Ess Ess Publications.</div>
+    </div>
+    <div class="entry" data-decade="2010s" data-text="tella quadri emotional intelligence leadership nigeria lis festschrift lenrie aina nigerian library association">
+      <span class="entry-num">145</span>
+      <div class="entry-text">Tella, A., & Quadri, R. F. (Eds.). (2018). <em>Emotional intelligence and leadership in Nigeria LIS: A festschrift in honour of Professor Lenrie Olatokunbo Aina.</em> Nigerian Library Association.</div>
+    </div>
+    <div class="entry" data-decade="2010s" data-text="die bibliothek spannungsfeld geschichte dienstleistungen werte festschrift hermann rosch bock herchen">
+      <span class="entry-num">146</span>
+      <div class="entry-text"><em>Die Bibliothek im Spannungsfeld Geschichte – Dienstleistungen – Werte: Festschrift für Hermann Rösch.</em> (2019). Bock + Herchen Verlag. <span class="entry-tag tag-new">New</span></div>
+    </div>
+    <div class="entry" data-decade="2010s" data-text="jange trends challenges opportunities lis education practice festschrift koganuramath shree publishers">
+      <span class="entry-num">147</span>
+      <div class="entry-text">Jange, S. (Ed.). (2019). <em>Trends, challenges and opportunities for LIS education and practice: Festschrift in honour of Prof. Muttayya Koganuramath.</em> Shree Publishers & Distributors.</div>
+    </div>
+    <div class="entry" data-decade="2010s" data-text="nnadozie university librarianship issues perspectives nigeria festschrift raphael ononogbo zeh communications">
+      <span class="entry-num">148</span>
+      <div class="entry-text">Nnadozie, C. (Ed.). (2019). <em>University librarianship: Issues and perspectives in Nigeria: A festschrift in honour of Professor Raphael U. Ononogbo.</em> Zeh Communications.</div>
+    </div>
+    <div class="entry" data-decade="2010s" data-text="olatokun aremu adetimirin research contemporary issues media resources ict mabawonku university ibadan">
+      <span class="entry-num">149</span>
+      <div class="entry-text">Olatokun, W., Aremu, O., & Adetimirin, A. (Eds.). (2019). <em>Research on contemporary issues in media resources and ICT use: A festschrift in honour of Professor Iyabo Motolagbe Mabawonku.</em> University of Ibadan.</div>
+    </div>
+    <div class="entry" data-decade="2010s" data-text="singh singh thapa emerging trends smart libraries festschrift khare shree publishers">
+      <span class="entry-num">150</span>
+      <div class="entry-text">Singh, S., Singh, B. K., & Thapa, N. (Eds.). (2019). <em>Emerging trends for smart libraries: A festschrift in honour of Professor V.P. Khare.</em> Shree Publishers & Distributors.</div>
+    </div>
+  </section>
+
+  <!-- 2020s -->
+  <section class="decade-section" data-decade="2020s">
+    <div class="decade-header">
+      <span class="decade-label">2020s</span>
+      <span class="decade-count">17 entries + 1 pending</span>
+    </div>
+    <div class="entry" data-decade="2020s" data-text="bastian yakel defining discipline archival research practice 21st century essays richard cox society american archivists">
+      <span class="entry-num">151</span>
+      <div class="entry-text">Bastian, J. A., & Yakel, E. (Eds.). (2020). <em>Defining a discipline: Archival research and practice in the twenty-first century, essays in honor of Richard J. Cox.</em> Society of American Archivists. <span class="entry-tag tag-new">New</span></div>
+    </div>
+    <div class="entry" data-decade="2020s" data-text="daraio glanzel evaluative informetrics art metrics research assessment festschrift henk moed springer">
+      <span class="entry-num">152</span>
+      <div class="entry-text">Daraio, C., & Glänzel, W. (Eds.). (2020). <em>Evaluative informetrics: The art of metrics-based research assessment: Festschrift in honour of Henk F. Moed.</em> Springer International Publishing.</div>
+    </div>
+    <div class="entry" data-decade="2020s" data-text="emmanuel ordu anele anthology library information science festschrift ahiauzu applause nigeria">
+      <span class="entry-num">153</span>
+      <div class="entry-text">Emmanuel, V. O., Ordu, I. I., & Anele, E. (Eds.). (2020). <em>Anthology in library and information science: A festschrift in honour of Professor Blessing Esuru Ahiauzu.</em> Applause Mult-sectors Ltd.</div>
+    </div>
+    <div class="entry" data-decade="2020s" data-text="issa salman omopupa ajibero management library information centres insecurity festschrift matthew ajibero tim-sal nigeria">
+      <span class="entry-num">154</span>
+      <div class="entry-text">Issa, A. O., Salman, A. A., Omopupa, T. K., & Ajibero, M. I. (2020). <em>Management of library and information centres in the era of global insecurity: A festschrift in honour of Professor Matthew Idowu Ajibero.</em> Tim-Sal & Bim Publishing Ltd.</div>
+    </div>
+    <div class="entry" data-decade="2020s" data-text="jeong roger greer festschrift colleagues friends family bluestem press">
+      <span class="entry-num">155</span>
+      <div class="entry-text">Jeong, W. (2020). <em>Roger C. Greer: A festschrift by Roger's colleagues, friends, & family.</em> Bluestem Press.</div>
+    </div>
+    <div class="entry" data-decade="2020s" data-text="akanwa omopupa egunjobi akinfolarin modern practices library information science festschrift akinfolarin unimed press">
+      <span class="entry-num">156</span>
+      <div class="entry-text">Akanwa, P. C., Omopupa, T. K., Egunjobi, R. A., & Akinfolarin, W. A. (2021). <em>Modern practices in library and information science: Themes, trends and issues: Festschrift in honour of William Abiodun Akinfolarin, CLN.</em> Unimed Press.</div>
+    </div>
+    <div class="entry" data-decade="2020s" data-text="babu libraries resource management knowledge society kumbar festschrift shree publishers">
+      <span class="entry-num">157</span>
+      <div class="entry-text">Babu, B. R. (2021). <em>Libraries and resource management in the knowledge society: Prof. (Dr.) B.D. Kumbar Festschrift.</em> Shree Publishers and Distributors.</div>
+    </div>
+    <div class="entry" data-decade="2020s" data-text="sinha managing university institutional libraries 21st century festschrift jayaswal shree publishers">
+      <span class="entry-num">158</span>
+      <div class="entry-text">Sinha, M. K. (Ed.). (2021). <em>Managing university and institutional libraries in 21st century: A festschrift in honour of Dr. Prem Kumar Jayaswal.</em> Shree Publishers & Distributors.</div>
+    </div>
+    <div class="entry" data-decade="2020s" data-text="veeranjaneyulu rathinasabapathy jadhav dynamics agricultural library information services festschrift srinivasa agri-biovet">
+      <span class="entry-num">159</span>
+      <div class="entry-text">Veeranjaneyulu, K., Rathinasabapathy, D. G., Jadhav, U. S., et al. (2021). <em>Dynamics of agricultural library and information services: Festschrift in honour of Dr. V. Srinivasa.</em> Agri-Biovet Press.</div>
+    </div>
+    <div class="entry" data-decade="2020s" data-text="croft loremasters libraries fantasy science fiction gedenkschrift david oberhelman mythopoeic press">
+      <span class="entry-num">160</span>
+      <div class="entry-text">Croft, J. B. (2022). <em>Loremasters and libraries in fantasy and science fiction: A Gedenkschrift for David D. Oberhelman.</em> Mythopoeic Press.</div>
+    </div>
+    <div class="entry" data-decade="2020s" data-text="coleman kyrillidou library trends library information science interdisciplinary festschrift linda smith">
+      <span class="entry-num">161</span>
+      <div class="entry-text">Coleman, A.S. & Kyrillidou, M., Issue Editors. (2022). Library and Information Science, Interdisciplinary Perspectives: A Festschrift in honor of Linda C. Smith. <em>Library Trends</em> 71(1): August. 143 pages. <span class="entry-tag tag-journal">Journal issue</span></div>
+    </div>
+    <div class="entry" data-decade="2020s" data-text="proot mckitterick nuovo gehl lux librorum essays books history chris coppens book history">
+      <span class="entry-num">162</span>
+      <div class="entry-text">Proot, J., McKitterick, D., Nuovo, A., & Gehl, P. (2022). <em>Lux librorum: Essays on books and history for Chris Coppens.</em>
+        <div class="entry-note">Book history festschrift.</div>
+      </div>
+    </div>
+    <div class="entry" data-decade="2020s" data-text="hardy cohen gray festschrift michael winship privately printed book history">
+      <span class="entry-num">163</span>
+      <div class="entry-text">Hardy, M., Cohen, M., & Gray, N. H. (Eds.). (2023). <em>A festschrift for Michael Winship.</em> Privately Printed. <span class="entry-tag tag-new">New</span>
+        <div class="entry-note">Book history.</div>
+      </div>
+    </div>
+    <div class="entry" data-decade="2020s" data-text="cloonan stauffer feminist global perspectives evolving profession papers honoring mary niles maack library trends">
+      <span class="entry-num pending">—</span>
+      <div class="entry-text">Cloonan, Michèle V., and Suzanne M. Stauffer. Eds. (2024). <em>Feminist and Global Perspectives on an Evolving Profession: Papers Honoring Mary Niles Maack.</em> <em>Library Trends</em> 72(3): 369–74. <span class="entry-tag tag-pending">Pending</span> <span class="entry-tag tag-journal">Journal</span>
+        <div class="entry-note">Pending verification. Not included in count of 166.</div>
+      </div>
+    </div>
+    <div class="entry" data-decade="2020s" data-text="buckland festschrift guest editorial journal of documentation gorichanaz day latham">
+      <span class="entry-num">164</span>
+      <div class="entry-text">Buckland, M. K. (2024). Festschrift [Guest editorial]. <em>Journal of Documentation,</em> 80(3). [Guest editors: Gorichanaz, T.; Day, R. E.; Latham, K. F.] <span class="entry-tag tag-journal">Journal</span></div>
+    </div>
+    <div class="entry" data-decade="2020s" data-text="lippincott networking networks festschrift honor clifford lynch portal libraries academy journal">
+      <span class="entry-num">165</span>
+      <div class="entry-text">Lippincott, J. (2025). <em>Networking networks: A Festschrift in Honor of Clifford Lynch.</em> <em>portal: Libraries and the Academy,</em> 25(3), Supplement. <span class="entry-tag tag-journal">Journal issue</span></div>
+    </div>
+    <div class="entry" data-decade="2020s" data-text="phenix bossaler service equity essays honor kathleen de la pena mccook public library quarterly journal">
+      <span class="entry-num">166</span>
+      <div class="entry-text">Phenix, K., & Bossaler, J. (2025). <em>In service of equity: Essays in honor of Kathleen de la Peña McCook.</em> <em>Public Library Quarterly,</em> 44(4). <span class="entry-tag tag-journal">Journal issue</span></div>
+    </div>
+  </section>
+
+  <!-- PENDING SECTION -->
+  <div class="pending-section">
+    <p class="pending-title">⚠ Pending Verification — Not Included in Count of 166</p>
+    <p class="pending-note">The following six entries require verification against J. Periam Danton's <em>Index to Festschriften in Librarianship</em> (1970) and Danton & Pulis (1979). Cross-checking is a primary goal for summer 2026. They are reproduced above in their chronological positions, flagged with the Pending tag.</p>
+    <ul style="font-size:13px; color:var(--ink-2); line-height:2; padding-left:1.25rem;">
+      <li>Doe, Janet — <em>Bulletin of the Medical Library Association</em> 45 (1957)</li>
+      <li>Henriksson, Karl-Erik — Finnish festschrift for Helle Kannila (1966)</li>
+      <li>Plante, Julian — <em>Translatio Studii</em>, Oliver Kapsner (1973)</li>
+      <li>Lyle, Guy Redvers & Farber — <em>The Academic Library</em> (1974)</li>
+      <li>Cloonan, Michèle V. & Stauffer — <em>Library Trends</em> 72(3), Mary Niles Maack (2024)</li>
+      <li>Deng, Sai / CALA — <em>Reaching Beyond Ourselves</em> (2013) [scope: BIPOC tribute tradition]</li>
+    </ul>
+  </div>
+
+  <p class="no-results" id="no-results">No entries match your search. Try different terms.</p>
+
+</main>
+
+<footer class="bib-footer">
+  <p><strong>Cite as:</strong> Coleman, A.S. (2026). The literature of gratitude: Festschriften as a mirror of library and information science — a working bibliography, 1942–2025. <em>Infophilia: A Positive Psychology of Information.</em> ISSN 3069-6526. <a href="https://infophilia-org.github.io/infophilia-tools/festschriften.html">infophilia-org.github.io/infophilia-tools/festschriften.html</a></p>
+  <p style="margin-top:0.75rem;">© 2026 Anita Sundaram Coleman. Licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank" rel="noopener">CC BY-NC-SA 4.0</a>. <a href="https://orcid.org/0000-0002-5724-5442" target="_blank" rel="noopener">ORCID</a> · <a href="https://infophilia.substack.com" target="_blank" rel="noopener">Infophilia Substack</a> · <a href="https://infophilia-org.github.io/infophilia-tools/landing.html" target="_blank" rel="noopener">Infophilia Toolbox</a></p>
+</footer>
+
+<script>
+const searchInput = document.getElementById('search');
+const filterBtns = document.querySelectorAll('.filter-btn');
+const entries = document.querySelectorAll('.entry');
+const noResults = document.getElementById('no-results');
+const resultsCount = document.getElementById('results-count');
+const decadeSections = document.querySelectorAll('.decade-section');
+
+let activeDecade = 'all';
+let searchTerm = '';
+
+function updateDisplay() {
+  let visible = 0;
+
+  entries.forEach(entry => {
+    const decade = entry.dataset.decade;
+    const text = (entry.dataset.text || '') + ' ' + (entry.textContent || '');
+    const matchesDecade = activeDecade === 'all' || decade === activeDecade;
+    const matchesSearch = searchTerm === '' || text.toLowerCase().includes(searchTerm.toLowerCase());
+
+    if (matchesDecade && matchesSearch) {
+      entry.classList.remove('hidden');
+      visible++;
+    } else {
+      entry.classList.add('hidden');
+    }
+  });
+
+  // Hide/show decade sections
+  decadeSections.forEach(section => {
+    const sectionDecade = section.dataset.decade;
+    const visibleEntries = section.querySelectorAll('.entry:not(.hidden)');
+    section.style.display = (activeDecade === 'all' || activeDecade === sectionDecade) && visibleEntries.length > 0 ? '' : 'none';
+  });
+
+  // Count only numbered entries (not pending)
+  const numberedVisible = Array.from(entries).filter(e => 
+    !e.classList.contains('hidden') && 
+    !e.querySelector('.entry-num.pending')
+  ).length;
+
+  resultsCount.textContent = searchTerm || activeDecade !== 'all' 
+    ? `${numberedVisible} shown` 
+    : '166 entries';
+
+  noResults.style.display = visible === 0 ? 'block' : 'none';
+}
+
+searchInput.addEventListener('input', e => {
+  searchTerm = e.target.value.trim();
+  updateDisplay();
+});
+
+filterBtns.forEach(btn => {
+  btn.addEventListener('click', () => {
+    filterBtns.forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    activeDecade = btn.dataset.decade;
+    updateDisplay();
+  });
+});
+</script>
+
+</body>
+</html>
