@@ -1,0 +1,1086 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>dLIST: A Working Bibliography and Community Record</title>
+  <meta name="description" content="A working bibliography and community record for dLIST — the Digital Library of Information Science and Technology (2002–2013). Compiled by Anita Sundaram Coleman.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;1,400&family=Source+Sans+3:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --ink: #1c1917;
+      --ink-2: #44403c;
+      --ink-3: #78716c;
+      --ink-4: #a8a29e;
+      --paper: #faf9f7;
+      --paper-2: #f5f3ef;
+      --paper-3: #ede9e3;
+      --gold: #92702a;
+      --gold-light: #f7f0e3;
+      --rust: #8B4513;
+      --rust-light: #f5ede6;
+      --blue: #2d5986;
+      --blue-light: #e8f0f8;
+      --green: #2d6b45;
+      --green-light: #e8f3ed;
+      --teal: #0e7490;
+      --teal-light: #e0f2fe;
+      --border: rgba(28,25,23,0.1);
+      --border-2: rgba(28,25,23,0.18);
+      --radius: 6px;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Source Sans 3', sans-serif;
+      background: var(--paper);
+      color: var(--ink);
+      line-height: 1.6;
+      min-height: 100vh;
+    }
+
+    .masthead {
+      background: var(--ink);
+      color: var(--paper);
+      padding: 4rem 2rem 3rem;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .masthead::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: repeating-linear-gradient(-45deg, transparent, transparent 40px, rgba(255,255,255,0.015) 40px, rgba(255,255,255,0.015) 41px);
+    }
+
+    .masthead-eyebrow {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 1.25rem;
+      position: relative;
+    }
+
+    .masthead-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(26px, 4vw, 44px);
+      font-weight: 700;
+      line-height: 1.15;
+      margin-bottom: 0.4rem;
+      position: relative;
+      color: #f5f0e8;
+    }
+
+    .masthead-subtitle {
+      font-family: 'Lora', serif;
+      font-style: italic;
+      font-size: 16px;
+      color: #b8b0a0;
+      margin-bottom: 0.5rem;
+      position: relative;
+    }
+
+    .masthead-dates {
+      font-size: 13px;
+      color: #908880;
+      margin-bottom: 2rem;
+      position: relative;
+      letter-spacing: 0.05em;
+    }
+
+    .masthead-meta {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+      font-size: 12px;
+      color: #908880;
+      position: relative;
+    }
+
+    .masthead-badge {
+      display: inline-block;
+      padding: 3px 10px;
+      border: 0.5px solid rgba(146,112,42,0.4);
+      border-radius: 20px;
+      color: var(--gold);
+      font-size: 11px;
+      font-weight: 500;
+    }
+
+    .page-nav {
+      background: var(--paper-2);
+      border-bottom: 0.5px solid var(--border-2);
+      padding: 0.75rem 2rem;
+      display: flex;
+      gap: 1.5rem;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .page-nav a {
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--ink-3);
+      text-decoration: none;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      transition: color 0.15s;
+    }
+
+    .page-nav a:hover { color: var(--rust); }
+
+    .controls {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(250,249,247,0.97);
+      backdrop-filter: blur(8px);
+      border-bottom: 0.5px solid var(--border-2);
+      padding: 0.875rem 2rem;
+    }
+
+    .controls-inner {
+      max-width: 900px;
+      margin: 0 auto;
+      display: flex;
+      gap: 10px;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    .search-wrap {
+      flex: 1;
+      min-width: 180px;
+      position: relative;
+    }
+
+    .search-wrap svg {
+      position: absolute;
+      left: 10px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: var(--ink-4);
+      pointer-events: none;
+    }
+
+    #search {
+      width: 100%;
+      padding: 7px 12px 7px 32px;
+      border: 0.5px solid var(--border-2);
+      border-radius: var(--radius);
+      font-size: 13px;
+      font-family: 'Source Sans 3', sans-serif;
+      background: white;
+      color: var(--ink);
+      outline: none;
+      transition: border-color 0.15s;
+    }
+
+    #search:focus { border-color: var(--rust); }
+
+    .filter-group { display: flex; gap: 5px; flex-wrap: wrap; }
+
+    .filter-btn {
+      padding: 5px 11px;
+      border: 0.5px solid var(--border-2);
+      border-radius: 20px;
+      font-size: 11px;
+      font-weight: 600;
+      font-family: 'Source Sans 3', sans-serif;
+      cursor: pointer;
+      transition: all 0.15s;
+      background: white;
+      color: var(--ink-3);
+      white-space: nowrap;
+      letter-spacing: 0.03em;
+      text-transform: uppercase;
+    }
+
+    .filter-btn:hover { border-color: var(--rust); color: var(--rust); }
+    .filter-btn.active { background: var(--rust); color: white; border-color: var(--rust); }
+
+    .results-count { font-size: 12px; color: var(--ink-4); white-space: nowrap; }
+
+    main { max-width: 900px; margin: 0 auto; padding: 2rem; }
+
+    .bib-section { margin-bottom: 3rem; scroll-margin-top: 80px; }
+
+    .section-header {
+      display: flex;
+      align-items: baseline;
+      gap: 1rem;
+      margin-bottom: 1.25rem;
+      padding-bottom: 0.75rem;
+      border-bottom: 1.5px solid var(--border-2);
+    }
+
+    .section-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--ink);
+    }
+
+    .section-count { font-size: 12px; color: var(--ink-4); }
+
+    .intro-note {
+      background: var(--gold-light);
+      border: 0.5px solid rgba(146,112,42,0.2);
+      border-left: 3px solid var(--gold);
+      border-radius: 0 var(--radius) var(--radius) 0;
+      padding: 1.25rem 1.5rem;
+      margin-bottom: 2.5rem;
+      font-size: 14px;
+      line-height: 1.75;
+      color: var(--ink-2);
+    }
+
+    .intro-note strong { color: var(--gold); }
+    .intro-note a { color: var(--rust); text-decoration: underline; text-underline-offset: 2px; }
+
+    .entry {
+      display: grid;
+      grid-template-columns: 32px 1fr;
+      gap: 0 1rem;
+      padding: 0.875rem 0;
+      border-bottom: 0.5px solid var(--border);
+      transition: background 0.1s;
+    }
+
+    .entry:hover {
+      background: var(--paper-2);
+      margin: 0 -0.75rem;
+      padding: 0.875rem 0.75rem;
+      border-radius: var(--radius);
+      border-bottom-color: transparent;
+    }
+
+    .entry.hidden { display: none; }
+
+    .entry-num {
+      font-size: 11px;
+      font-weight: 600;
+      color: var(--ink-4);
+      padding-top: 3px;
+      text-align: right;
+      font-variant-numeric: tabular-nums;
+    }
+
+    .entry-text {
+      font-size: 14px;
+      line-height: 1.65;
+      color: var(--ink-2);
+    }
+
+    .entry-text a {
+      color: var(--blue);
+      text-decoration: underline;
+      text-underline-offset: 2px;
+      font-size: 12px;
+    }
+
+    .entry-note {
+      font-size: 12px;
+      color: var(--ink-3);
+      font-style: italic;
+      margin-top: 4px;
+      line-height: 1.5;
+    }
+
+    .entry-tag {
+      display: inline-block;
+      padding: 1px 7px;
+      border-radius: 3px;
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      margin-left: 5px;
+      vertical-align: middle;
+    }
+
+    .tag-journal { background: var(--gold-light); color: var(--gold); }
+    .tag-conference { background: var(--blue-light); color: var(--blue); }
+    .tag-technical { background: var(--paper-3); color: var(--ink-3); }
+    .tag-award { background: #fdf2f8; color: #9d174d; }
+    .tag-student { background: var(--green-light); color: var(--green); }
+    .tag-community { background: var(--teal-light); color: var(--teal); }
+    .tag-adjacent { background: var(--paper-3); color: var(--ink-4); }
+
+    .people-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+      gap: 12px;
+      margin-top: 0.5rem;
+    }
+
+    .person-card {
+      border: 0.5px solid var(--border-2);
+      border-radius: 10px;
+      padding: 1.125rem 1.25rem;
+      background: white;
+      transition: border-color 0.15s;
+    }
+
+    .person-card:hover { border-color: var(--rust); }
+
+    .person-name {
+      font-family: 'Lora', serif;
+      font-size: 15px;
+      font-weight: 500;
+      color: var(--ink);
+      margin-bottom: 0.2rem;
+    }
+
+    .person-role {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--rust);
+      margin-bottom: 0.5rem;
+    }
+
+    .person-desc { font-size: 13px; color: var(--ink-3); line-height: 1.55; }
+
+    .person-now {
+      font-size: 12px;
+      color: var(--teal);
+      margin-top: 0.5rem;
+      font-style: italic;
+    }
+
+    .person-card.founder { border-color: var(--gold); background: var(--gold-light); }
+    .person-card.founder .person-role { color: var(--gold); }
+
+    .timeline {
+      position: relative;
+      padding-left: 1.5rem;
+      border-left: 1.5px solid var(--border-2);
+      margin-top: 0.5rem;
+    }
+
+    .timeline-item {
+      position: relative;
+      padding: 0 0 1.5rem 1.25rem;
+    }
+
+    .timeline-item::before {
+      content: '';
+      position: absolute;
+      left: -1.65rem;
+      top: 6px;
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--rust);
+      border: 2px solid var(--paper);
+      box-shadow: 0 0 0 1.5px var(--rust);
+    }
+
+    .timeline-year {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      color: var(--rust);
+      text-transform: uppercase;
+      margin-bottom: 0.25rem;
+    }
+
+    .timeline-text { font-size: 14px; color: var(--ink-2); line-height: 1.6; }
+
+    .funding-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 13px;
+      margin-top: 1rem;
+    }
+
+    .funding-table th {
+      text-align: left;
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--ink-4);
+      padding: 0.5rem 0.75rem;
+      border-bottom: 1.5px solid var(--border-2);
+    }
+
+    .funding-table td {
+      padding: 0.625rem 0.75rem;
+      border-bottom: 0.5px solid var(--border);
+      color: var(--ink-2);
+      vertical-align: top;
+    }
+
+    .funding-table tr:last-child td { border-bottom: none; }
+    .funding-table .rejected { color: var(--ink-4); font-style: italic; }
+    .funding-table .funded { color: var(--green); font-weight: 600; }
+
+    .bib-footer {
+      max-width: 900px;
+      margin: 2rem auto 0;
+      padding: 1.5rem 2rem;
+      border-top: 0.5px solid var(--border-2);
+      font-size: 12px;
+      color: var(--ink-4);
+      line-height: 1.7;
+    }
+
+    .bib-footer a { color: var(--ink-3); text-decoration: underline; text-underline-offset: 2px; }
+
+    .no-results {
+      text-align: center;
+      padding: 4rem 2rem;
+      color: var(--ink-4);
+      font-style: italic;
+      display: none;
+    }
+
+    @media (max-width: 600px) {
+      .masthead { padding: 3rem 1.25rem 2rem; }
+      main { padding: 1.5rem 1.25rem; }
+      .controls { padding: 0.75rem 1.25rem; }
+      .people-grid { grid-template-columns: 1fr; }
+      .funding-table { font-size: 12px; }
+    }
+  </style>
+</head>
+<body>
+
+<header class="masthead">
+  <p class="masthead-eyebrow">Infophilia · dLIST Archive</p>
+  <h1 class="masthead-title">dLIST</h1>
+  <p class="masthead-subtitle">Digital Library of Information Science and Technology</p>
+  <p class="masthead-dates">2002 — 2013 · University of Arizona</p>
+  <div class="masthead-meta">
+    <span><span class="masthead-badge">Working Bibliography</span></span>
+    <span><span class="masthead-badge">Community Record</span></span>
+    <span>Compiled by Anita Sundaram Coleman · May 2026</span>
+  </div>
+</header>
+
+<nav class="page-nav">
+  <a href="#about">About</a>
+  <a href="#funding">Funding</a>
+  <a href="#community">Community</a>
+  <a href="#publications">Publications</a>
+  <a href="#awards">Awards</a>
+  <a href="#legacy">Legacy</a>
+</nav>
+
+<div class="controls">
+  <div class="controls-inner">
+    <div class="search-wrap">
+      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+      <input type="text" id="search" placeholder="Search publications, names, events…" autocomplete="off">
+    </div>
+    <div class="filter-group">
+      <button class="filter-btn active" data-filter="all">All</button>
+      <button class="filter-btn" data-filter="journal">Journal</button>
+      <button class="filter-btn" data-filter="conference">Conference</button>
+      <button class="filter-btn" data-filter="technical">Technical</button>
+      <button class="filter-btn" data-filter="community">Community</button>
+    </div>
+    <span class="results-count" id="results-count"></span>
+  </div>
+</div>
+
+<main>
+
+  <!-- ABOUT -->
+  <section class="bib-section" id="about">
+    <div class="intro-note">
+      <strong>About dLIST.</strong> dLIST was an early open-access LIS repository built on EPrints software that helped demonstrate OAI-PMH metadata harvesting, interoperability, and federated searching for scholarly discovery — connecting research, education and practice communities across the disparate Information Studies disciplines, including Archival Science, Library and Information Science, Museum Informatics, and Information Systems. Beyond building infrastructure, dLIST trained LIS students for digital repository work — in metadata, copyright, and scholarly communication — at a time when such training was rare and the profession had few models for it. Using PKP Harvester software with improvements developed by GRA Joseph Roback, the dLIST team built DL-Harvest — an open access aggregator for LIS drawing on dLIST and 13 other OAI-PMH compliant archives. dLIST also pioneered RSS feeds for repository updates and developed a Latest News feature — both novel for scholarly repositories in 2004–2005, before social media and before the iPhone. The repository was preserved in the <a href="https://repository.arizona.edu/handle/10150/105066" target="_blank" rel="noopener">University of Arizona Campus Repository</a> when it closed to new submissions in 2013. <strong>This is its working bibliography and community record.</strong>
+    </div>
+
+    <div class="section-header">
+      <span class="section-title">Timeline</span>
+    </div>
+    <div class="timeline">
+      <div class="timeline-item">
+        <p class="timeline-year">2001</p>
+        <p class="timeline-text">An independent study supervised by Anita Sundaram Coleman at the University of Arizona opens the inquiry that becomes dLIST. The project begins with a student's question.</p>
+      </div>
+      <div class="timeline-item">
+        <p class="timeline-year">2002</p>
+        <p class="timeline-text">dLIST launches on EPrints2 software, OAI-PMH v2.0 compliant. Seed funding from UA College of Social and Behavioral Sciences and Proposition 301 / Arizona Center for Information Science and Technology. A $5,000 server grant. Core faculty team: Coleman (SIRLS), Malone (SIRLS/JELIS co-editor), Bracke (AHSL). First ECE GRA (Gaurav Gupta) begins technical development. This is pre-social media, pre-iPhone: RSS feeds and Latest News features are genuinely novel for scholarly repositories.</p>
+      </div>
+      <div class="timeline-item">
+        <p class="timeline-year">2003</p>
+        <p class="timeline-text">CALIBER 2003 presentation, Ahmedabad, India. NSF NSDL grant application (~$400,000) rejected. Karthik Subramaniam (ECE) joins as second GRA. OAI-PMH integration work deepens. Educause NLII presentation, New Orleans.</p>
+      </div>
+      <div class="timeline-item">
+        <p class="timeline-year">2004–2006</p>
+        <p class="timeline-text">TRIF grant awarded: $21,397 from State of Arizona for "Information Technology &amp; Society Research Lab: The Study of Scholarly Communication in Digital Repositories." Coleman PI. All money goes to GRAs and servers. Joseph Roback (CS) joins — develops OAI-PMH implementation and EPrints patches that become dLIST's technical foundation; builds DL-Harvest using PKP Harvester with flow control, sets, and advanced searching improvements. JingFeng Xia joins as metadata and copyright editor. Shawn Nelson contributes to metadata and collections. UA library declines to host server; Paul Bracke moves it to Arizona Health Sciences Library. JCDL 2004, Tucson. ITS Research Lab presentation. IFLA 2005 poster, Oslo. ALISE 2005 poster, Boston. ASIS&T 2005, Charlotte (multiple presentations). By late 2005: fewer than 500 documents, just over 700 registered users — growth slow, solutions tried ranging from outreach to R&amp;D.</p>
+      </div>
+      <div class="timeline-item">
+        <p class="timeline-year">2005</p>
+        <p class="timeline-text">IMLS National Leadership Grant application rejected. DL-Harvest aggregator launched publicly. Advisory Board established — members include Michael Gorman (Dean, California State Fresno). dLIST 2005 scholarly communication survey launched. Announced in <em>D-Lib Magazine</em> In Brief, October 2005.</p>
+      </div>
+      <div class="timeline-item">
+        <p class="timeline-year">2006–2007</p>
+        <p class="timeline-text">dLIST Classics project launches with Proposition 301 / ACIST funding — specifically allocated for digitization. Phase 1 (May 2006): Five Laws of Library Science digitized by Michael May, Carnegie-Stout Public Library, Dubuque, Iowa — a public librarian from Iowa making India's foundational library science text openly accessible globally. Permission granted by SRELS (Neelameghan, Prasad, Raghavan, DRTC) and Advisory Board member Arunachalam. Phase 2 (Fall 2006): five additional Ranganathan titles, digitized by Joy Wilcox, SIRLS. Phase 3 (Spring 2007): coordinated by Cheryl K. Malone — four more Ranganathan titles plus three additional classics including Pauline Atherton's Putting Knowledge to Work. Digitizer: Susan Ditch; Quality Control: Megan Plesea; Digitization Training: Han Yan; Book Editor: Barbara Hutchinson. Twelve titles total. ECDL Alicante (team presentation). 9th ISKO Vienna. OR2007, San Antonio. Dominika Sokol presents marketing paper at BOBCATSSS, Prague. By 2007: 800 documents, 1,200 registered users. Coleman named Library Journal Movers and Shakers 2007 — "Global Thinker." Nominated by Kristin Eschenfelder, University of Wisconsin.</p>
+      </div>
+      <div class="timeline-item">
+        <p class="timeline-year">2013</p>
+        <p class="timeline-text">dLIST closes to new submissions. Preserved in UA Campus Repository. E-LIS (the Italian subject repository that ran parallel to dLIST, with whom Coleman had attempted collaboration without success) later becomes effectively non-functional. The disciplinary repository model dLIST pioneered has not been sustained.</p>
+      </div>
+      <div class="timeline-item">
+        <p class="timeline-year">2026</p>
+        <p class="timeline-text">dLIST story told in ALA150 blog post: "The Future of Librarians: dLIST, A Library Story for the Age of AI." Gaurav Gupta (AWS) appears to have presented on Edge AI and Physical AI themes at AWS re:Invent 2025. Joseph Roback (NVIDIA) works in the same AI infrastructure ecosystem. Both started by learning copyright and building OAI-PMH infrastructure at dLIST.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- FUNDING -->
+  <section class="bib-section" id="funding">
+    <div class="section-header">
+      <span class="section-title">Funding Record</span>
+      <span class="section-count">The complete picture</span>
+    </div>
+    <p style="font-size:14px; color:var(--ink-2); line-height:1.7; margin-bottom:1rem;">dLIST ran on $21,397 in state technology funding plus seed money and graduate student labor. The federal grants that would have sustained it were declined. The infrastructure it proved is now the backbone of library discovery worldwide.</p>
+    <table class="funding-table">
+      <thead>
+        <tr>
+          <th>Year</th>
+          <th>Source</th>
+          <th>Amount</th>
+          <th>Purpose</th>
+          <th>Outcome</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>2002</td>
+          <td>UA College of Social and Behavioral Sciences</td>
+          <td>$5,000</td>
+          <td>Server hardware — the only seed funding at launch</td>
+          <td class="funded">Funded</td>
+        </tr>
+        <tr>
+          <td>2003</td>
+          <td>NSF National Science Digital Library (NSDL)</td>
+          <td>~$400,000</td>
+          <td>Open access LIS infrastructure</td>
+          <td class="rejected">Rejected</td>
+        </tr>
+        <tr>
+          <td>2004–2006</td>
+          <td>State of Arizona TRIF (Technology and Research Initiative Fund)</td>
+          <td>$21,397</td>
+          <td>"Information Technology &amp; Society Research Lab: The Study of Scholarly Communication in Digital Repositories." PI: Coleman. All funds to GRAs and servers.</td>
+          <td class="funded">Funded</td>
+        </tr>
+        <tr>
+          <td>2005</td>
+          <td>IMLS National Leadership Grants</td>
+          <td>Not specified</td>
+          <td>JELIS digitization, open access impact study</td>
+          <td class="rejected">Rejected</td>
+        </tr>
+        <tr>
+          <td>2006</td>
+          <td>Proposition 301 / Arizona Center for Information Science and Technology (ACIST)</td>
+          <td>Not specified</td>
+          <td>Specifically for dLIST Classics digitization project</td>
+          <td class="funded">Funded</td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <!-- COMMUNITY -->
+  <section class="bib-section" id="community">
+    <div class="section-header">
+      <span class="section-title">The dLIST Community</span>
+      <span class="section-count">Those who built it</span>
+    </div>
+
+    <div class="people-grid">
+
+      <div class="person-card founder">
+        <p class="person-name">Anita Sundaram Coleman</p>
+        <p class="person-role">Founder & Principal Investigator</p>
+        <p class="person-desc">SIRLS, University of Arizona. Conceived dLIST from an independent study she supervised. Led the project 2002–2013. JELIS co-editor. Copyright Transfer Agreement research. Library Journal Movers &amp; Shakers 2007 — "Global Thinker." TRIF grant PI.</p>
+        <p class="person-now">Now: Independent Scholar, Infophilia. Adjunct Lecturer, iSchool Illinois.</p>
+      </div>
+
+      <div class="person-card">
+        <p class="person-name">Paul Bracke</p>
+        <p class="person-role">Server Administrator & AHSL Representative</p>
+        <p class="person-desc">Arizona Health Sciences Library. Moved the dLIST server to AHSL when UA library would not support it — an act that saved the project. Core team member throughout.</p>
+        <p class="person-now">Now: Academic librarian. Subsequently moved to Wayne State University.</p>
+      </div>
+
+      <div class="person-card">
+        <p class="person-name">Cheryl Knott Malone</p>
+        <p class="person-role">Faculty Editor & JELIS Co-Editor</p>
+        <p class="person-desc">SIRLS, University of Arizona. Faculty editor on dLIST. Co-editor of JELIS (Journal of Education for Library and Information Science) alongside Coleman. Co-author of IMLS grant proposal. ALISE 2005 poster co-presenter.</p>
+      </div>
+
+      <div class="person-card">
+        <p class="person-name">Gaurav Gupta</p>
+        <p class="person-role">ECE GRA — First Technical Iteration</p>
+        <p class="person-desc">Electrical and Computer Engineering, UA, 2002–2003. Built dLIST's first technical infrastructure. Learned copyright and self-archiving practices as part of the dLIST team. 18 granted patents.</p>
+        <p class="person-now">Now: WW Principal Partner Solutions Architect, IoT &amp; Physical AI, AWS. 18 granted patents. Appears to have presented on Edge AI and Physical AI themes at AWS re:Invent 2025, Las Vegas, based on LinkedIn post.</p>
+      </div>
+
+      <div class="person-card">
+        <p class="person-name">Karthik Subramaniam</p>
+        <p class="person-role">ECE GRA — Second Technical Iteration</p>
+        <p class="person-desc">Electrical and Computer Engineering, UA, 2003–2004. Co-authored D-Lib Magazine paper on OAI-PMH federated searching. Improved on first technical iteration. Presented dLIST work at Educause — bringing the repository to the educational technology community.</p>
+        <p class="person-now">Now: Staff Software Engineer, Samsara (IoT). Previously Senior Software Engineer, Amazon (11 years); Garmin ADAS.</p>
+      </div>
+
+      <div class="person-card">
+        <p class="person-name">Joseph A. Roback</p>
+        <p class="person-role">CS GRA — OAI-PMH & DL-Harvest</p>
+        <p class="person-desc">Computer Science, UA, 2003–2005. Developed OAI-PMH implementation, EPrints patches, and DL-Harvest improvements (flow control, sets, advanced searching using PKP Harvester). PhD in parallel computing (advisor: Gregory R. Andrews). Published: Gossamer multicore language, IEEE 2010.</p>
+        <p class="person-now">Now: Principal Engineer, NVIDIA.</p>
+      </div>
+
+      <div class="person-card">
+        <p class="person-name">JingFeng Xia</p>
+        <p class="person-role">Metadata & Copyright Editor</p>
+        <p class="person-desc">SIRLS, UA. Metadata and copyright editor. Co-author of ALISE 2005 CTA poster. His subsequent research on disciplinary repositories and open access is directly traceable to dLIST work.</p>
+        <p class="person-now">Now: University Librarian, Dominican University (2024–). h-index 21, 2,642 citations.</p>
+      </div>
+
+      <div class="person-card">
+        <p class="person-name">Shawn Nelson</p>
+        <p class="person-role">LIS GRA — Metadata & Co-Presenter</p>
+        <p class="person-desc">University of Arizona LIS graduate research assistant. Contributed to metadata and collections work. Co-presenter on the ALISE 2005 CTA poster — one of the LIS GRAs who helped build dLIST's intellectual infrastructure alongside the ECE and CS GRAs who built its technical infrastructure.</p>
+      </div>
+
+      <div class="person-card">
+        <p class="person-name">Dominika Sokol</p>
+        <p class="person-role">Marketing — European Student</p>
+        <p class="person-desc">Charles University, Prague / SIRLS, UA. Wrote and presented the dLIST marketing strategy paper at BOBCATSSS 2007, Prague. The international reach of the dLIST community made visible.</p>
+      </div>
+
+      <div class="person-card">
+        <p class="person-name">Lisa [last name TBD]</p>
+        <p class="person-role">Brand Design — Logo & Stationery</p>
+        <p class="person-desc">University of Arizona student. Created the dLIST logo and stationery — the visual identity of the project. Details being verified.</p>
+        <p class="person-now">Compiler welcomes contact: info at infophilia dot org</p>
+      </div>
+
+      <div class="person-card">
+        <p class="person-name">Mark [last name TBD]</p>
+        <p class="person-role">Independent Study Student — The Originating Question</p>
+        <p class="person-desc">University of Arizona. The independent study supervised by Coleman that opened the inquiry that became dLIST. The project began with his question.</p>
+        <p class="person-now">Compiler welcomes contact: info at infophilia dot org</p>
+      </div>
+
+      <div class="person-card">
+        <p class="person-name">Stefan Wais</p>
+        <p class="person-role">Graphic Design — NSDL & IFLA Poster</p>
+        <p class="person-desc">Designed the professional dLIST poster for the National Science Digital Library (NSDL) and IFLA 2005, Oslo — the poster that introduced dLIST to international audiences.</p>
+      </div>
+
+      <div class="person-card">
+        <p class="person-name">Marija Dalbello</p>
+        <p class="person-role">Faculty Editor, Rutgers University</p>
+        <p class="person-desc">Faculty editor on dLIST. Presented dLIST at a SHARP EU meeting — the Society for the History of Authorship, Reading, and Publishing — introducing an open access digital repository to an audience of book historians who were, at that time, largely skeptical of digital texts. A significant act of advocacy in a conservative scholarly community. Commissioned the dLIST mugs. Still searches dLIST as of 2026.</p>
+        <p class="person-now">Now: Professor of Library and Information Science, Rutgers SC&I. Books include <em>A History of Modern Librarianship</em> (2015) and <em>Visible Writings</em> (2011). Board chair, Society for the History of Authorship, Reading, and Publishing (2019–2021). Visiting fellow, École nationale des Chartes, Sorbonne.</p>
+      </div>
+
+      <div class="person-card">
+        <p class="person-name">Kristin Eschenfelder</p>
+        <p class="person-role">Faculty Editor, University of Wisconsin–Madison</p>
+        <p class="person-desc">Faculty editor on dLIST. Nominated Coleman for Library Journal Movers &amp; Shakers 2007, describing dLIST as "a cross-institutional open access digital archive for the information sciences." At UW-Madison since 2000 — the entire dLIST period and beyond.</p>
+        <p class="person-now">Now: Professor and Academic Associate Dean, School of Computer, Data &amp; Information Sciences, UW-Madison. Appointed Interim Dean, UW College of Letters &amp; Science, May 2026. Research: digital intellectual property, open access, scholarly communications, organizational sustainability of digital repositories. ASIS&T History Award 2012. IMLS and Sloan Foundation grants.</p>
+      </div>
+
+      <div class="person-card">
+        <p class="person-name">Paul F. Marty</p>
+        <p class="person-role">Faculty Editor, Florida State University</p>
+        <p class="person-desc">Faculty editor on dLIST. Research in museum informatics, technology, innovation, and design in the information society — studying the sociotechnical interactions between people, information, and technology in museums. PhD from iSchool Illinois, the same program as Coleman.</p>
+        <p class="person-now">Now: Professor, School of Information, Florida State University, and Associate Vice Provost for Academic Innovation, FSU. Has worked in museum informatics since the mid-1990s. <a href="https://marty.cci.fsu.edu/" target="_blank" rel="noopener">marty.cci.fsu.edu →</a></p>
+      </div>
+
+      <div class="person-card">
+        <p class="person-name">Charles W. Bailey Jr.</p>
+        <p class="person-role">Scholarly Communication Editor</p>
+        <p class="person-desc">Assistant Dean, University of Houston. Scholarly communication editor on dLIST. A leader in the open access movement who brought scholarly credibility to the project.</p>
+      </div>
+
+      <div class="person-card">
+        <p class="person-name">Garry Forger</p>
+        <p class="person-role">Learning Technologies Support</p>
+        <p class="person-desc">Learning Technologies Center, University of Arizona. Provided institutional support for dLIST's technical infrastructure. Listed as dLIST contact in D-Lib Magazine announcement.</p>
+      </div>
+
+      <div class="person-card">
+        <p class="person-name">K.S. Raghavan</p>
+        <p class="person-role">dLIST Classics Partner — DRTC/SRELS</p>
+        <p class="person-desc">Former Professor, Documentation Research and Training Centre (DRTC), Indian Statistical Institute, Bangalore. Acknowledged throughout the dLIST Classics project as one of the SRELS representatives who gave permission to digitize the Ranganathan texts — making the profession's foundational literature openly accessible.</p>
+        <p class="person-now">Now: Associate Editor, SRELS Journal of Information and Knowledge (SRELS JIK). The same journal in which Coleman published her 2025 adaptive infophilia paper — the connection across twenty years.</p>
+      </div>
+
+      <div class="person-card">
+        <p class="person-name">Michael May</p>
+        <p class="person-role">dLIST Classics — First Digitizer & Book Editor</p>
+        <p class="person-desc">Adult Services Librarian, Carnegie-Stout Public Library, Dubuque, Iowa. Digitized the Five Laws of Library Science (1931) — the first dLIST Classics title — in May 2006. Also served as dLIST Classics Book Editor for the first phase. A public librarian from Iowa digitizing India's most important library science text for global open access.</p>
+      </div>
+
+      <div class="person-card">
+        <p class="person-name">Joy Wilcox</p>
+        <p class="person-role">dLIST Classics — Digitizer, Fall 2006</p>
+        <p class="person-desc">SIRLS, University of Arizona. Digitized the second phase of dLIST Classics — five additional Ranganathan titles — in Fall 2006: Philosophy of Library Classification, Prolegomena to Library Classification (Ed. 3), Classification and Communication, Documentation Genesis and Development, and Documentation and its Facets.</p>
+      </div>
+
+      <div class="person-card">
+        <p class="person-name">Susan Ditch</p>
+        <p class="person-role">dLIST Classics — Digitizer, Spring 2007</p>
+        <p class="person-desc">SIRLS, University of Arizona. Digitized the third and final phase of dLIST Classics in Spring 2007 — including the remaining Ranganathan titles and three additional classics.</p>
+      </div>
+
+      <div class="person-card">
+        <p class="person-name">Megan Plesea</p>
+        <p class="person-role">dLIST Classics — Quality Control, Spring 2007</p>
+        <p class="person-desc">SIRLS, University of Arizona. Quality control for the Spring 2007 dLIST Classics digitization phase — ensuring the scholarly integrity of the digitized texts before they were made openly available.</p>
+      </div>
+
+      <div class="person-card">
+        <p class="person-name">Han Yan</p>
+        <p class="person-role">dLIST Classics — Digitization Training & dLIST Editor</p>
+        <p class="person-desc">Information Systems, University of Arizona. Provided digitization training for the Spring 2007 dLIST Classics phase. Also served as a dLIST editor — spanning both the technical and editorial sides of the project.</p>
+      </div>
+
+      <div class="person-card">
+        <p class="person-name">Barbara Hutchinson</p>
+        <p class="person-role">dLIST Classics — Book Editor, Spring 2007</p>
+        <p class="person-desc">University of Arizona. dLIST Classics Book Editor for the Spring 2007 phase — overseeing the editorial integrity of the expanded Classics collection including the Neelameghan, Memorabilia Ranganathan, and Pauline Atherton titles.</p>
+      </div>
+
+    </div>
+
+    <div style="margin-top:1.5rem; padding:1rem 1.25rem; border:0.5px solid var(--border-2); border-radius:var(--radius); background:var(--paper-2); font-size:13px; color:var(--ink-3); line-height:1.7;">
+      <strong style="color:var(--ink-2);">Advisory Board (established 2005):</strong> Subiah Arunachalam (M.S. Swaminathan Research Foundation, India); Julia Blixrud (Association of Research Libraries); Rachel Bower (Internet Scout Project); <strong style="color:var(--ink-2);">Michael Gorman</strong> (Dean of Library Services, California State Fresno — author of <em>Our Enduring Values</em>); Birger Hjorland (Royal School of Library and Information Science, Copenhagen); Christopher Khoo (Nanyang Technological University, Singapore); Scott Nicholson (Syracuse University). Source: D-Lib Magazine In Brief, June 2005.
+      <br><br>
+      <strong style="color:var(--ink-2);">European liaisons:</strong> A. Slavic and M.I. Cordeira worked to spread awareness of dLIST in Europe — helping introduce the repository to European LIS communities at a time when open access repositories were still unfamiliar to many in the field.
+      <br><br>
+      <strong style="color:var(--ink-2);">Additional contributors</strong> include interns who contributed metadata editing, copyright research, and collections work 2002–2007, and an ever-widening circle of subject editors and self-archiving volunteers. The compiler welcomes corrections and additions.
+    </div>
+  </section>
+
+  <!-- PUBLICATIONS -->
+  <section class="bib-section" id="publications">
+    <div class="section-header">
+      <span class="section-title">Publications</span>
+    </div>
+
+    <h3 style="font-family:'Lora',serif;font-size:15px;font-weight:500;color:var(--ink);margin:0 0 0.75rem;">Peer-Reviewed Journal Articles</h3>
+
+    <div class="entry" data-filter="journal" data-text="coleman self-archiving copyright transfer agreements ISI-ranked LIS journals JASIST 2007">
+      <span class="entry-num">1</span>
+      <div class="entry-text">Coleman, A. (2007). Self-archiving and the copyright transfer agreements of ISI-ranked library and information science journals. <em>Journal of the American Society for Information Science and Technology,</em> 58(2), 286–296. <a href="https://doi.org/10.1002/asi.20494" target="_blank" rel="noopener">doi:10.1002/asi.20494</a> <span class="entry-tag tag-journal">JASIST</span>
+        <div class="entry-note">Direct peer-reviewed output of the dLIST CTA research. Analysis of copyright transfer agreements from 150 ISI-ranked LIS journals to enable self-archiving.</div>
+      </div>
+    </div>
+
+    <div class="entry" data-filter="journal" data-text="coleman bracke karthik integration non-OAI resources federated searching DLIST eprints D-Lib 2004">
+      <span class="entry-num">2</span>
+      <div class="entry-text">Coleman, A.S., Bracke, P., & Karthik, S. (2004). Integration of non-OAI resources for federated searching in DLIST, an Eprints repository. <em>D-Lib Magazine,</em> 10(7/8). <a href="https://doi.org/10.1045/july2004-coleman" target="_blank" rel="noopener">doi:10.1045/july2004-coleman</a> <span class="entry-tag tag-journal">D-Lib</span></div>
+    </div>
+
+    <div class="entry" data-filter="journal" data-text="coleman roback open access federation library information science dLIST DL-Harvest D-Lib 2005">
+      <span class="entry-num">3</span>
+      <div class="entry-text">Coleman, A.S., & Roback, J. (2005). Open access federation for library and information science: dLIST and DL-Harvest. <em>D-Lib Magazine,</em> 11(12). <a href="https://doi.org/10.1045/december2005-coleman" target="_blank" rel="noopener">doi:10.1045/december2005-coleman</a> <span class="entry-tag tag-journal">D-Lib</span></div>
+    </div>
+
+    <div class="entry" data-filter="journal" data-text="coleman assessing value journal beyond impact factor JELIS JASIST 2007">
+      <span class="entry-num">4</span>
+      <div class="entry-text">Coleman, A.S. (2007). Assessing the value of a journal beyond the impact factor: A case study of JELIS. <em>Journal of the American Society for Information Science and Technology,</em> 58(8), 1148–1161. <a href="https://doi.org/10.1002/asi.20599" target="_blank" rel="noopener">doi:10.1002/asi.20599</a> <span class="entry-tag tag-journal">JASIST</span>
+        <div class="entry-note">Uses dLIST as the platform for JELIS bibliometric analysis.</div>
+      </div>
+    </div>
+
+    <h3 style="font-family:'Lora',serif;font-size:15px;font-weight:500;color:var(--ink);margin:1.5rem 0 0.75rem;">D-Lib Magazine Announcements & Reports</h3>
+
+    <div class="entry" data-filter="community" data-text="coleman open access library information science dLIST 2005 survey scholarly communication D-Lib October">
+      <span class="entry-num">5</span>
+      <div class="entry-text">Coleman, A. (2005). Open access in library and information science: dLIST 2005 survey, a scholarly communication study. <em>D-Lib Magazine In Brief,</em> 11(10), October. <a href="https://www.dlib.org/dlib/october05/10inbrief.html#COLEMAN" target="_blank" rel="noopener">dlib.org →</a> <span class="entry-tag tag-community">Announcement</span>
+        <div class="entry-note">Coleman's own contributed piece documenting dLIST's third year, launching the 2005 self-archiving survey, and reporting on DL-Harvest. Key primary source for dLIST history.</div>
+      </div>
+    </div>
+
+    <div class="entry" data-filter="community" data-text="dLIST advisory board DL-Harvest established June 2005 D-Lib Gorman Hjorland Roback PKP">
+      <span class="entry-num">6</span>
+      <div class="entry-text">Coleman, A. (2005). DLIST Advisory Board and DL-Harvest established. <em>D-Lib Magazine In Brief,</em> 11(6), June. <a href="https://www.dlib.org/dlib/june05/06inbrief.html" target="_blank" rel="noopener">dlib.org →</a> <span class="entry-tag tag-community">Announcement</span>
+        <div class="entry-note">Official D-Lib announcement of Advisory Board (including Michael Gorman and Birger Hjorland) and DL-Harvest launch. Confirms Roback's PKP Harvester improvements. Key primary source.</div>
+      </div>
+    </div>
+
+    <h3 style="font-family:'Lora',serif;font-size:15px;font-weight:500;color:var(--ink);margin:1.5rem 0 0.75rem;">Conference Papers & Presentations</h3>
+
+    <div class="entry" data-filter="conference" data-text="coleman bracke dLIST building international scholarly communication CALIBER 2003 Ahmedabad India">
+      <span class="entry-num">7</span>
+      <div class="entry-text">Coleman, A.S., & Bracke, P. (2003). DLIST: Building an international scholarly communication consortium for library and information science. <em>CALIBER 2003,</em> Ahmedabad, India, February 13–15. <a href="https://scholarworks.sjsu.edu/slis_pub/96/" target="_blank" rel="noopener">scholarworks.sjsu.edu →</a> <span class="entry-tag tag-conference">CALIBER</span></div>
+    </div>
+
+    <div class="entry" data-filter="conference" data-text="coleman bracke karthik DLIST opening LIS research practice JCDL 2004 IEEE Tucson">
+      <span class="entry-num">8</span>
+      <div class="entry-text">Coleman, A.S., Bracke, P., & Karthik, S. (2004). DLIST: Opening LIS research and practice. <em>Joint Conference on Digital Libraries (JCDL),</em> Tucson, AZ. <a href="https://ieeexplore.ieee.org/document/1336169/" target="_blank" rel="noopener">IEEE →</a> <span class="entry-tag tag-conference">JCDL</span></div>
+    </div>
+
+    <div class="entry" data-filter="conference" data-text="coleman ASIS&T 2005 dLIST Charlotte North Carolina">
+      <span class="entry-num">9</span>
+      <div class="entry-text">Coleman, A.S. (2005). dLIST. Presentation, <em>ASIS&T Annual Meeting,</em> Charlotte, NC. <a href="https://scholarworks.sjsu.edu/slis_pub/127/" target="_blank" rel="noopener">scholarworks.sjsu.edu →</a> <span class="entry-tag tag-conference">ASIS&T</span></div>
+    </div>
+
+    <div class="entry" data-filter="conference" data-text="coleman malone xia nelson self-archiving copyright transfer agreements ISI-ranked LIS journals ALISE 2005 Boston poster">
+      <span class="entry-num">10</span>
+      <div class="entry-text">Coleman, A.S., Malone, C.K., Xia, J., & Nelson, S. (2005). Self-archiving and the copyright transfer agreements of ISI-ranked library and information science journals. Poster, <em>ALISE Annual Conference,</em> Boston, MA. <a href="https://repository.arizona.edu/bitstream/handle/10150/106071/DLISTCTAposter.pdf" target="_blank" rel="noopener">UA Repository →</a> <span class="entry-tag tag-conference">ALISE</span></div>
+    </div>
+
+    <div class="entry" data-filter="conference" data-text="coleman malone copyright transfer agreements self-archiving LIS tutorial ACM IEEE JCDL 2005">
+      <span class="entry-num">11</span>
+      <div class="entry-text">Coleman, A.S., & Malone, C.K. (2005). Copyright transfer agreements and self-archiving in LIS: A tutorial. Submitted to <em>ACM/IEEE Joint Conference on Digital Libraries.</em> <a href="https://repository.arizona.edu/bitstream/handle/10150/106282/colemanmalonetutorial.pdf" target="_blank" rel="noopener">UA Repository →</a> <span class="entry-tag tag-conference">JCDL</span></div>
+    </div>
+
+    <div class="entry" data-filter="conference" data-text="coleman IFLA 2005 Oslo Norway WLIC poster Stefan Wais">
+      <span class="entry-num">12</span>
+      <div class="entry-text">Coleman, A.S. (2005). dLIST: Digital Library of Information Science and Technology. Poster, <em>IFLA World Library and Information Congress,</em> Oslo, Norway, August 14–18. Designed by Stefan Wais. <span class="entry-tag tag-conference">IFLA</span></div>
+    </div>
+
+    <div class="entry" data-filter="conference" data-text="coleman commons-based digital libraries ASIS&T SIG CR 2006 Austin">
+      <span class="entry-num">13</span>
+      <div class="entry-text">Coleman, A.S. (2006). Commons-based digital libraries. <em>ASIS&T SIG/CR Classification Research Workshop,</em> Austin, TX. <a href="https://repository.arizona.edu/bitstream/handle/10150/105946/AscSigSi06.pdf" target="_blank" rel="noopener">UA Repository →</a> <span class="entry-tag tag-conference">ASIS&T</span></div>
+    </div>
+
+    <div class="entry" data-filter="conference" data-text="coleman dervos common sense defining data information metadata ISKO 2006 Vienna">
+      <span class="entry-num">14</span>
+      <div class="entry-text">Coleman, A.S., & Dervos, D.A. (2006). A common sense approach to defining data, information and metadata. <em>Advances in Knowledge Organization,</em> Vol. 10, 9th ISKO Conference, Vienna. <span class="entry-tag tag-conference">ISKO</span></div>
+    </div>
+
+    <div class="entry" data-filter="conference" data-text="coleman EPrints meets web 2.0 latest news ECDL 2006 Alicante team">
+      <span class="entry-num">15</span>
+      <div class="entry-text">Coleman, A.S. (2006/2007). 'Latest News': EPrints meets Web 2.0. <em>European Conference on Digital Libraries (ECDL),</em> Alicante, Spain. [Team presentation.] <a href="https://www.researchgate.net/publication/279485739" target="_blank" rel="noopener">ResearchGate →</a> <span class="entry-tag tag-conference">ECDL</span></div>
+    </div>
+
+    <div class="entry" data-filter="conference" data-text="coleman dLIST open repositories OR2007 San Antonio Texas second international">
+      <span class="entry-num">16</span>
+      <div class="entry-text">Coleman, A.S. (2007). dLIST presentation. <em>2nd International Conference on Open Repositories (OR2007),</em> San Antonio, Texas, January 23. <span class="entry-tag tag-conference">OR2007</span></div>
+    </div>
+
+    <div class="entry" data-filter="conference" data-text="sokol developing marketing strategies dLIST LIS commons BOBCATSSS 2007 Prague Charles University student">
+      <span class="entry-num">17</span>
+      <div class="entry-text">Sokol, D. (2007). Developing marketing strategies for dLIST and the LIS Commons. <em>15th BOBCATSSS Symposium,</em> January 29–31, Prague. <a href="http://hdl.handle.net/10150/105096" target="_blank" rel="noopener">UA Repository →</a> <span class="entry-tag tag-conference">BOBCATSSS</span> <span class="entry-tag tag-student">Student</span></div>
+    </div>
+
+    <h3 style="font-family:'Lora',serif;font-size:15px;font-weight:500;color:var(--ink);margin:1.5rem 0 0.75rem;">Technical Reports & Grant Proposals</h3>
+
+    <div class="entry" data-filter="technical" data-text="coleman dLIST ITS research lab presentation University Arizona 2004 TRIF">
+      <span class="entry-num">18</span>
+      <div class="entry-text">Coleman, A.S. (2004). dLIST Research Lab presentation. ITS Research Lab, University of Arizona, August 2004. <a href="https://repository.arizona.edu/bitstream/handle/10150/105214/itsrl.pdf" target="_blank" rel="noopener">UA Repository →</a> <span class="entry-tag tag-technical">Report</span></div>
+    </div>
+
+    <div class="entry" data-filter="technical" data-text="malone coleman impact open access library information science IMLS national leadership grant 2005 rejected">
+      <span class="entry-num">19</span>
+      <div class="entry-text">Malone, C.K., & Coleman, A.S. (2005). The impact of open access on library and information science. Unfunded proposal, <em>IMLS National Leadership Grants,</em> February 2005. <a href="http://hdl.handle.net/10150/105108" target="_blank" rel="noopener">UA Repository →</a> <span class="entry-tag tag-technical">Grant (Rejected)</span>
+        <div class="entry-note">Proposed to digitize JELIS back issues and study open access impact using dLIST as testbed. IMLS declined. NSF had declined a similar proposal in 2003.</div>
+      </div>
+    </div>
+
+    <div class="entry" data-filter="technical" data-text="coleman dLIST NSDL poster National Science Digital Library Stefan Wais design">
+      <span class="entry-num">20</span>
+      <div class="entry-text">Coleman, A.S. [2004–2005]. dLIST: Digital Library of Information Science and Technology. Poster. <em>National Science Digital Library (NSDL).</em> Designed by Stefan Wais. <a href="https://nsdl.library.cornell.edu/websites/nsdlnetwork/sites/default/files/2457_dlistPoster_coleman.pdf" target="_blank" rel="noopener">NSDL →</a> <span class="entry-tag tag-technical">Poster</span></div>
+    </div>
+
+    <h3 style="font-family:'Lora',serif;font-size:15px;font-weight:500;color:var(--ink);margin:1.5rem 0 0.75rem;">Community Documents</h3>
+
+    <div class="entry" data-filter="community" data-text="dLIST repository University Arizona Campus Repository preserved archive OAI-PMH EPrints">
+      <span class="entry-num">21</span>
+      <div class="entry-text">Digital Library of Information Science and Technology (DLIST). (2002–2013). Cross-institutional, subject-based, open access digital archive for the Information Sciences. University of Arizona Campus Repository. <a href="https://repository.arizona.edu/handle/10150/105066" target="_blank" rel="noopener">UA Repository →</a> <span class="entry-tag tag-community">Archive</span></div>
+    </div>
+
+    <div class="entry" data-filter="community" data-text="DL-Harvest open access aggregator 14 archives information sciences PKP Harvester OAI-PMH Roback">
+      <span class="entry-num">22</span>
+      <div class="entry-text">DL-Harvest. (2005–). Open access aggregator for Library and Information Science, drawing on dLIST and 13 other OAI-PMH compliant archives. Built using PKP Harvester with improvements by Joseph Roback (flow control, sets, advanced searching). <span class="entry-tag tag-community">Infrastructure</span></div>
+    </div>
+
+    <div class="entry" data-filter="community" data-text="dLIST new editors announced American Scientist Open Access Forum 2006 Harnad">
+      <span class="entry-num">23</span>
+      <div class="entry-text">dLIST Information Sciences Digital Archive announces new editors. (2006). <em>American Scientist Open Access Forum,</em> June 8. <a href="https://www.southampton.ac.uk/~harnad/Hypermail/Amsci/5388.html" target="_blank" rel="noopener">Harnad Archive →</a> <span class="entry-tag tag-community">Announcement</span></div>
+    </div>
+
+    <div class="entry" data-filter="community" data-text="dLIST Classics Ranganathan SRELS digitization permission open access classics LIS Malone Wilcox Ditch Plesea Yan Hutchinson May">
+      <span class="entry-num">24</span>
+      <div class="entry-text">dLIST Classics Project. (2006–2007). Digitization of S.R. Ranganathan texts and related LIS classics with permission from SRELS (Sarada Ranganathan Endowment for Library Science, India). Permission granted by A. Neelameghan, K.N. Prasad, and K.S. Raghavan (DRTC), and Advisory Board member S. Arunachalam. Funded by Proposition 301 / ACIST. <span class="entry-tag tag-community">Digitization</span>
+        <div class="entry-note">
+          <strong>Phase 1 (May 2006):</strong> Five Laws of Library Science, Ed. 1 (1931). Digitizer: Michael May, Carnegie-Stout Public Library, Dubuque, Iowa. Book Editor: Michael May.<br><br>
+          <strong>Phase 2 (Fall 2006):</strong> Philosophy of Library Classification (1973); Prolegomena to Library Classification, Ed. 3 (1967); Classification and Communication (1951); Documentation Genesis and Development (1973); Documentation and its Facets (1963). Digitizer: Joy Wilcox, SIRLS, University of Arizona.<br><br>
+          <strong>Phase 3 (Spring 2007) — Project Coordinator: Cheryl K. Malone, SIRLS:</strong> Digitizer: Susan Ditch, SIRLS; Quality Control: Megan Plesea, SIRLS; Digitization Training: Han Yan, Information Systems, UA; Book Editor: Barbara Hutchinson, UA.<br><br>
+          <strong>Complete list of 12 titles digitized:</strong><br>
+          <em>By S.R. Ranganathan (9 titles):</em> Five Laws of Library Science Ed. 1 (1931); Philosophy of Library Classification (1973); Prolegomena to Library Classification Ed. 3 (1967); Classification and Communication (1951); Documentation Genesis and Development (1973); Documentation and its Facets (1963); Library Book Selection Ed. 2 (1966); New Education and School Library (1973); Reference Service Ed. 2 (1961).<br>
+          <em>Other Classics (3 titles):</em> Neelameghan, A. — S.R. Ranganathan's Postulates and Normative Principles (1997); Memorabilia Ranganathan (1994); Atherton, Pauline — Putting Knowledge to Work: An American View of the Five Laws of Library Science (1970).
+        </div>
+      </div>
+    </div>
+
+    <div class="entry" data-filter="community" data-text="knowledge structures toolbox IRLS 401 501 Coleman 2001 University Arizona organization information">
+      <span class="entry-num">25</span>
+      <div class="entry-text">Coleman, A.S. (2001). Knowledge Structures Toolbox — IRLS 401/501. References and resources for graduate instruction in Organization of Information. University of Arizona. Deposited in dLIST 2003. <a href="https://repository.arizona.edu/handle/10150/105944" target="_blank" rel="noopener">UA Repository →</a> <span class="entry-tag tag-community">Teaching Resource</span></div>
+    </div>
+
+    <h3 style="font-family:'Lora',serif;font-size:15px;font-weight:500;color:var(--ink);margin:1.5rem 0 0.75rem;">Adjacent Work — Pre-dLIST & NSDL Network</h3>
+
+    <p style="font-size:13px;color:var(--ink-3);line-height:1.7;margin-bottom:1rem;">dLIST emerged from Coleman's broader digital library research at the University of Arizona in the late 1990s and early 2000s, which included work on the Alexandria Digital Library (geospatial), DLESE (earth science education), GROW-NCERL (civil engineering education), and the NSDL network. These projects established the research context and interdisciplinary collaborations from which dLIST grew.</p>
+
+    <div class="entry" data-filter="adjacent" data-text="Alexandria Digital Library Earth Prototype ACM IEEE JCDL 2001 Roanoke Smith Janee Frew geospatial">
+      <span class="entry-num">A1</span>
+      <div class="entry-text">Coleman, A., Smith, T., Janeé, G., & Frew, J. (2001). The Alexandria Digital Earth Prototype. <em>Proceedings of the First ACM/IEEE-CS Joint Conference on Digital Libraries (JCDL),</em> Roanoke, Virginia, June, pp. 118–119. <span class="entry-tag tag-adjacent">Adjacent</span>
+        <div class="entry-note">Pre-dLIST geospatial digital library work. The Alexandria Digital Library project at UC Santa Barbara established foundational digital library research in Coleman's network.</div>
+      </div>
+    </div>
+
+    <div class="entry" data-filter="adjacent" data-text="Smith Buchel Mayer learning spaces digital libraries ECDL 2001 Darmstadt European Conference">
+      <span class="entry-num">A2</span>
+      <div class="entry-text">Smith, T.R., Buchel, O.A., Coleman, A., & Mayer, R.E. (2001). Learning spaces in digital libraries. In <em>Research and Advanced Technology for Digital Libraries: 5th European Conference (ECDL),</em> Darmstadt, Germany, September 4–9. Berlin: Springer-Verlag, pp. 251–262. <span class="entry-tag tag-adjacent">Adjacent</span>
+        <div class="entry-note">Pre-dLIST work on learning environments in digital libraries — research thread that fed directly into dLIST's educational mission.</div>
+      </div>
+    </div>
+
+    <div class="entry" data-filter="adjacent" data-text="budhu coleman design evaluation interactivities digital library GROW NCERL civil engineering D-Lib 2002 NSF NSDL">
+      <span class="entry-num">A3</span>
+      <div class="entry-text">Budhu, M., & Coleman, A. (2002). The design and evaluation of interactivities in a digital library. <em>D-Lib Magazine,</em> 8(11). <a href="https://www.dlib.org/dlib/november02/coleman/11coleman.html" target="_blank" rel="noopener">dlib.org →</a> <span class="entry-tag tag-adjacent">Adjacent</span>
+        <div class="entry-note">GROW-NCERL (National Civil Engineering Educational Resources Library), an NSF-funded NSDL subsidiary. Pre-dLIST work establishing Coleman's digital library research at UA. Paul Bracke is acknowledged — connecting the NSDL and dLIST networks.</div>
+      </div>
+    </div>
+
+    <div class="entry" data-filter="adjacent" data-text="jones giersch sumner wright coleman bartolo developing web analytics strategy NSDL national science digital library D-Lib 2004">
+      <span class="entry-num">A4</span>
+      <div class="entry-text">Jones, C., Giersch, S., Sumner, T., Wright, M., Coleman, A., & Bartolo, L. (2004). Developing a web analytics strategy for the National Science Digital Library. <em>D-Lib Magazine,</em> 10(10). <a href="https://www.dlib.org/dlib/october04/coleman/10coleman.html" target="_blank" rel="noopener">dlib.org →</a> <span class="entry-tag tag-adjacent">Adjacent</span>
+        <div class="entry-note">NSDL network workshop report. References dlist.sir.arizona.edu as a repository where a project bibliography was deposited — dLIST being used by the broader NSDL community.</div>
+      </div>
+    </div>
+
+    <p class="no-results" id="no-results">No entries match your search.</p>
+
+  </section>
+
+  <!-- AWARDS -->
+  <section class="bib-section" id="awards">
+    <div class="section-header">
+      <span class="section-title">Awards & Recognition</span>
+    </div>
+
+    <div class="entry" data-filter="community" data-text="Coleman Library Journal Movers Shakers 2007 Global Thinker dLIST Eschenfelder nomination">
+      <span class="entry-num">★</span>
+      <div class="entry-text"><em>Library Journal</em> Movers and Shakers 2007. <strong>Category: "Global Thinker."</strong> Recognized for creating dLIST and making LIS Classics — including S.R. Ranganathan's works — openly accessible. Nominated by Kristin Eschenfelder, University of Wisconsin-Madison. LJ description: "With nothing but enthusiasm, and a $5000 grant for a server, Coleman began the project in 2002. She's maintained it on a shoestring by enlisting graduate students and an ever-widening circle of volunteers... Coleman has always wanted to leave the planet better than she found it. She's already done so." <a href="https://www.libraryjournal.com/story/anita-coleman-movers-shakers-2007" target="_blank" rel="noopener">Library Journal →</a> <span class="entry-tag tag-award">Award</span></div>
+    </div>
+
+    <div class="entry" data-filter="community" data-text="Coleman Outstanding Teacher Award University Arizona 2007 SIRLS">
+      <span class="entry-num">★</span>
+      <div class="entry-text">Outstanding Teacher Award. University of Arizona, School of Information Resources and Library Science, 2007. <span class="entry-tag tag-award">Award</span></div>
+    </div>
+
+    <div class="entry" data-filter="community" data-text="Coleman Professional Service Award Library Congress ALA ALCTS 2006">
+      <span class="entry-num">★</span>
+      <div class="entry-text">Professional Service Award. Library of Congress and American Library Association, Association for Library Cataloging and Technical Services, 2006. <span class="entry-tag tag-award">Award</span></div>
+    </div>
+  </section>
+
+  <!-- LEGACY -->
+  <section class="bib-section" id="legacy">
+    <div class="section-header">
+      <span class="section-title">Legacy & Subsequent Work</span>
+    </div>
+
+    <div class="entry" data-filter="journal" data-text="Xia disciplinary repositories social sciences Aslib Proceedings 2007">
+      <span class="entry-num">L1</span>
+      <div class="entry-text">Xia, J. (2007). Disciplinary repositories in the social sciences. <em>Aslib Proceedings,</em> 59(6), 528–546.
+        <div class="entry-note">Directly informed by Xia's work as a dLIST metadata and copyright editor. Traces the disciplinary repository model dLIST pioneered.</div>
+      </div>
+    </div>
+
+    <div class="entry" data-filter="journal" data-text="Coleman adaptive infophilia SRELS 2025 positive psychology information">
+      <span class="entry-num">L2</span>
+      <div class="entry-text">Coleman, A.S. (2025). Adaptive infophilia. <em>SRELS International Journal of Information and Knowledge,</em> 62(1). <a href="https://doi.org/10.17821/srels/2025/v62i1/171701" target="_blank" rel="noopener">doi:10.17821/srels/2025/v62i1/171701</a>
+        <div class="entry-note">Published in SRELS — the same Indian publisher whose Ranganathan texts dLIST Classics digitized with permission twenty years earlier.</div>
+      </div>
+    </div>
+
+    <div class="entry" data-filter="community" data-text="Coleman ALA150 future of librarians dLIST library story age AI 2026 forthcoming">
+      <span class="entry-num">L3</span>
+      <div class="entry-text">Coleman, A.S. (2026). The future of librarians: dLIST, a library story for the age of AI. <em>ALA150 Blog,</em> American Library Association. [Forthcoming.] <a href="https://ala150.org" target="_blank" rel="noopener">ala150.org →</a>
+        <div class="entry-note">The dLIST story told for the profession's 150th anniversary. Accepted by ALA150 editor Phil Morehart, May 2026.</div>
+      </div>
+    </div>
+
+    <div class="entry" data-filter="community" data-text="Gupta Roback AWS NVIDIA re:Invent 2025 Edge AI Physical AI dLIST GRAs OAI-PMH">
+      <span class="entry-num">L4</span>
+      <div class="entry-text">Gupta, G. (2025). [Presenter.] Edge AI &amp; Physical AI themes. <em>AWS re:Invent 2025,</em> Las Vegas, December. Based on LinkedIn post by Gaurav Gupta.
+        <div class="entry-note">Gupta, one of the two GRAs who built dLIST's OAI-PMH infrastructure, appears to have presented on Edge AI and Physical AI at re:Invent 2025. Joseph Roback (NVIDIA) works in the same AI infrastructure ecosystem. They started by learning copyright from a faculty member at Arizona who believed the field's knowledge deserved open infrastructure.</div>
+      </div>
+    </div>
+
+  </section>
+
+</main>
+
+<footer class="bib-footer">
+  <p><strong>Cite as:</strong> Coleman, A.S. (2026). dLIST: A working bibliography and community record. <em>Infophilia: A Positive Psychology of Information.</em> ISSN 3069-6526. <a href="https://infophilia-org.github.io/infophilia-tools/dlist-bibliography.html">infophilia-org.github.io/infophilia-tools/dlist-bibliography.html</a></p>
+  <p style="margin-top:0.75rem;">© 2026 Anita Sundaram Coleman. Licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank" rel="noopener">CC BY-NC-SA 4.0</a>. <a href="https://orcid.org/0000-0002-5724-5442" target="_blank" rel="noopener">ORCID</a> · <a href="https://infophilia.substack.com" target="_blank" rel="noopener">Infophilia Substack</a> · <a href="https://infophilia-org.github.io/infophilia-tools/landing.html" target="_blank" rel="noopener">Infophilia Toolbox</a></p>
+  <p style="margin-top:0.75rem; font-style:italic;">This is a working document. Two names are still being verified: Mark [last name TBD] who supervised the independent study that started it all, and Lisa [last name TBD] who created the dLIST logo and stationery. Student impact paper documentation forthcoming. Contact: info at infophilia dot org</p>
+</footer>
+
+<script>
+const searchInput = document.getElementById('search');
+const filterBtns = document.querySelectorAll('.filter-btn');
+const entries = document.querySelectorAll('.entry');
+const noResults = document.getElementById('no-results');
+const resultsCount = document.getElementById('results-count');
+
+let activeFilter = 'all';
+let searchTerm = '';
+
+function updateDisplay() {
+  let visible = 0;
+  entries.forEach(entry => {
+    const filter = entry.dataset.filter || '';
+    const text = (entry.dataset.text || '') + ' ' + (entry.textContent || '');
+    const matchesFilter = activeFilter === 'all' || filter === activeFilter;
+    const matchesSearch = searchTerm === '' || text.toLowerCase().includes(searchTerm.toLowerCase());
+    if (matchesFilter && matchesSearch) {
+      entry.classList.remove('hidden');
+      visible++;
+    } else {
+      entry.classList.add('hidden');
+    }
+  });
+  resultsCount.textContent = (searchTerm || activeFilter !== 'all') ? `${visible} shown` : '';
+  if (noResults) noResults.style.display = visible === 0 ? 'block' : 'none';
+}
+
+searchInput.addEventListener('input', e => {
+  searchTerm = e.target.value.trim();
+  updateDisplay();
+});
+
+filterBtns.forEach(btn => {
+  btn.addEventListener('click', () => {
+    filterBtns.forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    activeFilter = btn.dataset.filter;
+    updateDisplay();
+  });
+});
+</script>
+
+</body>
+</html>
