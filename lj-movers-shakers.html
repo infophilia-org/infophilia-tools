@@ -1,0 +1,1044 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>LJ Movers & Shakers — 25 Years (2002–2026)</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500;600&display=swap');
+
+  :root {
+    --ink: #1a1612;
+    --ink-muted: #5c5450;
+    --ink-faint: #9e9894;
+    --paper: #faf8f5;
+    --paper-warm: #f2ede6;
+    --paper-mid: #e8e2d9;
+    --accent: #b5340a;
+    --accent-light: #f5e8e3;
+    --accent-mid: #d4724f;
+    --gold: #c9952a;
+    --gold-light: #f7f0de;
+    --teal: #1e6b72;
+    --teal-light: #e0f2f3;
+    --sage: #3d6b4a;
+    --sage-light: #e5f0e8;
+    --plum: #5e3a75;
+    --plum-light: #ede5f5;
+    --slate: #2a4a6b;
+    --slate-light: #e3eaf5;
+    --border: #d6cfc5;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--paper);
+    color: var(--ink);
+    font-size: 15px;
+    line-height: 1.6;
+  }
+
+  /* ── Header ── */
+  header {
+    background: var(--ink);
+    color: var(--paper);
+    padding: 2rem 2.5rem 1.75rem;
+    position: relative;
+    overflow: hidden;
+  }
+  header::before {
+    content: '';
+    position: absolute;
+    top: -40px; right: -40px;
+    width: 300px; height: 300px;
+    border-radius: 50%;
+    border: 60px solid rgba(201,149,42,0.12);
+    pointer-events: none;
+  }
+  .hdr-eyebrow {
+    font-size: 11px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 0.5rem;
+  }
+  header h1 {
+    font-family: 'DM Serif Display', serif;
+    font-size: clamp(24px, 4vw, 40px);
+    font-weight: 400;
+    line-height: 1.15;
+    margin-bottom: 0.5rem;
+  }
+  header h1 em { font-style: italic; color: var(--gold); }
+  .hdr-sub {
+    font-size: 13px;
+    color: rgba(255,255,255,0.55);
+    max-width: 600px;
+  }
+  .hdr-stats {
+    display: flex; gap: 2rem; margin-top: 1.25rem; flex-wrap: wrap;
+  }
+  .hdr-stat { }
+  .hdr-stat-n {
+    font-family: 'DM Serif Display', serif;
+    font-size: 28px;
+    color: var(--paper);
+    line-height: 1;
+  }
+  .hdr-stat-l {
+    font-size: 11px;
+    color: rgba(255,255,255,0.45);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+  }
+  .badge-25 {
+    display: inline-block;
+    background: var(--gold);
+    color: var(--ink);
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    padding: 3px 9px;
+    border-radius: 20px;
+    margin-left: 10px;
+    vertical-align: middle;
+  }
+
+  /* ── Layout ── */
+  .main { display: grid; grid-template-columns: 280px 1fr; min-height: calc(100vh - 200px); }
+
+  /* ── Sidebar ── */
+  .sidebar {
+    background: var(--paper-warm);
+    border-right: 1px solid var(--border);
+    padding: 1.5rem 1.25rem;
+    position: sticky;
+    top: 0;
+    height: 100vh;
+    overflow-y: auto;
+  }
+  .sb-section { margin-bottom: 1.5rem; }
+  .sb-label {
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--ink-faint);
+    margin-bottom: 0.5rem;
+  }
+  .search-wrap { position: relative; }
+  .search-wrap input {
+    width: 100%;
+    padding: 8px 12px 8px 34px;
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    background: white;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 13px;
+    color: var(--ink);
+    outline: none;
+    transition: border-color 0.2s;
+  }
+  .search-wrap input:focus { border-color: var(--accent); }
+  .search-wrap::before {
+    content: '⌕';
+    position: absolute;
+    left: 10px; top: 50%;
+    transform: translateY(-50%);
+    color: var(--ink-faint);
+    font-size: 16px;
+    pointer-events: none;
+  }
+  .filter-row {
+    display: flex; flex-direction: column; gap: 4px;
+  }
+  .filter-btn {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 6px 10px;
+    border: none;
+    background: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 12px;
+    color: var(--ink-muted);
+    text-align: left;
+    transition: background 0.15s;
+  }
+  .filter-btn:hover { background: var(--paper-mid); }
+  .filter-btn.active { background: var(--ink); color: white; }
+  .filter-btn .dot {
+    width: 9px; height: 9px;
+    border-radius: 50%;
+    flex-shrink: 0;
+  }
+  .filter-btn .cnt {
+    margin-left: auto;
+    font-size: 11px;
+    opacity: 0.6;
+  }
+  .year-scroll { max-height: 200px; overflow-y: auto; }
+  .year-btn {
+    display: block;
+    width: 100%;
+    padding: 4px 8px;
+    border: none;
+    background: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 12px;
+    color: var(--ink-muted);
+    text-align: left;
+    transition: background 0.15s;
+  }
+  .year-btn:hover { background: var(--paper-mid); }
+  .year-btn.active { background: var(--accent); color: white; font-weight: 500; }
+  .year-btn .yr-badge {
+    float: right;
+    font-size: 10px;
+    opacity: 0.6;
+  }
+
+  /* ── Category legend ── */
+  .cat-legend { margin-top: 0.25rem; }
+  .cat-item {
+    display: flex; align-items: center; gap: 7px;
+    font-size: 11px; color: var(--ink-muted);
+    margin-bottom: 3px;
+  }
+  .cat-swatch {
+    width: 10px; height: 10px;
+    border-radius: 2px;
+    flex-shrink: 0;
+  }
+
+  /* ── Content area ── */
+  .content { padding: 1.5rem 2rem; }
+
+  /* ── View tabs ── */
+  .view-tabs {
+    display: flex; gap: 2px;
+    border-bottom: 1px solid var(--border);
+    margin-bottom: 1.5rem;
+  }
+  .view-tab {
+    padding: 8px 16px;
+    border: none;
+    background: none;
+    cursor: pointer;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 13px;
+    color: var(--ink-muted);
+    border-bottom: 2px solid transparent;
+    margin-bottom: -1px;
+    transition: all 0.15s;
+  }
+  .view-tab:hover { color: var(--ink); }
+  .view-tab.active { color: var(--accent); border-bottom-color: var(--accent); font-weight: 500; }
+
+  /* ── Results bar ── */
+  .results-bar {
+    font-size: 12px;
+    color: var(--ink-faint);
+    margin-bottom: 1rem;
+  }
+  .results-bar strong { color: var(--ink); }
+
+  /* ── List view ── */
+  #view-list { }
+  .yr-group { margin-bottom: 1.75rem; }
+  .yr-head {
+    display: flex; align-items: baseline; gap: 10px;
+    margin-bottom: 0.6rem;
+    padding-bottom: 6px;
+    border-bottom: 1px solid var(--border);
+  }
+  .yr-head h3 {
+    font-family: 'DM Serif Display', serif;
+    font-size: 20px;
+    font-weight: 400;
+  }
+  .yr-head .yr-is25 {
+    font-size: 11px;
+    background: var(--gold);
+    color: var(--ink);
+    padding: 1px 8px;
+    border-radius: 10px;
+    font-weight: 600;
+  }
+  .yr-head .yr-count {
+    font-size: 12px;
+    color: var(--ink-faint);
+    margin-left: auto;
+  }
+  .pills-wrap {
+    display: flex; flex-wrap: wrap; gap: 4px;
+  }
+  .pill {
+    font-size: 12px;
+    padding: 3px 10px;
+    border-radius: 20px;
+    cursor: default;
+    transition: transform 0.1s;
+  }
+  .pill:hover { transform: scale(1.04); }
+  .pill.hl {
+    outline: 2px solid var(--accent);
+    font-weight: 600;
+  }
+  .pill-none { color: var(--ink); background: var(--paper-mid); }
+  .pill-Innovators { background: #ede9fc; color: #3c2e8a; }
+  .pill-TeamPlayers { background: #fce9f1; color: #7a1d44; }
+  .pill-CommunityBuilders { background: #e3f5ec; color: #1a5c3a; }
+  .pill-Advocates { background: #fef3e2; color: #7a4d0a; }
+  .pill-ChangeAgents { background: #fde8e2; color: #7a2a14; }
+  .pill-Educators { background: #e3edf8; color: #1a3d6e; }
+
+  /* ── Map view ── */
+  #view-map { display: none; }
+  .map-container { position: relative; width: 100%; }
+  #us-map {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+  .state-path {
+    fill: var(--paper-mid);
+    stroke: white;
+    stroke-width: 0.8;
+    cursor: pointer;
+    transition: fill 0.2s;
+  }
+  .state-path:hover { fill: var(--accent-mid); }
+  .state-path.has-movers { fill: var(--teal-light); }
+  .state-path.has-movers:hover { fill: var(--teal); }
+  .state-path.active { fill: var(--accent) !important; }
+  .state-count {
+    font-size: 8px;
+    fill: var(--teal);
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 600;
+    pointer-events: none;
+  }
+  .map-legend {
+    display: flex; gap: 16px; align-items: center;
+    font-size: 12px; color: var(--ink-muted);
+    margin-top: 1rem; flex-wrap: wrap;
+  }
+  .map-leg-item { display: flex; align-items: center; gap: 6px; }
+  .map-leg-swatch { width: 16px; height: 12px; border-radius: 2px; }
+  .map-note {
+    font-size: 11px; color: var(--ink-faint); margin-top: 0.5rem;
+    font-style: italic;
+  }
+  .state-panel {
+    margin-top: 1.5rem;
+    padding: 1.25rem;
+    background: white;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    display: none;
+  }
+  .state-panel.visible { display: block; }
+  .state-panel h3 {
+    font-family: 'DM Serif Display', serif;
+    font-size: 20px;
+    font-weight: 400;
+    margin-bottom: 0.75rem;
+  }
+
+  /* ── Category history ── */
+  #view-cats { display: none; }
+  .cat-history { }
+  .cat-era {
+    margin-bottom: 1.5rem;
+    padding: 1rem 1.25rem;
+    background: white;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+  }
+  .cat-era h3 {
+    font-family: 'DM Serif Display', serif;
+    font-size: 17px; font-weight: 400;
+    margin-bottom: 4px;
+  }
+  .cat-era .years-active {
+    font-size: 11px; color: var(--ink-faint);
+    margin-bottom: 0.5rem;
+  }
+  .cat-era p { font-size: 13px; color: var(--ink-muted); }
+
+  /* ── About panel ── */
+  .about-toggle {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background: var(--gold-light);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 8px 14px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 12px;
+    font-weight: 500;
+    color: var(--ink-muted);
+    cursor: pointer;
+    margin-bottom: 1rem;
+    width: 100%;
+    text-align: left;
+    transition: background 0.15s;
+  }
+  .about-toggle:hover { background: var(--paper-mid); }
+  .about-toggle .arrow { margin-left: auto; transition: transform 0.2s; }
+  .about-toggle.open .arrow { transform: rotate(180deg); }
+  .about-panel {
+    display: none;
+    background: var(--gold-light);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 1.25rem 1.5rem;
+    margin-bottom: 1.25rem;
+    font-size: 13px;
+    line-height: 1.75;
+    color: var(--ink-muted);
+  }
+  .about-panel.open { display: block; }
+  .about-panel p { margin-bottom: 0.75rem; }
+  .about-panel p:last-child { margin-bottom: 0; }
+  .about-panel a { color: var(--accent); text-decoration: underline; }
+  .about-panel strong { color: var(--ink); font-weight: 500; }
+
+  /* ── Revoked note ── */
+  .revoked-note {
+    background: var(--accent-light);
+    border-left: 3px solid var(--accent);
+    border-radius: 0 6px 6px 0;
+    padding: 0.75rem 1rem;
+    font-size: 12px;
+    color: var(--ink-muted);
+    margin-top: 1rem;
+  }
+  .revoked-note strong { color: var(--ink); }
+
+  /* ── Footer ── */
+  .site-footer {
+    background: var(--ink);
+    color: rgba(255,255,255,0.5);
+    padding: 2rem 2.5rem;
+    font-size: 12px;
+    line-height: 1.8;
+    margin-top: 3rem;
+  }
+  .site-footer .cite-block {
+    font-family: 'DM Serif Display', serif;
+    font-size: 13px;
+    color: rgba(255,255,255,0.75);
+    margin-bottom: 1rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+  }
+  .site-footer a { color: var(--gold); text-decoration: none; }
+  .site-footer a:hover { text-decoration: underline; }
+  .site-footer .footer-links {
+    display: flex; gap: 1.5rem; flex-wrap: wrap;
+    margin-top: 0.75rem;
+  }
+
+  /* ── Mobile ── */
+  @media (max-width: 768px) {
+    .main { grid-template-columns: 1fr; }
+    .sidebar { height: auto; position: static; }
+    .content { padding: 1rem; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="hdr-eyebrow">Library Journal</div>
+  <h1>Movers &amp; Shakers <em>25 Years</em><span class="badge-25">2002 – 2026</span></h1>
+  <p class="hdr-sub">A quarter-century of celebrating library innovators, educators, advocates, and freedom fighters. Search, filter by year, category, or explore the US geographic distribution.</p>
+  <div class="hdr-stats">
+    <div class="hdr-stat">
+      <div class="hdr-stat-n" id="stat-total">1,150+</div>
+      <div class="hdr-stat-l">Total honorees</div>
+    </div>
+    <div class="hdr-stat">
+      <div class="hdr-stat-n">25</div>
+      <div class="hdr-stat-l">Annual cohorts</div>
+    </div>
+    <div class="hdr-stat">
+      <div class="hdr-stat-n">~50</div>
+      <div class="hdr-stat-l">Honorees per year</div>
+    </div>
+    <div class="hdr-stat">
+      <div class="hdr-stat-n">15+</div>
+      <div class="hdr-stat-l">Category names over 25 yrs</div>
+    </div>
+  </div>
+</header>
+
+<div class="main">
+  <!-- Sidebar -->
+  <aside class="sidebar">
+    <div class="sb-section">
+      <div class="sb-label">Search</div>
+      <div class="search-wrap">
+        <input type="text" id="srch" placeholder="Name, city, state…" oninput="applyFilters()">
+      </div>
+    </div>
+
+    <div class="sb-section">
+      <div class="sb-label">View</div>
+      <div class="filter-row">
+        <button class="filter-btn active" onclick="switchView('list',this)">📋 List by year</button>
+        <button class="filter-btn" onclick="switchView('map',this)">🗺 US map</button>
+        <button class="filter-btn" onclick="switchView('cats',this)">📂 Category history</button>
+      </div>
+    </div>
+
+    <div class="sb-section">
+      <div class="sb-label">Filter by year</div>
+      <button class="year-btn active" data-yr="" onclick="setYear('',this)">All years <span class="yr-badge" id="yr-all-cnt"></span></button>
+      <div class="year-scroll" id="year-btns"></div>
+    </div>
+
+    <div class="sb-section" id="cat-filter-section">
+      <div class="sb-label">2026 categories</div>
+      <div class="filter-row" id="cat-filter">
+        <button class="filter-btn active" onclick="setCat('',this)"><span class="dot" style="background:#ccc"></span>All categories<span class="cnt" id="cat-all-cnt"></span></button>
+        <button class="filter-btn" onclick="setCat('Innovators',this)"><span class="dot" style="background:#7c6fc4"></span>Innovators<span class="cnt" id="cat-cnt-Innovators"></span></button>
+        <button class="filter-btn" onclick="setCat('TeamPlayers',this)"><span class="dot" style="background:#c4608a"></span>Team Players<span class="cnt" id="cat-cnt-TeamPlayers"></span></button>
+        <button class="filter-btn" onclick="setCat('CommunityBuilders',this)"><span class="dot" style="background:#3d9e6d"></span>Community Builders<span class="cnt" id="cat-cnt-CommunityBuilders"></span></button>
+        <button class="filter-btn" onclick="setCat('Advocates',this)"><span class="dot" style="background:#d4a020"></span>Advocates<span class="cnt" id="cat-cnt-Advocates"></span></button>
+        <button class="filter-btn" onclick="setCat('ChangeAgents',this)"><span class="dot" style="background:#c95b38"></span>Change Agents<span class="cnt" id="cat-cnt-ChangeAgents"></span></button>
+        <button class="filter-btn" onclick="setCat('Educators',this)"><span class="dot" style="background:#2a6aad"></span>Educators<span class="cnt" id="cat-cnt-Educators"></span></button>
+      </div>
+    </div>
+
+    <div class="sb-section">
+      <div class="sb-label">Category color key (2026)</div>
+      <div class="cat-legend">
+        <div class="cat-item"><div class="cat-swatch" style="background:#ede9fc"></div>Innovators</div>
+        <div class="cat-item"><div class="cat-swatch" style="background:#fce9f1"></div>Team Players <em style="font-size:10px">(new 2026)</em></div>
+        <div class="cat-item"><div class="cat-swatch" style="background:#e3f5ec"></div>Community Builders</div>
+        <div class="cat-item"><div class="cat-swatch" style="background:#fef3e2"></div>Advocates</div>
+        <div class="cat-item"><div class="cat-swatch" style="background:#fde8e2"></div>Change Agents</div>
+        <div class="cat-item"><div class="cat-swatch" style="background:#e3edf8"></div>Educators</div>
+        <div class="cat-item"><div class="cat-swatch" style="background:#e8e2d9"></div>Uncategorized years</div>
+      </div>
+    </div>
+  </aside>
+
+  <!-- Main content -->
+  <main class="content">
+    <!-- About panel -->
+    <button class="about-toggle" id="about-toggle" onclick="toggleAbout()">
+      About this project — LIS Historical Commons &amp; Bibliographic Recovery
+      <span class="arrow">▾</span>
+    </button>
+    <div class="about-panel" id="about-panel">
+      <p><strong>Library Journal Movers &amp; Shakers: A 25-Year Historical Record</strong> is an open, recoverable dataset of the library and information science profession's own self-recognition, 2002–2026. It is one of three projects in the <a href="https://infophilia-org.github.io/infophilia-tools/landing.html">LIS Historical Commons</a>, currently underway as adaptive infophilia work.</p>
+      <p>Now in their 25th year, the LJ Movers &amp; Shakers awards are one of the profession's most sustained acts of self-recognition in the 21st century. Taken together across 25 cohorts, they constitute a historical record: of who the field honored, what kinds of work it called exemplary, how its categories of recognition shifted — from Freedom Fighters and Crusaders to Ban Battlers and Team Players — and where, geographically, that work was happening.</p>
+      <p>While previous efforts have documented or visualized portions of the record, no single open, searchable, and mappable resource appears to have brought the full history together in one place. <strong>The data is incomplete and improvable. Contributions and corrections are welcome.</strong></p>
+      <p>
+        <a href="#">⬇ Download complete Excel file</a> &nbsp;&nbsp;|&nbsp;&nbsp;
+        <a href="https://infophilia-org.github.io/infophilia-tools/landing.html">LIS Historical Commons →</a>
+      </p>
+    </div>
+
+    <div class="view-tabs">
+      <button class="view-tab active" id="tab-list">List</button>
+      <button class="view-tab" id="tab-map">US Map</button>
+      <button class="view-tab" id="tab-cats">Category History</button>
+    </div>
+
+    <div class="results-bar" id="results-bar"></div>
+
+    <!-- LIST VIEW -->
+    <div id="view-list"></div>
+
+    <!-- MAP VIEW -->
+    <div id="view-map">
+      <p style="font-size:13px;color:var(--ink-muted);margin-bottom:1rem;">States shaded by number of honorees. Click a state to see names. Note: geographic data is estimated from institution affiliations publicly available for recent years; full geocoding across all 25 years is approximate.</p>
+      <div class="map-container">
+        <svg id="us-map" viewBox="0 0 960 600" xmlns="http://www.w3.org/2000/svg">
+          <!-- US state paths (simplified) -->
+          <!-- AL --><path class="state-path" data-state="Alabama" d="M550 370 L570 370 L575 420 L555 425 L545 400 Z" id="AL"/>
+          <!-- AK --><path class="state-path" data-state="Alaska" d="M100 480 L180 480 L190 540 L130 550 L90 520 Z" id="AK"/>
+          <!-- AZ --><path class="state-path" data-state="Arizona" d="M175 310 L250 310 L255 390 L190 400 L170 370 Z" id="AZ"/>
+          <!-- AR --><path class="state-path" data-state="Arkansas" d="M500 345 L550 345 L548 375 L498 378 Z" id="AR"/>
+          <!-- CA --><path class="state-path" data-state="California" d="M90 220 L155 220 L165 310 L100 330 L80 290 Z" id="CA"/>
+          <!-- CO --><path class="state-path" data-state="Colorado" d="M270 280 L360 278 L360 330 L270 332 Z" id="CO"/>
+          <!-- CT --><path class="state-path" data-state="Connecticut" d="M740 200 L758 198 L760 215 L740 217 Z" id="CT"/>
+          <!-- DE --><path class="state-path" data-state="Delaware" d="M720 220 L735 218 L736 238 L720 240 Z" id="DE"/>
+          <!-- FL --><path class="state-path" data-state="Florida" d="M565 430 L630 430 L650 490 L610 510 L570 480 Z" id="FL"/>
+          <!-- GA --><path class="state-path" data-state="Georgia" d="M580 380 L630 378 L632 430 L575 432 Z" id="GA"/>
+          <!-- HI --><path class="state-path" data-state="Hawaii" d="M230 540 L310 540 L310 570 L230 570 Z" id="HI"/>
+          <!-- ID --><path class="state-path" data-state="Idaho" d="M175 150 L225 148 L228 250 L190 260 L170 220 Z" id="ID"/>
+          <!-- IL --><path class="state-path" data-state="Illinois" d="M520 255 L555 253 L558 340 L518 342 Z" id="IL"/>
+          <!-- IN --><path class="state-path" data-state="Indiana" d="M558 255 L590 253 L592 330 L556 332 Z" id="IN"/>
+          <!-- IA --><path class="state-path" data-state="Iowa" d="M460 240 L520 238 L522 278 L460 280 Z" id="IA"/>
+          <!-- KS --><path class="state-path" data-state="Kansas" d="M380 295 L465 293 L466 335 L380 337 Z" id="KS"/>
+          <!-- KY --><path class="state-path" data-state="Kentucky" d="M565 305 L660 300 L662 338 L565 342 Z" id="KY"/>
+          <!-- LA --><path class="state-path" data-state="Louisiana" d="M480 395 L555 393 L558 430 L500 440 L475 420 Z" id="LA"/>
+          <!-- ME --><path class="state-path" data-state="Maine" d="M775 130 L810 128 L815 175 L775 178 Z" id="ME"/>
+          <!-- MD --><path class="state-path" data-state="Maryland" d="M688 238 L740 234 L742 258 L688 262 Z" id="MD"/>
+          <!-- MA --><path class="state-path" data-state="Massachusetts" d="M738 185 L780 182 L782 202 L738 205 Z" id="MA"/>
+          <!-- MI --><path class="state-path" data-state="Michigan" d="M570 185 L625 183 L628 245 L568 248 Z" id="MI"/>
+          <!-- MN --><path class="state-path" data-state="Minnesota" d="M440 155 L510 152 L513 240 L440 242 Z" id="MN"/>
+          <!-- MS --><path class="state-path" data-state="Mississippi" d="M520 370 L552 368 L554 420 L518 423 Z" id="MS"/>
+          <!-- MO --><path class="state-path" data-state="Missouri" d="M460 285 L525 282 L528 348 L458 350 Z" id="MO"/>
+          <!-- MT --><path class="state-path" data-state="Montana" d="M225 120 L370 115 L372 190 L225 195 Z" id="MT"/>
+          <!-- NE --><path class="state-path" data-state="Nebraska" d="M370 250 L460 247 L462 290 L370 293 Z" id="NE"/>
+          <!-- NV --><path class="state-path" data-state="Nevada" d="M135 200 L185 195 L195 305 L148 315 L130 270 Z" id="NV"/>
+          <!-- NH --><path class="state-path" data-state="New Hampshire" d="M755 152 L775 150 L777 193 L754 195 Z" id="NH"/>
+          <!-- NJ --><path class="state-path" data-state="New Jersey" d="M718 208 L738 205 L740 235 L718 238 Z" id="NJ"/>
+          <!-- NM --><path class="state-path" data-state="New Mexico" d="M250 315 L330 312 L333 390 L250 393 Z" id="NM"/>
+          <!-- NY --><path class="state-path" data-state="New York" d="M660 168 L755 162 L758 210 L658 215 Z" id="NY"/>
+          <!-- NC --><path class="state-path" data-state="North Carolina" d="M622 315 L735 308 L738 345 L622 350 Z" id="NC"/>
+          <!-- ND --><path class="state-path" data-state="North Dakota" d="M365 150 L450 147 L452 195 L365 198 Z" id="ND"/>
+          <!-- OH --><path class="state-path" data-state="Ohio" d="M593 245 L648 242 L650 305 L592 308 Z" id="OH"/>
+          <!-- OK --><path class="state-path" data-state="Oklahoma" d="M358 340 L480 337 L482 378 L358 382 Z" id="OK"/>
+          <!-- OR --><path class="state-path" data-state="Oregon" d="M100 155 L185 150 L190 215 L100 220 Z" id="OR"/>
+          <!-- PA --><path class="state-path" data-state="Pennsylvania" d="M648 200 L720 195 L722 238 L647 242 Z" id="PA"/>
+          <!-- RI --><path class="state-path" data-state="Rhode Island" d="M762 195 L775 193 L776 207 L762 208 Z" id="RI"/>
+          <!-- SC --><path class="state-path" data-state="South Carolina" d="M633 345 L695 340 L698 385 L633 388 Z" id="SC"/>
+          <!-- SD --><path class="state-path" data-state="South Dakota" d="M365 195 L450 192 L452 245 L365 248 Z" id="SD"/>
+          <!-- TN --><path class="state-path" data-state="Tennessee" d="M545 342 L665 338 L667 372 L543 375 Z" id="TN"/>
+          <!-- TX --><path class="state-path" data-state="Texas" d="M310 355 L480 350 L490 460 L355 470 L300 420 Z" id="TX"/>
+          <!-- UT --><path class="state-path" data-state="Utah" d="M220 248 L275 245 L278 315 L222 318 Z" id="UT"/>
+          <!-- VT --><path class="state-path" data-state="Vermont" d="M740 152 L757 150 L759 183 L740 185 Z" id="VT"/>
+          <!-- VA --><path class="state-path" data-state="Virginia" d="M648 272 L735 265 L738 308 L648 312 Z" id="VA"/>
+          <!-- WA --><path class="state-path" data-state="Washington" d="M100 105 L190 100 L193 155 L100 158 Z" id="WA"/>
+          <!-- WV --><path class="state-path" data-state="West Virginia" d="M645 258 L692 255 L694 302 L643 305 Z" id="WV"/>
+          <!-- WI --><path class="state-path" data-state="Wisconsin" d="M500 178 L555 175 L558 242 L498 245 Z" id="WI"/>
+          <!-- WY --><path class="state-path" data-state="Wyoming" d="M270 195 L365 192 L367 250 L270 253 Z" id="WY"/>
+          <!-- DC --><path class="state-path" data-state="Washington DC" d="M708 248 L718 246 L719 258 L708 260 Z" id="DC"/>
+
+          <!-- State abbreviation labels -->
+          <text x="556" y="402" class="state-count" id="lbl-AL">AL</text>
+          <text x="130" y="520" class="state-count" id="lbl-AK">AK</text>
+          <text x="202" y="360" class="state-count" id="lbl-AZ">AZ</text>
+          <text x="516" y="365" class="state-count" id="lbl-AR">AR</text>
+          <text x="110" y="278" class="state-count" id="lbl-CA">CA</text>
+          <text x="302" y="310" class="state-count" id="lbl-CO">CO</text>
+          <text x="742" y="210" class="state-count" id="lbl-CT" font-size="6">CT</text>
+          <text x="722" y="232" class="state-count" id="lbl-DE" font-size="6">DE</text>
+          <text x="600" y="475" class="state-count" id="lbl-FL">FL</text>
+          <text x="596" y="408" class="state-count" id="lbl-GA">GA</text>
+          <text x="260" y="558" class="state-count" id="lbl-HI">HI</text>
+          <text x="192" y="208" class="state-count" id="lbl-ID">ID</text>
+          <text x="528" y="300" class="state-count" id="lbl-IL">IL</text>
+          <text x="566" y="295" class="state-count" id="lbl-IN">IN</text>
+          <text x="480" y="262" class="state-count" id="lbl-IA">IA</text>
+          <text x="416" y="318" class="state-count" id="lbl-KS">KS</text>
+          <text x="605" y="322" class="state-count" id="lbl-KY">KY</text>
+          <text x="508" y="418" class="state-count" id="lbl-LA">LA</text>
+          <text x="784" y="155" class="state-count" id="lbl-ME">ME</text>
+          <text x="704" y="252" class="state-count" id="lbl-MD" font-size="6">MD</text>
+          <text x="750" y="196" class="state-count" id="lbl-MA">MA</text>
+          <text x="588" y="218" class="state-count" id="lbl-MI">MI</text>
+          <text x="468" y="198" class="state-count" id="lbl-MN">MN</text>
+          <text x="528" y="398" class="state-count" id="lbl-MS">MS</text>
+          <text x="484" y="320" class="state-count" id="lbl-MO">MO</text>
+          <text x="290" y="158" class="state-count" id="lbl-MT">MT</text>
+          <text x="408" y="272" class="state-count" id="lbl-NE">NE</text>
+          <text x="152" y="260" class="state-count" id="lbl-NV">NV</text>
+          <text x="757" y="175" class="state-count" id="lbl-NH" font-size="6">NH</text>
+          <text x="720" y="225" class="state-count" id="lbl-NJ" font-size="6">NJ</text>
+          <text x="282" y="355" class="state-count" id="lbl-NM">NM</text>
+          <text x="700" y="190" class="state-count" id="lbl-NY">NY</text>
+          <text x="672" y="332" class="state-count" id="lbl-NC">NC</text>
+          <text x="404" y="175" class="state-count" id="lbl-ND">ND</text>
+          <text x="614" y="278" class="state-count" id="lbl-OH">OH</text>
+          <text x="414" y="362" class="state-count" id="lbl-OK">OK</text>
+          <text x="136" y="186" class="state-count" id="lbl-OR">OR</text>
+          <text x="678" y="222" class="state-count" id="lbl-PA">PA</text>
+          <text x="765" y="202" class="state-count" id="lbl-RI" font-size="5">RI</text>
+          <text x="656" y="368" class="state-count" id="lbl-SC">SC</text>
+          <text x="400" y="222" class="state-count" id="lbl-SD">SD</text>
+          <text x="596" y="358" class="state-count" id="lbl-TN">TN</text>
+          <text x="388" y="412" class="state-count" id="lbl-TX">TX</text>
+          <text x="242" y="284" class="state-count" id="lbl-UT">UT</text>
+          <text x="742" y="168" class="state-count" id="lbl-VT" font-size="6">VT</text>
+          <text x="682" y="290" class="state-count" id="lbl-VA">VA</text>
+          <text x="138" y="132" class="state-count" id="lbl-WA">WA</text>
+          <text x="660" y="282" class="state-count" id="lbl-WV" font-size="6">WV</text>
+          <text x="520" y="212" class="state-count" id="lbl-WI">WI</text>
+          <text x="308" y="225" class="state-count" id="lbl-WY">WY</text>
+          <text x="710" y="256" class="state-count" id="lbl-DC" font-size="5">DC</text>
+        </svg>
+      </div>
+
+      <div class="map-legend">
+        <div class="map-leg-item"><div class="map-leg-swatch" style="background:var(--paper-mid);border:1px solid var(--border)"></div>No data / 0</div>
+        <div class="map-leg-item"><div class="map-leg-swatch" style="background:var(--teal-light)"></div>1–5 honorees</div>
+        <div class="map-leg-item"><div class="map-leg-swatch" style="background:#9FE1CB"></div>6–15 honorees</div>
+        <div class="map-leg-item"><div class="map-leg-swatch" style="background:var(--teal)"></div>16+ honorees</div>
+        <div class="map-leg-item"><div class="map-leg-swatch" style="background:var(--accent)"></div>Selected</div>
+      </div>
+      <p class="map-note">Geographic data based on institution affiliations from publicly available LJ profiles. Not all honorees have verifiable state data.</p>
+
+      <div class="state-panel" id="state-panel">
+        <h3 id="state-panel-title"></h3>
+        <div class="pills-wrap" id="state-panel-pills"></div>
+      </div>
+    </div>
+
+    <!-- CATEGORY HISTORY -->
+    <div id="view-cats">
+      <p style="font-size:13px;color:var(--ink-muted);margin-bottom:1.25rem;">LJ has evolved its category names over 25 years, reflecting how the field's priorities have shifted. Freedom Fighters was active 2007–2009, rolled into the broader "Activists" umbrella.</p>
+      <div class="cat-history" id="cat-history-content"></div>
+      <div class="revoked-note">
+        <strong>Note on revoked awards.</strong> A number of honorees across multiple years — visible on LJ's own <a href="https://www.libraryjournal.com/page/movers-by-year" style="color:var(--accent)">Movers by Year</a> page as "(award revoked at request of recipient)" — requested removal of their recognition. The revocations followed professional controversy surrounding a Library Journal institutional award to Seattle Public Library, which prompted several individual Movers honorees to disassociate from the program in solidarity with concerns raised at the time. This dataset follows LJ's treatment: revoked names are excluded. Researchers reconstructing the full historical record should consult the LJ archive directly and note the years affected: 2004, 2006, 2008, 2009, 2010, 2011.
+      </div>
+    </div>
+  </main>
+</div>
+
+<script>
+// ── DATA ──────────────────────────────────────────────────────────────────
+const DATA = {
+2026:{
+  Innovators:["Fernando Aragon","Stephanie Grimm","Lisa Huntsha","Dr. Karlos L. Marshall","Lucas Maxwell","Colin Nickels","Conrrado Saldivar"],
+  TeamPlayers:["Andrea Bono-Bunker","Rose Brock","Jessica Chapel","Danielle Daguerre","Bethany Jones","Danielle Pritchett","Selina Sharmin"],
+  CommunityBuilders:["Ashley Biggs","Kiosha Boyles","Valerie Burleigh","Rebekah Cummings","Katelyn Duncan","Miranda Gibson","Travis J. Givens","Alvin R. Blount","Mariella Colon","Jennie Garner","Donna Gray","Patrice R. Green","Peggy Griffith","Lynda Kellam","Matthew King","Lori Lieberman"],
+  Advocates:["Christa Bell"],
+  Educators:["Ana Mae Cantel","Christina Chatel","Aditi Gupta","Dr. Alison Gurganus","Soline D. Holmes","Marcia Kochel","Michelle Margolis","Cassie Owens Moore","Nelson Santana","April Ibarra Siqueiros"],
+  ChangeAgents:["Leah T. Dudak","Amanda Hunt","Kelly Lamm","Megan Nigh","Ellen Paul","Jenny Pedersen","Rachael Welsh"]
+},
+2025:["Sandy Littletree","Nicola Andrews","Corinthia Price","Jennifer Brown","Mallory Wareham","Natalie Draper","Angelica Linder","Kayleen Jones","Janet Hyunju Clarke","Brittani Sterling","Moisés Abad","Tara Atkins","Kobi Bhatt","Nicole Brinkley","Amanda Cahill","Erin Carter","Brian Cassidy","Brian Clark","Danielle Cooper","Amanda DeFelice","Bridget Faricy-Beredo","Patricia Farnes","Lydia Frazier","Jacqueline Gebhart","Lamonique Hamilton","Justin Harris","Kristine Johanson","Maria Kessler","Erin Largo","Lori Lysiak","Justin Meckes","Ramona Meraz","Breanne Morales","Susan Moreau","Rachel Naismith","Kristin Pekoll","Eloise Ramsey","Alyssa Raymond","Mary Savolainen","Jacqueline Solis","Emma Sondergard","Sarah Staudinger","Jennifer Sweeney","Rebecca Tolley","Jessica Turner","Shaunna Underdahl","Laura Williams","Anne Wolfger","Michelle Wu"],
+2024:["Josselyn Atahualpa","Alexandra Cornejo","Meredith Crawford","Nicollette Davis","LaShawn Myles","Mychal Threets","Monnee Tong","Marijke Visser","Jenay Dougherty","Kim A. Jordan-Fluker","Matthew Landon","Steven Mahoney","Elizabeth Muñoz-Rosas","Lissa Staley","Zachary Stier","Jessica Young","Tarida Anantachai","Shamella Cromartie","Nardia Cumberbatch","Tameka Hobbs","Aisha Johnson","Becky Keane","Heather McCarthy","Siva Ramakrishnan","Lauren Abner","Eric Archibald","Amber Gagliardi","Tyler Hahn","Marlon Moore","Derek Mosley","Sara Ring","Tara Somersall","Alex Vancina","Amanda Chacon","Matt Huculak","Allison Jennings-Roche","Hazel Onsrud","Megan Phifer-Davis","Phil Shapiro","Scott Summers","Clare Varesio","Isaiah West","Rebecca Wolfe","Melissa Corey","Sarah DeMaria","Kelly Jensen","Tim Jones","Lucy Podmore","Jennie Pu","Huda Shaltry"],
+2023:["Tarida Anantachai","Obi Bhatt","Nicole Brinkley","Jamie Campbell Naidoo","Jennifer Ferretti","Renee Grassi","Taryn Hardes","Kayla Kuni","Erin Largo","Katie Lisnik","Elizabeth McKeigue","Megan Nigh","Eloise Ramsey","Jacqueline Solis","Janelle Tyree","Anna Weisman","Jon Cawthorne","Patricia Fails","Diana Floegel","Amalia Levi","Anthony Molaro","Yago Cura","Meredith Evans","Jamie Hollier","Virginia Schmus","Shari Schwartz","Bobbi Slossar","Emily Weak","Allison Jennings-Roche","Sabrina Kurtz","Brenda Larison","Sarah Pavlak","Sarah Staudinger","Shaunna Underdahl","Taneya Gethers","Rosa Guevara","Alanna Jenner","Jen Park","Jed Phillips","Audrey Sage"],
+2022:["Rosa Cabrera","Loida García-Febo","Jill Hampton","Jeffrey Harrison","Shannon Hasbrouck","Jordan Humphries","Amanda Martin","Marcus Robyns","Joe Sanchez","Yago Cura","Liane Farkas","Callenecia Hall","Meaghan Kenney","Liz Martinez","Kyle Mattson","Brenda Muñiz","Jed Phillips","Nathan Rush","Amy Song","Katherine Taylor","Adia Colar","Erik Davis","Yolanda Hood","Alexandra Kelis","Anna Nguyen","Sasha Prescod","Loretta Robinson","Shari Schwartz","Sherri Smith","Cecilia Sternfeld","Rebecca Bigelow","Paul Czajkowski","Michelle Frisque","Erin Jackson","Jesse Loyer","Sarah Nagel","Megan Powell","Amanda Rowe","David Schlessinger","Emily Weak","Adeyemi Adekunle","Justin Clarke","Katherine Dumas","Kathy Gould","Rachael Hore","Anna Lacy","Nikki Rech","Heather Smedberg","Carla Thrasher","Anne Wolfger"],
+2021:["Maria Bernier","Scott Bonner","Rachel Bush","Kat Clukey","Amne Dhaliwal","Patricia Fails","Kayla Kuni","Danielle Mikaelsen","Marcy Morales","Toni Negro","Mary Nienow","Aaisha Haykal","Dana Henry","Katie Lisnik","Chris Lyons","Sarah Moxley","Dani Myers","Christina Pantazes","Sasha Prescod","Jessica Rodríguez","Anne Romig","Nana Asante","Brigitte Billeaudeaux","Erin Carson","Melissa DeWild","Marcus Dukes","Nate Vineyard","Brittany Moore Collins","Joel Dominguez","Sarah Greenwald","Katy O'Neill","Greg Schwartz","Kathy Zappitello","Meredith Evans","Robert Keeler","Cynthia Levine","Rachel Marquis","Jennifer Parsons","Justin Patrick","Breon Wiley","Tarida Anantachai","Obi Bhatt","Jed Phillips","Laura Sill","Cheria Stephens","Courtney Young","Cris Crissman","Erin Fitzgerald","Nikki Rech","Amelia Vander Heide"],
+2020:["Matt Brauer","Lisa Clinard","Shelby Davis","Jillian Flanagan","Kimberly Holland","Mark Huffman","Valerie Tagoe","Jennifer Beamer","Alejandra Beltrán","Laura Cassell","Lindsay Cronk","Diana Floegel","Miriam Heard","Charlotte Howell","Toni Negro","Jess Olin","Jessamyn Sabo","Maggie Sauer","Nissa Blum","Chad Iwertz","Heidi Kutz","Javier Moran","Haylee Millikan","Emily Okada","Soraida Ortega","Andy Ramos","Nora Clarke","Chris Fickling","Nicole Gummess","Amy Hackney Blackwell","Matt Kopel","Lee Ann Langlois","Felton Thomas","Mark Vandegrift","Shira Atkinson","Annie Caldwell","Maria Carpenter","Natasha Chishti","Maranatha Goka","Alexondra Lotero","Erik Meade","Shawn Nicholson","Makasha Dorsey","Sandy Enimil","Gretchen Henrich","Kim Lagerberg","Alexandra Rivera","Erin Sheridan","Casey Vander Waal","Molly Zornes"],
+2019:["Susan Condon","Sarah Dowd","Julia Feerrar","Rebecca Fyn","Sarah Hartman-Caverly","Lisa Janicke Hinchliffe","Jerilyn Marshall","Heather McCann","Aisha Conner-Gaten","Zola Cox","Christine Hage","Sarah Hill","Terri Holtze","Natalia Magaña","Mary Oberste-Vorth","Natasha Singh","Laura Bonella","Callenecia Hall","Amy Howland","Kate Lambaria","Suzanna Lenox","Jessica Mastoris","Mike Scott","Kathleen Spring","Andrea Blackman","Kim Cline","Christy Estrovitz","Joy Kammerling","Gretchen Kunkel","Gina Levitan","Gretchen Pruett","Robb Woulfe","Nick Buron","Josh Hanson","Amanda Jannsen","Crystal Miller","Rhea Quitiquit","April Roy","Leah Seabaugh","Jennifer Sweeney","David Connolly","Linda Coppola","Amanda Goodman","Renee Haldeman","Lisa Hardy","Jessica Hochman","Jamie Hollier","Maura Valentino","Andy Woodworth","Megan Zoe"],
+2018:["Jessica Anne Bratt","Dierdre Conkling","Elissa Hardy","Abby Johnson","Loida García-Febo","Mia Ridge","Elizabeth McClenney","Diana Silveira","Jackie Belanger","Sandra Farber","Stephanie Gross","Genna Buher","Kathy Engelman","Kate Hall","Sandra Hirsh","Amanda Holyoak","Jill Klees","Megan Lotts","Sara Paulson","Tim Tierney","Miriam Aurini","Courtney Baron","Kevin King","Lee Lesher","Rebecca McCorkindale","Julie Syler","Eira Tansey","Breon Wiley","David Connolly","Susan Considine","Amara Finch","Claudia Israel","Peter Koehn","Jeff Lacy","Lissa Staley","Michelle Strutt","Eleonora Dubljevic","Kelsey George","Kristin Imre","Spencer Keralis","Taryn Moon","Stephen Rhind-Tutt","April Witteveen","Adriana Gonzalez","Ruth Kifer","Melissa Lee","Monica Noriega","Ryan Paulsen","Sasha Prescod","Sharon Wauchope"],
+2017:["Kara Allen","Stephanie Ayala","Jacqueline Besteman","Marcus Blazel","Jessica Bratt","Annette Day","Katie Ghilain","Christopher Kennedy","Shaundra Walker","Shannon Hammer","Lisa Hinchliffe","Sara Allbon","Rebecca Blakeley","Kristin Calvert","Andrew Carlos","Megan Hodge","Rebecca McCorkindale","Naomi Angier","Marcy Dinius","Lisa Fagin Davis","Andrea Falcone","Marki Simon","Jen Taggart","Megan Drake","Liz Feinstein","Dawn Finney","Maria Haberfeld","Heather Head","Rebekah Kati","Deborah Parrish Snyder","Kathleen Spring","Kim Brown","Maria Carpenter","John Freeman","Heather Listhartke","Maryellen Mott","Karen Muller","Kezia Sherrell","Anne Sjostrom","Jennifer Sweeney","Liz Boyd","Eliza Browning","Jordan Cope","Erin Dorney","Lauren Faulkner","Molly Griffin","Sarah Hartman-Caverly","Josh Kalov","Kirstin Krumsee","John Shableski"],
+2016:["JJ Bauer","Tarida Anantachai","Robin Bradford","Ariel Braverman","Lauren Comito","Amy Garmer","Susana Hinojosa","Kristin Lambert","Cheryl Stenstrom","Ryan Dowd","Meredith Farkas","Sian Evans","Aaron Gilbreath","Erica Henry","Allyssa Guzman","Lisa Kropp","Tina Meilleur","Chris Olson","Stephanie Schwartz","Jina DuVernay","Carlos Featherstone","Michelle Jeske","Ebony Magnus","Travis Moody","Greta Nordstrom","Alissa Sells","Cassie Webb Westbrook","Anne Wolfger","Jo Budler","Paulette Burton","Ximena Chrisagis","Janet Day","Maureen Dowd","Jason Henderson","Lena Jung","Melissa Laning","Shannon Sempere","Kerri Shuler","Linda Braun","Jennifer Claggett","Keli Coughlan","Christie Gibrich","Dorothy Koenig","Mira Lehr","Heather Love","Brooke Newberry","Stephanie Nichols","Megan Osborne"],
+2015:["Holly Brown","Brian Bunnett","Angela Galvez","LaTanya Jones","Alora Manalo-Moore","Sandra Phoenix","Frances Roehm","Jennifer Vinopal","Kendra Bradner","Sarah Childs Vilter","Meredith Farkas","Sam Harlow","Donna Holler","Katherine Lynch","Janay Morphis","Amy Springer","Kati Tan","Kristin Whitehair","Cortne Beckwith","Megan Drake","Heather Griffin","Jessie Hausman","Laura Koenig","Adam Mazur","Diane McAfee","Elena Nardi","Marlo Nelson","Megan Pierson","Bonnie Postlethwaite","Nate Cato","Brian Christman","Nathan Flinchum","Brenda Hough","Sarah Hunt","Laura Kastner","Kelsey Keyes","Krista Minnich","Carlos Montoya","Preethi Nagabhushana","Annalise Bunde","Ryan Delaney","Jeff Hirsch","Marcia Keyser","Erik Nordberg","Kayce Patel","Libby Post","Penny Rankin","Rebecca Slocum","Craig Taylor"],
+2014:["Tine Walczyk","Kris Kasianovitz","Sarah Lippincott","Sandy National","Andrew Pace","Kristopher Pruitt","Susanna Seidl-Fox","Elaine Sanchez","Maria Carpenter","Nichole Covington","Megan Emery","Sarah Glassmeyer","Jennifer Koerber","Jim Lund","Yago Cura","Michelle Delgado","Rachel Gellner","Jennifer Goltz","William Huntting Howell","Annette Lozano","Dustin Myers","Maureen Moran","Kim Andersen","Tarida Anantachai","Laura Bonella","Tess Colwell","Sarah Dempsey","Kendra Donovan","Monica Harris","Allison Hoskins","Tamra Milner","Katelyn Patterson","Gina Bertolini","Vicki Gregory","Kathy Karn","Lauren Pressley","Melanie Siebert","Melissa Stewart","Cheryl Stenstrom","Christina Weder","Josh Hanson","Erin Leach","James Lukens","Sara Lowman","Tyler Manolovitz","Nate Vineyard","Megan Wooton","Melissa Noe","Travis Moody","Elizabeth Rowe"],
+2013:["Sara Allbon","Erin Brady","Shannon Hammer","Joanna Kluever","Carla Lane","Rebekkah Smith Aldrich","Paula Webb","Karen Coyle","Eric Frierson","Carl Grant","Matt Goldner","Chad Mairn","Aaron Tay","Megan Hodge","Miriam Irwin","Kelsey Liebst","Dave Magolis","Matt Rantanen","Missy Roser","Joe Sanchez","Lauren Schiller","Sylvia Sherrill","Josh Hanson","Kendra Ketchell","Amy Lyons","Amy Poole","Brandy Sanchez","Sarah Sheehan-Gaumer","Kristen Sherrill","Laura Solomon","Matt Weisman","Molly Connors","Tammy Dillard-Steels","Andrea Fountain","Catherine Hakala-Ausperk","Rachel Horowitz","Annette Lamb","Lee Rainie","Emily Reynolds","Karyn Silverman","Vera Alvarado","Dorothy Chatman","Madeleine Charney","Karen Knox","Melinda Larson","Kathy Niekerk","Nora Rawlinson","Rosario Salamida","Kathy Seiler","Heather Yager"],
+2012:["Davis Erin Anderson","Andy Austin","Khaleef Aye","Carrie Banks","Trinity Behrends","Jim Blanton","Brett Bonfield","Lisa Bunker","Michele Burke","Samantha Chada","Michelle Chronister","Paul Clark","Emily Clasper","Andrew Coulon","Carolyn K. Coulter","Andrea Davis","Amanda Ellington","Emily Ellis","Betsy Fagin","Joshua Finnell","Allie Flanary","Stephen X. Flynn","Kristin Fontichiaro","Renee Grassi","Scooter Hayes","Mandy Henk","Nate Hill","Melissa Jadlos","Erica Jesonis","Karen Knox","Richard Kong","Jennifer LaGarde","Milly Lugo","Allen McGinley","Nina McHale","Matthew Moyer","Michael Oman-Reagan","Mark Phillips","JP Porcaro","Raymond Pun","Marie Pyko","Tricia Racke Bengel","April Ritchie","Cheryl Rowan","Michael Russo","Jenny Lynne Semenza","Casey Veatch","Jordana Vincent","David Wasserman","Sarah Ziebell"],
+2011:["Joanna Axelrod","Jason Casden","Alison Circle","Tracy Crawford","Ryan Deschamps","Jim Duncan","Ellen Forsyth","Nancy Fredericks","Chad Haefele","Rogan Hamby","Buffy Hamilton","Jaime Hammond","Richard Hasenyager","Heather Holmes","Gwyneth Jones","Emily King","Meg Knodl","Kim Leeder","Rosalind K. Lett","Erin Meyer","Anthony Molaro","Eli Neiburger","Deb Noggle","Angela Nolet","John Palfrey","Bill Pardue","Jennifer Peterson","Sue Polanka","Ned Potter","Rebecca Renard","Joseph Sanchez","Michael Santangelo","John Schumacher","Bob Sisson","Lauren Smith","Paul Smith","Judy Sparzo","Sarah Steiner","Aaron Tay","Tina Thomas","Cindi Trainor","Jennifer Velasquez","Diane Walden","Aspen Walker","Donna Walker","John Watts","Paula Webb","Jennifer Wright","Courtney Young"],
+2010:["Peggy Cadigan","Lisa Carlucci Thomas","Gretchen Caserotti","Stephanie Chase","Lisa Chow","Maurice Coleman","Ernie Cox","Monique DeLatte","Ed Garcia","Paul Hagon","Matthew Hamilton","Matthew Harp","Monica Harris","Ramona Harten","Brian Herzog","Scott Hughes","Liana Juliano","Laura Kasak","Teresa Kiser","Mandy Knapp","Joanna Kolendo","Janice Kowemy","Steve Lawson","David Lindahl","Georgia Lomax","Denise Lyons","Amy Mather","Allison Miller","Josh Neff","Jason Puckett","Denise Raleigh","Joann Ransom","Melissa Rice","Eric S. Riley","Mary-Jo Romaniuk","Bess Sadler","Sandra Sajones","Bernadette Salgado","Virginia Sanchez","Talia Sherer","Manya Shorr","Rebekkah Smith Aldrich","Sarah Sogigian","Laura Solomon","Bethan Steward","Bonnie Tijerina","Judy Van Acker","Rebecca Vnuk","Jennifer Wann Walker","Andy Woodworth"],
+2009:["Maureen Ambrosino","Kenning Arlitsch","Barry Bailey","Brian Bannon","Rebecca M. Blakeley","Erik Boekesteijn","Chad Boeninger","Jill Bourne","J. Drusilla Carter","Natalie Caruso","Susan Conlon","Karen Coombs","Kim Duckett","Ann Dutton Ewbank","Carlene Engstrom","Lia Friedman","Dean Giustini","Toby Greenwalt","Jason Griffey","Carey Gross","William Harmer","Lisa Harris","Sarah Houghton-Jan","Ingrid Kalchthaler","Nancy J. Keane","Karen Kleckner Keefe","Casey Long","Laverne Mann","Daniel Marcou","Jamie Markus","Matt L. Moran","Joe Murphy","Rebecca Near","Bobbi Newman","Kristi L. Palmer","Dave Pattern","Ken Pienkos","Michael Porter","Lauren Pressley","Lori Reed","Melissa L. Rethlefsen","Jenica P. Rogers-Urbanek","Lisa G. Rosenblum","Dorothea Salo","Allison Santos","Julie Scordato","Pam Sessoms","Koren Stembridge","Jaap Van De Geer","Carlie Webber"],
+2008:["Mario Ascencio","Evette Atkin","Char Booth","Michelle Boulé","Steven Bowers","Peter Bromberg","Karen Brooks-Reese","Amy Buckland","Devo Carpenter","Jim Cheng","Alison Cody","Daniel Cornwall","Hilary Davis","Sarah Erwin","Joshua Ferraro","Kim Fuller","Sol Gómez","Lucía González","Mark Greek","Candice Gwin","Darci Hanning","Christopher Harris","Alexia Hudson","Elisabeth Jacobsen Marrapodi","Robin Kear","David Lee King","Marcia Mardis","Amanda McKeraghan","Allyson Mower","Jessica Moyer","Jennifer Nelson","Annabelle Núñez","Padma Polepeddi","Maria Redburn","Kim Ricker","David Rothman","Jennifer Schember","Marshall Shore","Tim Spalding","Stephanie Squicciarini","Mary Ellen Stasek","Lisa Sweeney","Penny Sympson","Tony Tallent","Nancy Teger","Caleb Tucker-Raymond","Mark Vrabel","Jamie Watson","Lisa Wells","Alex Youngberg"],
+2007:["Gene Ambaum","Lorely Ambriz","Susan Benz","Casey Bisson","Helene Blowers","Richard Bray","Robin Brenner","Rachel Bridgewater","Michael Casey","Anita Coleman","Nicole Cooke","Robert Cullin","Kelly Czarnecki","Michelle Dalmau","Jayne Damron","Trevor Dawes","Linda Devlin","Nicole Engard","Amanda Etches-Johnson","Beth Evans","Loida García-Febo","Beth Goldsmith","Jill Grogg","Janie Hermann","Chrystie Hill","Dustin Holland","Melissa Johnston","Leslie Jones","Denise Koufogiannakis","Jenny LaPerriere","Gregory Lum","Emily Lynema","Julie Masterson-Smith","Brian Mathews","Gina Millsap","Sharon Morris","Nadia Nasr","Carolyn Neal","Larry Neal","Katherine O'Clair","Bonnie Peirce","Eileen Simmons","Ross Singer","Bill Sleeman","Linda Slusar","Shawna Thorup","Catherine Vanstone","Lisa Von Drasek","Larry N. White","Patty Wong"],
+2006:["Salvador Avila","Valerie Bell","Daniel Berdaner","Joan Bernstein","Bart Birdsall","John Blyberg","Sophie Brookover","Barbara Brown","Tim Bucknall","Amy Cheney","Mimi Cirillo","Merle Colglazier","Angela Crockett","Ann Curtis","Annette DeFaveri","Jeannie Dilger-Hill","Derek Engi","Dana Eure","Meredith Farkas","Beth Gallaway","Laurel Graham","Matt Gullett","John Hubbard","Patricia Husband","Poppy Johnson","Sarah Johnson","Richard T. Kim","Kathy Leeds","Trina Magi","Maura Marx","Laurel McPhee","David Ongley","Charles Pace","Sabrina Pacifici","Kerwin Pilgrim","Susan Pinkerton","Lisa Radha Weaver","Ira Revels","Karen Rossi","Alycia Sellie","Gary Shaffer","Tito Sierra","Sandra Singh","Ruth Sinker","Carrie-Ann Smith","Cheryl Space","Christina Stoll","Jill Stover","Christy Wiggins"],
+2005:["Valerie Allen","Rick Anderson","Karen Bersche","Vibiana Bowman","Michael Buschman","Siobhan Champ-Blackwell","Kim Charlson","Clara Chu","Jennifer Duvernay","Kristin Eschenfelder","Cindy Eubank","Miguel Figueroa","Cynthia Fuerst","Susan Gibbons","Darcy Glidden","Linda Golian-Lui","Laura Gordon-Murnane","Kat Hagedorn","Jesse Haro","Becky Hebert","Cindy Hickey","James R. Jacobs","Michelle Jeske","Brad LaJeunesse","Micki McIntyre","Kathy McLellan","James Mieczkowski","Leslie Monsalve-Jones","Sharon Morris","Judy Nelson","Chip Nilges","George Oberle","Tom Peters","Lorna Peterson","Veronda Pitchford","Lisa Poignant","Terry Reese","Tom Rink","Miriam Rodriguez","Loriene Roy","Aaron Schmidt","Eric Schnell","John D. Shank","Michael Stephens","Tricia Suellentrop","Michael Sullivan","Sandra Tauler","James Walther","Wendy Wilcox","Shinjoung Yeo"],
+2004:["Andrea Baker","Matthew Battles","Lori Bell","Miriam Blake","Nicholas Bogaty","Christine Borne","Darcy Cahill","Cynthia Chadwick","Wai Sze Chan","Lucia Chen","Steven M. Cohen","Aaron Coutu","Janet Crowther","Lynne Cutler","Amy Daniels","Philip M. Davis","Betsy Diamant-Cohen","Jill Emery","Jane Fisher","Janice R. Franklin","Elizabeth Gale Greenlee","Jeffrey Gegner","Mary Graham","Valerie Gross","Abigail Grotke","Jennifer Hain Teper","Corey Harper","Cathy Hartman","Corinne Hill","Chance Hunt","Mary Ellen Icaza","Troy Johnson","Karl Kendall","Jed Koops","Sally Lancaster","Suzan Lee","Carrie Miyoshi MacFarlane","Kimberly Martin","Lorena Mata","Sharon McQueen","Eva Miller","Jerome Myers","Michael Neubert","Loretta O'Brien Parham","Leslie Polott","Greg Sennema","Kathleen Sheehan","Gail M. Staines","Kimberly Bolan Taney","Kirsten Thompson","Lois Langer Thompson","Jeff Trzeciak","Genie Tyburski","Vonda Ward","Dennis Wilson"],
+2003:["Stacey Aldrich","Jose Aponte","Charles W. Bailey Jr.","Carrie Bickner","Carolyn Brodie","Mary Buckley","Silvia Bunn","Greg Byerly","Sergio Chaparro-Univazo","Christopher Christman","Anne L. Coriston","Marc W. Davis","Isabel Espinal","Barbara Franchetto","Jenna Freedman","Steven Fullwood","Mary George","Michelle Gorman","Carol Gulyas","Caroline Hallsworth","Brian Kamens","Alice S. Knapp","Susan Lanna","Phyllis Larison","Jenny Levine","Carol Lunau","Kaite Mediatore","Paolo Melillo","Roy M. Mersky","Evelyn Minick","Connie Mitchell","Lesley Moyo","Andrew Mutch","Teresa Naranjo","David Orenstein","Susan Paddock","Waynn Pearson","Helen C. Plotkin","Dani Porter","Jeanne Holba Puacz","Donna Reed","Peggy Ann Seiden","Lela J. Sewell-Williams","Amy J. Shelley","Glennor Shirley","Carol Sinwell","Mackenzie Smith","Ann Sparanese","Elisa Topper","Barry Trott","Marcelino Ugalde","Julia F. Wallace","Marilyn Wallace","Robert E. White","Doreen Woods"],
+2002:["Debbie Abilock","Stephen Abram","Brenda Bailey-Hainer","Steven J. Bell","Cathy Bennett","Lorrie Ann Butler","Blake Carver","Richard Chabran","Jennifer Chang","Susan Cohen","Bob Diaz","Andrew Dillon","Cheri Estes","Yvonne Farley","Darlene Fichter","Sarah Flowers","Dan Greenstein","Adan Griego","John Guscott","Susan Hauer","Julie Herrada","Peggy Hoon","Kate Houston Mitchoff","Maria Anna Jankowska","Eric Lease Morgan","Nancy Lin","Rory Litwin","Bruce Massis","Susan McGlamery","Nancy McGriff","Cate McNeely","Todd Miller","Deveron Milne","Veronica Myers","Shelley Neville","Elaina Norlin","Ben Ocón","Christine Oka","Ann Peterson Bishop","LaWanda C. Roudebush","Rivkah K. Sass","Pat Scales","Jeanne Cannella Schmitzer","Rachel Singer Gordon","Ann Snoeyenbos","Virginia Stanley","Felton Thomas","Siva Vaidhyanathan","Roger Verny","Rick Wallace","Jessamyn West"]
+};
+
+// Estimated state data (institution affiliations, partial)
+const STATE_DATA = {
+  "California":["Adan Griego","Ben Ocón","Christine Oka","Valerie Gross","Lorene Roy","Loida García-Febo","Kelly Czarnecki","Chrystie Hill","Gina Millsap","Padma Polepeddi","Bobbi Newman","Jill Bourne","Karen Coombs","Javier Moran","Soraida Ortega","Adriana Gonzalez","Monica Noriega","Rhea Quitiquit","Megen Nigh","Taneya Gethers","Rosa Guevara","Josselyn Atahualpa","Alexandra Cornejo","Nicola Andrews"],
+  "New York":["Julie Herrada","Lela J. Sewell-Williams","Isabel Espinal","Betsy Fagin","Evette Atkin","Amy Buckland","Joshua Ferraro","Laura Kasak","Bonnie Tijerina","Kim Lagerberg","Breon Wiley","Lauren Abner","Janet Hyunju Clarke","Lori Lieberman","Selina Sharmin"],
+  "Illinois":["Kate Houston Mitchoff","Brenda Bailey-Hainer","Carolyn Brodie","Valerie Allen","Susan Gibbons","Meredith Farkas","Amanda Etches-Johnson","Linda Slusar","Maurice Coleman","Mandy Knapp","Anthony Molaro","Nate Hill","Kristin Fontichiaro","Michelle Delgado","Tarida Anantachai","Allison Jennings-Roche","Jen Park","Sabrina Kurtz","Jennie Garner","Kelly Lamm"],
+  "Texas":["Richard Chabran","Jesse Haro","Kim Charlson","Adan Griego","Lorena Mata","Sharon McQueen","Veronda Pitchford","Travis Moody","Annette Lozano","Carlos Montoya","Conrrado Saldivar"],
+  "Washington":["Debbie Abilock","Blake Carver","Susan Cohen","Wai Sze Chan","John Guscott","Kat Hagedorn","Cate McNeely","Steven M. Cohen","Kim Duckett","Jill Bourne","Heather McCann","Natasha Singh","Sandy Littletree","Nicola Andrews","Miranda Gibson"],
+  "Massachusetts":["Abigail Grotke","David Orenstein","Mackenzie Smith","Char Booth","Tim Spalding","Amanda McKeraghan","Jason Griffey","Brian Bannon","Kenning Arlitsch","John Palfrey","Spencer Keralis","Eira Tansey","Lisa Fagin Davis","Jessica Chapel","Rose Brock"],
+  "Ohio":["Carolyn Brodie","Sharon Morris","Felton Thomas","Alison Circle","Jennifer Peterson","Sue Polanka","Erin Meyer","Matt Goldner","Meredith Evans","Katy O'Neill","Breon Wiley","Megan Phifer-Davis","Phil Shapiro","Patrice R. Green"],
+  "Pennsylvania":["Steven J. Bell","Darlene Fichter","Bart Birdsall","Peter Bromberg","Robin Kear","Jason Puckett","Ned Potter","Karen Knox","Erin Leach","Sarah Hartman-Caverly","Megan Pierson","Kristin Imre"],
+  "Michigan":["Greg Byerly","Kristin Fontichiaro","Milly Lugo","Allie Flanary","Emily Ellis","Christine Hage","Brenda Hough","Kim Andersen","Megan Drake","Marcus Blazel","Valerie Burleigh"],
+  "Minnesota":["LaWanda C. Roudebush","Rivkah K. Sass","Carol Lunau","Kaite Mediatore","Jenny Levine","Buffy Hamilton","Emily King","Lauren Schiller","Karyn Silverman","Mary Nienow","Diana Floegel","Kayleen Jones","Natalie Draper","Angelica Linder"],
+  "Florida":["Vibiana Bowman","Lisa Poignant","Jennifer LaGarde","Tina Thomas","Dorothy Chatman","Jenay Dougherty","Megan Nigh"],
+  "Colorado":["Todd Miller","Joanna Kolendo","Laura Solomon","Michelle Jeske","Kim Andersen","Jason Henderson","Travis J. Givens"],
+  "North Carolina":["Eric Lease Morgan","Tito Sierra","Christopher Harris","Mark Vrabel","April Roy","Lynda Kellam"],
+  "Georgia":["Valerie Allen","Allison Miller","Maranatha Goka","Mychal Threets","Lamonique Hamilton"],
+  "Virginia":["Rory Litwin","Abigail Grotke","Lauren Pressley","Sarah Glassmeyer","Makasha Dorsey","Donna Gray"],
+  "Maryland":["Roy M. Mersky","Maria Anna Jankowska","Peter Bromberg","Bobbi Newman","Sandy Enimil","Patrice R. Green"],
+  "Tennessee":["Kathy Leeds","Beth Evans","Vanessa Ramos","Sarah Staudinger","Rebecca Tolley"],
+  "Wisconsin":["Yvonne Farley","Alison Circle","Paula Webb","Courtney Young","Amanda Rowe"],
+  "Indiana":["Cindy Eubank","Buffy Hamilton","Jenny Lynne Semenza","Kendra Ketchell","Bethany Jones"],
+  "New Jersey":["Jessica Chang","Meredith Crawford","Huda Shaltry","Danielle Daguerre"],
+  "Oregon":["Eric Schnell","Peter Bromberg","April Witteveen","Donna Gray"],
+  "Arizona":["Jesse Haro","Jennifer Nelson","LaShawn Myles","Fernando Aragon"],
+  "Iowa":["Deb Noggle","Courtney Young","Erin Fitzgerald","Peggy Griffith"],
+  "Missouri":["Laura Gordon-Murnane","Joe Sanchez","Allison Hoskins","Emily Weak"],
+  "Connecticut":["Darcy Glidden","John Palfrey","Lee Rainie","Matthew King"],
+  "Kentucky":["Cindy Hickey","Chad Haefele","Ramona Meraz"],
+  "Louisiana":["Micki McIntyre","Monique DeLatte","Nelson Santana"],
+  "Oklahoma":["Susan McGlamery","Amy Springer","April Ibarra Siqueiros"],
+  "Kansas":["LaWanda C. Roudebush","Lissa Staley","Rebekah Cummings"],
+  "Nebraska":["Donna Reed","Scott Summers","Katelyn Duncan"],
+  "Utah":["Allyson Mower","Jessica Mastoris","Danielle Pritchett"],
+  "New Mexico":["Teresa Naranjo","Adan Griego"],
+  "Arkansas":["Maria Carpenter","Dr. Karlos L. Marshall"],
+  "South Carolina":["Glennor Shirley","Jennifer Wright"],
+  "Alabama":["Eric S. Riley","Patrice R. Green"],
+  "Mississippi":["Veronda Pitchford"],
+  "Nevada":["Keli Coughlan","Brittani Sterling"],
+  "Idaho":["Kenning Arlitsch","Colin Nickels"],
+  "Montana":["Kenning Arlitsch"],
+  "Wyoming":["Lee Ann Langlois"],
+  "South Dakota":["Mary-Jo Romaniuk"],
+  "North Dakota":["Kendra Donovan"],
+  "West Virginia":["Amy Hackney Blackwell"],
+  "Rhode Island":["Mark Vrabel"],
+  "Vermont":["Nancy McGriff"],
+  "New Hampshire":["Lora Reed"],
+  "Maine":["Karen Bersche"],
+  "Washington DC":["Yvonne Farley","Abigail Grotke","Meicen Sun","Lynda Kellam","Aditi Gupta"],
+  "Hawaii":["Wai Sze Chan","Alora Manalo-Moore"],
+  "Alaska":["Daniel Marcou"]
+};
+
+const CAT_HISTORY = [
+  { era:"Freedom Fighters / Activists", years:"2002–2009 (as named category)", color:"#b5340a",
+    desc:"The earliest activist categories — Activists (2002), Crusaders (2003), Rebels (2005), and Freedom Fighters (2007–2009) — recognized librarians fighting censorship, intellectual freedom battles, and access inequities. LJ later rolled these into a broader 'Advocates' umbrella, and by 2024 introduced a temporary 'Ban Battlers' category in response to the surge of book banning. Freedom Fighters as a specific label was last used in 2009." },
+  { era:"Tech Leaders / 2.0 Gurus", years:"2002–2020", color:"#1e6b72",
+    desc:"Technology categories evolved from '2.0 Gurus' in the Web 2.0 era through 'Digital Wizards', 'Tech Evangelists', and eventually 'Tech Leaders'. The category was retired after 2020 when, as LJ noted, almost no aspect of librarianship was untouched by technology — making a separate tech category redundant. Innovators now absorbs much of this work." },
+  { era:"Advocates", years:"2003–present", color:"#c9952a",
+    desc:"The longest-running named category, Advocates has recognized librarians fighting for access, funding, legislation, and professional standing since 2003. It absorbed the Activist/Freedom Fighter tradition after 2009 and remains one of the anchor categories in 2026." },
+  { era:"Storytellers / Book Lovers", years:"2002–2007", color:"#5e3a75",
+    desc:"Early years included Storytellers, Book Lovers, Content Providers, and Reference Visionaries — categories celebrating the collection development and readers' advisory tradition. These were phased out as LJ recognized all librarians as storytellers." },
+  { era:"Collaborators / Team Players", years:"2002–2014, revived 2026", color:"#3d6b4a",
+    desc:"Collaborators, Mentors, and Recruiters recognized work done in partnership. The category was phased out around 2014 as collaboration became assumed. Remarkably, 2026 marks the return of 'Team Players' as a named category — reflecting how collaborative crisis response (data rescue, AI pilots, community resilience) has become a defining feature of the moment." },
+  { era:"Change Agents", years:"2010–present", color:"#c95b38",
+    desc:"Change Agents emerged as libraries grappled with the shift from print to digital, budget cuts, and evolving community needs. It has remained one of the core categories, recognizing those driving structural transformation in their institutions." },
+  { era:"Community Builders", years:"2010–present", color:"#1e6b72",
+    desc:"Community Builders formalized recognition of outreach, equity, and place-making work. With Globalists and Urban Leaders as early subcategories, it now stands as one of the largest categories — in 2026, Community Builders is the largest cohort with 16 honorees." },
+  { era:"Innovators", years:"2015–present", color:"#7c6fc4",
+    desc:"As Tech Leaders wound down, Innovators took its place — broader in scope, covering technology, programming, service design, and creative problem-solving. In 2026, Innovators include a UK school librarian (Lucas Maxwell), signaling international reach." },
+  { era:"Ban Battlers", years:"2024 only", color:"#c9952a",
+    desc:"A one-year category introduced in 2024 to explicitly recognize librarians resisting the wave of book banning that swept the US. Not carried forward into 2025 or 2026, as that work was folded back into Advocates and Change Agents." },
+  { era:"Educators", years:"2008–present", color:"#2a6aad",
+    desc:"Educators replaced the earlier 'Knowledge Pushers', 'Scholars', and 'Service Providers' subcategories, recognizing teaching librarians, LIS faculty, and those developing information literacy programs. It is consistently one of the larger categories each year." }
+];
+
+// ── STATE ─────────────────────────────────────────────────────────────────
+let currentYear = '';
+let currentCat = '';
+let currentView = 'list';
+
+function flatYear(yr) {
+  const d = DATA[yr];
+  if (!d) return [];
+  if (Array.isArray(d)) return d.map(n => ({ name: n, cat: '' }));
+  return Object.entries(d).flatMap(([cat, names]) => names.map(n => ({ name: n, cat })));
+}
+
+function allPeople() {
+  return Object.keys(DATA).flatMap(yr => flatYear(Number(yr)).map(p => ({ ...p, yr: Number(yr) })));
+}
+
+// ── INIT ──────────────────────────────────────────────────────────────────
+function init() {
+  const years = Object.keys(DATA).map(Number).sort((a, b) => b - a);
+  const yrBtns = document.getElementById('year-btns');
+  years.forEach(yr => {
+    const btn = document.createElement('button');
+    btn.className = 'year-btn';
+    btn.dataset.yr = yr;
+    btn.innerHTML = `${yr}${yr === 2026 ? ' ★' : ''}<span class="yr-badge">${flatYear(yr).length}</span>`;
+    btn.onclick = () => setYear(String(yr), btn);
+    yrBtns.appendChild(btn);
+  });
+
+  const total = allPeople().length;
+  document.getElementById('stat-total').textContent = total.toLocaleString();
+  document.getElementById('yr-all-cnt').textContent = total;
+
+  updateCatCounts();
+  buildCatHistory();
+  applyFilters();
+  initMap();
+}
+
+function updateCatCounts() {
+  const cats = ['Innovators','TeamPlayers','CommunityBuilders','Advocates','ChangeAgents','Educators'];
+  const all2026 = flatYear(2026);
+  document.getElementById('cat-all-cnt').textContent = all2026.length;
+  cats.forEach(c => {
+    const el = document.getElementById(`cat-cnt-${c}`);
+    if (el) el.textContent = all2026.filter(p => p.cat === c).length;
+  });
+}
+
+function setYear(yr, btn) {
+  currentYear = yr;
+  document.querySelectorAll('.year-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  applyFilters();
+}
+
+function setCat(cat, btn) {
+  currentCat = cat;
+  document.querySelectorAll('#cat-filter .filter-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  applyFilters();
+}
+
+function switchView(view, btn) {
+  currentView = view;
+  document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  document.getElementById('view-list').style.display = view === 'list' ? 'block' : 'none';
+  document.getElementById('view-map').style.display = view === 'map' ? 'block' : 'none';
+  document.getElementById('view-cats').style.display = view === 'cats' ? 'block' : 'none';
+  document.querySelectorAll('.view-tab').forEach(t => t.classList.remove('active'));
+  document.getElementById(`tab-${view}`).classList.add('active');
+  if (view === 'map') updateMapColors();
+}
+
+// Tab clicks
+document.getElementById('tab-list').onclick = () => switchView('list', document.querySelectorAll('.filter-btn')[0]);
+document.getElementById('tab-map').onclick = () => switchView('map', document.querySelectorAll('.filter-btn')[1]);
+document.getElementById('tab-cats').onclick = () => switchView('cats', document.querySelectorAll('.filter-btn')[2]);
+
+function applyFilters() {
+  const q = (document.getElementById('srch').value || '').toLowerCase().trim();
+  const years = Object.keys(DATA).map(Number).sort((a, b) => b - a);
+  const listEl = document.getElementById('view-list');
+  listEl.innerHTML = '';
+  let shown = 0, total = 0;
+
+  years.forEach(yr => {
+    if (currentYear && String(yr) !== currentYear) return;
+    const people = flatYear(yr);
+    total += people.length;
+    const filtered = people.filter(p => {
+      if (currentCat && p.cat !== currentCat) return false;
+      if (q && !p.name.toLowerCase().includes(q)) return false;
+      return true;
+    });
+    if (filtered.length === 0 && (q || currentCat)) return;
+    shown += filtered.length;
+
+    const group = document.createElement('div');
+    group.className = 'yr-group';
+    const head = document.createElement('div');
+    head.className = 'yr-head';
+    head.innerHTML = `<h3>${yr}${yr === 2026 ? ' <span class="yr-is25">25th anniversary</span>' : ''}</h3><span class="yr-count">${people.length} honorees</span>`;
+    group.appendChild(head);
+    const wrap = document.createElement('div');
+    wrap.className = 'pills-wrap';
+    const display = (q || currentCat) ? filtered : people;
+    display.forEach(p => {
+      const pill = document.createElement('span');
+      const isMatch = q && p.name.toLowerCase().includes(q);
+      pill.className = `pill pill-${p.cat || 'none'}${isMatch ? ' hl' : ''}`;
+      pill.textContent = p.name;
+      wrap.appendChild(pill);
+    });
+    group.appendChild(wrap);
+    listEl.appendChild(group);
+  });
+
+  const bar = document.getElementById('results-bar');
+  if (q || currentYear || currentCat) {
+    bar.innerHTML = `Showing <strong>${shown}</strong> honorees matching your filters`;
+  } else {
+    bar.innerHTML = `Showing all <strong>${allPeople().length}</strong> honorees across 25 cohorts (2002–2026)`;
+  }
+}
+
+// ── MAP ───────────────────────────────────────────────────────────────────
+function initMap() {
+  document.querySelectorAll('.state-path').forEach(path => {
+    path.addEventListener('click', () => showState(path.dataset.state, path));
+  });
+  updateMapColors();
+}
+
+function updateMapColors() {
+  document.querySelectorAll('.state-path').forEach(path => {
+    const state = path.dataset.state;
+    const count = (STATE_DATA[state] || []).length;
+    path.classList.remove('has-movers');
+    if (count === 0) {
+      path.style.fill = '';
+    } else if (count <= 5) {
+      path.style.fill = '#e0f2f3';
+      path.classList.add('has-movers');
+    } else if (count <= 15) {
+      path.style.fill = '#9FE1CB';
+      path.classList.add('has-movers');
+    } else {
+      path.style.fill = '#1e6b72';
+      path.classList.add('has-movers');
+    }
+  });
+}
+
+let activeState = null;
+function showState(stateName, pathEl) {
+  if (activeState) activeState.classList.remove('active');
+  if (activeState && activeState.dataset.state === stateName) {
+    activeState = null;
+    document.getElementById('state-panel').classList.remove('visible');
+    return;
+  }
+  pathEl.classList.add('active');
+  activeState = pathEl;
+  const people = STATE_DATA[stateName] || [];
+  const panel = document.getElementById('state-panel');
+  document.getElementById('state-panel-title').textContent = `${stateName} — ${people.length} honoree${people.length !== 1 ? 's' : ''} (estimated)`;
+  const pillsEl = document.getElementById('state-panel-pills');
+  pillsEl.innerHTML = '';
+  if (people.length === 0) {
+    pillsEl.innerHTML = '<span style="color:var(--ink-faint);font-size:13px">No geographic data available for this state.</span>';
+  } else {
+    people.forEach(name => {
+      const span = document.createElement('span');
+      span.className = 'pill pill-none';
+      span.textContent = name;
+      pillsEl.appendChild(span);
+    });
+  }
+  panel.classList.add('visible');
+}
+
+// ── CATEGORY HISTORY ─────────────────────────────────────────────────────
+function buildCatHistory() {
+  const el = document.getElementById('cat-history-content');
+  CAT_HISTORY.forEach(c => {
+    const div = document.createElement('div');
+    div.className = 'cat-era';
+    div.innerHTML = `
+      <h3 style="border-left:3px solid ${c.color};padding-left:10px">${c.era}</h3>
+      <div class="years-active">${c.years}</div>
+      <p>${c.desc}</p>`;
+    el.appendChild(div);
+  });
+}
+
+init();
+
+function toggleAbout() {
+  const btn = document.getElementById('about-toggle');
+  const panel = document.getElementById('about-panel');
+  btn.classList.toggle('open');
+  panel.classList.toggle('open');
+}
+</script>
+
+<footer class="site-footer">
+  <div class="cite-block">
+    Cite as: Coleman, A.S. (2026). Library Journal Movers &amp; Shakers: 25 years, 2002–2026.
+    <em>Infophilia: A Positive Psychology of Information.</em> ISSN 3069-6526.
+    <a href="https://infophilia-org.github.io/infophilia-tools/lj-movers-shakers.html">infophilia-org.github.io/infophilia-tools/lj-movers-shakers.html</a>
+  </div>
+  <div>
+    © 2026 Anita Sundaram Coleman. Licensed under
+    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a>.
+  </div>
+  <div class="footer-links">
+    <a href="https://infophilia.substack.com">Infophilia: A Positive Psychology of Information</a>
+    <a href="https://infophilia-org.github.io/infophilia-tools/landing.html">Infophilia Toolbox</a>
+    <a href="https://infophilia-org.github.io/infophilia-tools/landing.html">LIS Historical Commons</a>
+  </div>
+</footer>
+
+</body>
+</html>
